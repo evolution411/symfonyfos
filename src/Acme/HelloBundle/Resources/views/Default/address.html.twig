@@ -1,0 +1,27 @@
+<html>
+    <header>  
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock stylesheets%}
+
+        </header>
+        <body>
+            
+            <table>
+                <tr>
+            {% for a in address %}
+                    {% if loop.index0 is divisibleby(3) %}</tr><tr>{% endif %}
+                        <td> <div class="posters">{{a.title}}<br>{{a.description}}<a href="{{path('map_page',{'id':a.id})}}"><br>看地图</a></div></td>
+                    {% if loop.last %}</tr>{% endif %}
+            {% endfor %}
+            </table>
+                    
+            </body>
+      </html>
+	  
+<div id="footer">
+	<p align ="center"> ©2014 Zufung.com</p>
+</div>   
+	  

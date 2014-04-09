@@ -1,0 +1,73 @@
+{# empty Twig template #}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+
+ 
+<div class="overlay" id="overlay" style="display:none;"></div>
+
+<div id="top-hdr">
+	
+	<b><a href="{{path('mypost_page')}}">Back</a>|</b>
+	<p align="right">
+				{% if app.session.has('login') %} 
+					welcome {{ app.session.get('login') }}. If you are not {{ app.session.get('login') }}, Please click 
+					<a href="logout">Logout</a>
+				
+				{%endif%}
+	</p>
+</div>
+
+
+<div id="maindv">
+	
+	<div id="maindv-display-image-page-main-body">
+	<p align=right> Member Since : Date </p>
+		
+		<table align="center" "width:100%" style="border:0px solid black;border-collapse:collapse;">
+			<tr align=left>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;">User ID: </td>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;">{{ app.session.get('login') }}</td>
+			</tr>
+			
+			<tr align=left>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"></td>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"></td>
+			</tr>
+			
+			<tr align=left>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"> <p>Old password</p></td>	
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"><input type="password" name="pwd"></td>		
+			</tr>
+			
+			<tr align=left>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;">New Password:</td>	
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"><input type="password" name="pwd"></td>		
+			</tr>
+			<tr align=left>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;">Confirm Password:</td>	
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"><input type="password" name="pwd"></td>		
+			</tr>
+			
+			<tr align=left>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"></td>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"></td>
+			</tr>
+			
+			<tr align=left>
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"></td>	
+				<td width=200 style="border:0px solid black;border-collapse:collapse;"><input type="submit" value="Change Password"></td>		
+			</tr>
+		</table>
+	</div>
+	
+
+</div>   
+
+<div id="footer">
+	<p align ="center">&copy; 2014 Zufung.com</p>
+</div>   
+ 

@@ -1,0 +1,106 @@
+{# empty Twig template #}
+{% include "AcmeHelloBundle:Default:usermenu.html.twig"%}
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+
+{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+
+{%endblock%}
+
+ 
+<div class="overlay" id="overlay" style="display:none;"></div>
+
+
+<div align="center" id="search-block-np-mypost">
+<form method="POST" action="search">
+
+	<div align="center" id="mini-search-block">
+		</br>
+		</br>
+		
+		<p>#Price Range:	
+			<select name="pricetxt">
+				{% for entity in ranze %}
+					<option>{{ entity.pricerange}}</option>
+				{% endfor %}
+			</select>
+		</p>
+	</div>
+
+	<div align="center" id="mini-search-block-mid">
+		</br>
+		</br>
+		<p>
+			<select name="selectoption">
+			<option value="1">Or any word matches</option>
+			<option value="2">And only word matches</option>
+		</select>
+		</p>	
+	</div>
+	
+	<div align="center" id="mini-search-block-np">
+	
+		
+			<p></p>
+			</br></br>
+				<input type="text" name="searchtext" size="60" placeholder="輸入關鍵字如：兩居室，郵編" required>
+				<input type="submit" name="btnsearch" value="Find Apartments">
+			  
+		
+	</div>
+</form>	
+	
+	
+</div>
+
+
+
+<div id="maindv">
+	<div id="myposter-small">
+		<table>
+			<tr>
+				{% for a in myposterinfo %}
+					{% if loop.index0 is divisibleby(3) %}
+			</tr>
+			
+			<tr>
+				{% endif %}
+			<td>
+				<div class="posters">
+					<p1><b><a href="{{path('editposter_page',{'id':a.id})}}">Edit Post</a> | </b></p1> 
+					<p1><b><a href="{{path('uploadfile_page',{'id':a.id})}}">[+] Image</a> | </b></p1>
+					<p1><b><a href="{{path('videoupload_page',{'id':a.id})}}">[+] Video</a> | </b></p1>
+					<p1><b><a href="{{path('imageDisplay_page',{'id':a.id})}}">[All]IMG</a> | </b></p1>
+					<p1><b><a href="{{path('vdolist__page',{'id':a.id})}}">[All] vedios</a></b></p1>
+					
+					{% image '@AcmeHelloBundle/Resources/public/images/close_pop.png' %}
+					<a href="{{path('Delete_this_post__page',{'this_post_id':a.id})}}" height="16" width="16" class="posterclose" title="Delete This post" alt="Delete Post">
+					<img src="{{ asset_url }}" /></a>
+					{% endimage %}
+					
+					
+					<p><font color="blue"><strong>Name :{{a.title}}</strong></font></p>
+					<p></p>
+					<strong>Description :</strong><br>{{a.description}}<a href="{{path('map_page',{'id':a.id})}}"><br><br>详细资料...</a>
+					
+				</div>
+			</td>
+					
+					{% if loop.last %}
+			</tr>
+					{% endif %}
+				{%endfor%}
+		</table>
+	</div>
+	
+
+</div>   
+
+<div id="footer">
+	<p align ="center">&copy; 2014 Zufung.com</p>
+</div>   
+ 

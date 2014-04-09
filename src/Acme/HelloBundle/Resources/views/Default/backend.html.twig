@@ -1,0 +1,22 @@
+{# empty Twig template #}
+{%block menu%}
+        <div id="menu">
+            <ul>
+                <li><a href="adminusers">Users</a></li>
+                <li><a href="backend">Advertisements</a></li>
+                <li><a href="{{path('adminmaps_page')}}">Maps</a></li>
+            </ul>
+        </div>
+{%endblock%}
+       
+<form method='POST' action='backend'>
+             <input type='submit' name='btnGencode' value='generate'>
+        </form>
+            <table width="500px">
+                <tr><td>标题</td><td>街道</td><td>大道</td><td>出租资料</td><td>联系方式</b></tr>
+            {% for a in address %}
+                    <tr>
+                        <td> {{a.title}}</td><td>{{a.street}}</td><td>{{a.avenue}}</td><td>{{a.description}}</td><td>{{a.contact}}</td>
+                    </tr>
+            {% endfor %}
+            </table></body></html>

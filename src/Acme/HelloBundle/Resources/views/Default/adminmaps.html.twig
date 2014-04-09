@@ -1,0 +1,9 @@
+{# empty Twig template #}<html><header>
+            <table width="700px">
+                <tr><td>ID</td><td>名字</td><td>地址</td><td>经度</td><td>纬度</td><td>类型</td></tr>
+            {% for a in map %}
+                    <tr>
+                        <td> {{a.id}}</td><td>{{a.name}}</td><td>{{a.address}}</td><td>{{a.lat}}</td><td>{{a.lng}}</td><td>{{a.type}}</td>
+                    </tr>
+            {% endfor %}
+            </table>

@@ -1,0 +1,65 @@
+<html>
+    <head>
+    	
+        {% block head %}
+
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script>
+            var customIcons = {
+                restaurant: {
+                    icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
+                },
+                bar: {
+                    icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+                }
+            };
+
+            function load() {
+				var lat = document.getElementById("lat").value;
+                var lng = document.getElementById("lng").value;
+                
+                var map = new google.maps.Map(document.getElementById("column-right-map"), {
+                    center: new google.maps.LatLng(lat, lng),
+                    zoom: 15,
+                    mapTypeId: 'roadmap'
+                });
+                var infoWindow = new google.maps.InfoWindow;
+                //var latlng=new array();
+                // var lat = new array()
+                var lat = document.getElementById("lat").value;
+                var lng = document.getElementById("lng").value;
+                // var lng = document.getElementById("lng").value;
+                //alert(lat);
+                var myCenter = new google.maps.LatLng(lat, lng);
+                var marker;
+                marker = new google.maps.Marker({
+                    position: myCenter,
+                    animation: google.maps.Animation.BOUNCE
+                });
+
+                marker.setMap(map);
+                var name = document.getElementById("addressname").value;
+                bindInfoWindow(marker, map, infoWindow, name);
+            }
+            function bindInfoWindow(marker, map, infoWindow, name) {
+                google.maps.event.addListener(marker, 'click', function() {
+                    infoWindow.setContent(name);
+                    infoWindow.open(map, marker);
+                });
+            }
+
+            </script>
+             {% endblock %}
+             
+        </head>
+        <body onload="load()">
+            
+       {% block container%}
+
+            {% endblock %}
+            
+            </body>
+        </html>

@@ -1,0 +1,62 @@
+{# empty Twig template #}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+
+ <a href="{{path('newaddress_page')}}">主页/Home</a>
+ <a href="{{path('mypost_page')}}">我的广告/My Ads</a>
+ 
+<form id="regform" action="" method="post">
+    
+        <h1>Rental Info/出租资料</h1>
+        
+        <table> 
+            <input type="hidden" name="id" value="{{address.id}}">
+            <tr>
+				<td width="250px">Title/标题:</td>
+				<td><input class="say" name="title" type="text" value="{{address.title}}" /></td>
+			</tr>
+            <tr>
+				<td width="250px">Street/街名:</td>
+				<td><input class="say" name="street" type="text" value="{{address.street}}" /></td>
+			</tr>
+            <tr>
+				<td>Avenue/大道:</td> 
+				<td><input class="say" name="avenue" type="text" value="{{address.avenue}}" /></td>
+			</tr>
+            <tr>
+				<td>Description/租房内容:</td> 
+				<td><textarea class="say" name="description"row="5" col="50">{{address.description}}</textarea></td>
+			</tr>
+            <tr>
+				<td>Contact/联系方式:</td> 
+				<td><input class="say" name="contact"type='text' value="{{address.contact}}"></td>
+			</tr>
+            <tr>
+				<td>选择出租房屋类型:</td>
+				<td class="styled-select">
+					<select name="renttype">
+					  <option value="1">两房一厅</option>
+					  <option value="2">一房一厅</option>
+					  <option value="3">三房一厅</option>
+					  <option value="4">单房出租</option>
+					  <option value="5">其他</option>
+					</select>
+				</td>
+			</tr>
+            <tr>
+				<td></td>
+				<td>
+					<input type="submit" name="editpost" class="btnsubmit"  value="Update The Paper/更新信息">
+					<input type="submit" name="delete" class="btnsubmit" value="Delete Poster/删除广告"/>
+				</td>
+			</tr>
+		</table>
+</form>
+
+<div id="footer">
+	<p align ="center">&copy; 2014 Zufung.com</p>
+</div>   

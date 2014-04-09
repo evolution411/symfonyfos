@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Acme\HelloBundle\Entity\Markers" table="markers">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="locationId" type="integer" column="location_id" nullable="false"/>
+    <field name="name" type="string" column="name" length="60" nullable="true"/>
+    <field name="address" type="string" column="address" length="100" nullable="false"/>
+    <field name="lat" type="float" column="lat" nullable="false"/>
+    <field name="lng" type="float" column="lng" nullable="false"/>
+    <field name="type" type="string" column="type" length="30" nullable="true"/>
+  </entity>
+</doctrine-mapping>

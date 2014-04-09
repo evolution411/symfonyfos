@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+
+<head>
+	<meta charset="utf-8">
+	<title>Login to Zufung CMS</title>
+	{%block stylesheets%}
+		{% stylesheets '@AcmeHelloBundle/Resources/public/HTML/css/admin-login-style.css' %}
+		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		
+		{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+
+		{% endstylesheets %}
+
+	<!-- Stylesheets -->
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'>
+	
+		{% endstylesheets %}
+{%endblock%}
+	<!-- Optimize for mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+
+	
+	</head>
+
+
+<div id="top-bar">
+		
+		<div class="page-full-width">
+		
+		<a href="newaddress" class="round button dark ic-left-arrow image-left ">Return to website</a>
+
+		</div> <!-- end full-width -->	
+	
+	</div> <!-- end top-bar -->
+	
+	
+	
+	<!-- HEADER -->
+	<div id="header">
+		
+		<div class="page-full-width cf">
+	
+			<div id="login-intro" class="fl">
+			
+				<h1>Login to Zufung</h1>
+				<h5>Enter your credentials below</h5>
+			
+			</div> <!-- login-intro -->
+			
+			
+			
+		</div> <!-- end full-width -->	
+
+	</div> <!-- end header -->
+	
+	
+	
+	<!-- MAIN CONTENT -->
+	<div id="content">
+	
+		<form action="adminregister" method="POST" id="login-form">
+		
+			<fieldset>
+
+				<p>
+					<label for="login-username">username</label>
+					<input type="text" id="login-username" name="unametxt" class="round full-width-input" autofocus />
+				</p>
+				
+				<p>
+					<label for="login-password">password</label>
+					<input type="password" id="login-password" name="password" class="round full-width-input" />
+				</p>
+				
+				<p>
+					<label for="login-password">Confirm password</label>
+					<input type="password" id="login-password" name="repassword"class="round full-width-input" />
+				</p>
+				
+				<p>I've <a href="#">forgotten my password</a>.</p>
+				
+				<input type="submit" name="btnreg" id="go" value="Sign Me up!">
+				
+				
+			</fieldset>
+
+			<br/>
+
+		</form>
+		
+	</div> <!-- end content -->
+	
+	
+	
+	<!-- FOOTER -->
+	<div id="footer">
+
+		<p>&copy; Copyright 2014 <a href="zufung.com">Zufung.com</a>. All rights reserved.</p>
+		
+	
+	</div> <!-- end footer -->
+
+</body>
+</html>

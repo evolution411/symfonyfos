@@ -1,0 +1,93 @@
+{% include "AcmeHelloBundle:Default:usermenu.html.twig"%}
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+{%block stylesheets%}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+{%endblock%}
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+
+
+{%block mymneu%}
+{%endblock%}
+
+<div align="center" id="search-block-np">
+<form method="POST" action="search">
+
+	<div align="center" id="mini-search-block">
+		</br>
+		</br>
+		
+		<p>#Price Range:	
+			<select name="pricetxt">
+				{% for entity in ranze %}
+					<option>{{ entity.pricerange}}</option>
+				{% endfor %}
+			</select>
+		</p>
+	</div>
+
+	<div align="center" id="mini-search-block-mid">
+		</br>
+		</br>
+		<p>
+			<select name="selectoption">
+			<option value="1">Or any word matches</option>
+			<option value="2">And only word matches</option>
+		</select>
+		</p>	
+	</div>
+	
+	<div align="center" id="mini-search-block-np">
+	
+		
+			<p></p>
+			</br></br>
+				<input type="text" name="searchtext" size="60" placeholder="輸入關鍵字如：兩居室，郵編" required>
+				<input type="submit" name="btnsearch" value="Search">
+			  
+		
+	</div>
+</form>	
+	
+	
+</div>
+
+
+<div id="main-content">
+	<h3><p align="center"> {{ st }} </p></h3>
+	<table class="adslist">
+		<tr>
+			{% set count = 0 %}
+			{% for a in search %}
+						{% if loop.index0 is divisibleby(3) %}</tr><tr>{% endif %}
+							<td>
+								<div class="posters">
+									<p>{{a.id}} - {{a.title}}</p><br>
+									<b> 地址: {{a.street}} {{a.avenue}}</b><br>
+									<br>{{a.description}}<a href="{{path('map_page',{'id':a.id})}}"><br>看地图</a>
+									<b> {{a.zipcode}}
+								</div>
+							</td>
+						{% if loop.last %}
+		</tr>			{% endif %}
+			{% set count = count + 1 %}
+			{% endfor %}
+	</table>
+	
+	<div align="center" id="mini-search-block-1">
+		
+		<p>Search Results Found : {{count}}</p>
+		<p1>Your Searching key words are : {{bb}} + {{cc}}</p1>
+		</div>
+		<p></p></br>
+	</div>	
+	
+</div>

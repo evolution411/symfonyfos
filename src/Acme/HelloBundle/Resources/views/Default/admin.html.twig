@@ -1,0 +1,85 @@
+{# empty Twig template #}
+{%block stylesheets%}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+	
+	{% stylesheets '@AcmeHelloBundle/Resources/public/HTML/css/admin-login-style.css' %}
+		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		
+	{% endstylesheets %}
+{%endblock stylesheets%}
+
+{% if app.session.has('adminlogin') %} 
+	welcome {{ app.session.get('adminlogin') }} 
+{%else%}
+<div id="top-bar">
+		
+		<div class="page-full-width">
+		
+		<a href="newaddress" class="round button dark ic-left-arrow image-left ">Return to website</a>
+
+		</div> <!-- end full-width -->	
+	
+	</div> <!-- end top-bar -->
+	
+<!-- HEADER -->
+	<div id="header">
+		
+		<div class="page-full-width cf">
+	
+			<div id="login-intro" class="fl">
+			
+				<h1>Login to Zufung</h1>
+				<h5>Enter your credentials below</h5>
+			
+			</div> <!-- login-intro -->
+			
+			
+			
+		</div> <!-- end full-width -->	
+
+	</div> <!-- end header -->
+
+<section class="adminlogin">
+
+<!-- MAIN CONTENT -->
+	<div id="content">
+	
+		<form action="adminlogin" method="POST" id="login-form">
+		
+			<fieldset>
+		
+			
+				<p>
+					{{unmmsg}}
+					<label for="login-username">username</label>
+					<input type="text" id="login-username" name="usernametxt" class="round full-width-input" autofocus />
+				</p>
+				
+				<p>
+					<label for="login-password">password</label>
+					<input type="password" id="login-password" name="password" class="round full-width-input" />
+				</p>
+				
+				
+				
+				<p><a href="{{path('adminregister_page')}}">Sign Me Up!!</a></p>
+				
+				<input type="submit" name="btnlogin" id="go" value="Sign In">
+				
+				
+			</fieldset>
+
+			<br/>
+
+		</form>
+</section>		
+	</div> <!-- end content -->
+
+
+{% endif %}
+
+<div id="footer">
+	<p align ="center"> &copy; 2014 Zufung.com</p>
+</div>   

@@ -1,0 +1,162 @@
+{% include "AcmeHelloBundle:Default:usermenu.html.twig"%}
+
+{%block mymneu%}
+{%endblock%}
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+{%block stylesheets%}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+{%endblock%}
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+
+<div align="center" id="search-block-np">
+<form method="POST" action="search">
+
+	<div align="center" id="mini-search-block">
+		</br>
+		</br>
+		
+		<p>#Price Range:	
+			<select name="pricetxt">
+				{% for entity in ranze %}
+					<option>{{ entity.pricerange}}</option>
+				{% endfor %}
+			</select>
+		</p>
+	</div>
+
+	<div align="center" id="mini-search-block-mid">
+		</br>
+		</br>
+		<p>
+			<select name="selectoption">
+			<option value="1">Or any word matches</option>
+			<option value="2">And only word matches</option>
+		</select>
+		</p>	
+	</div>
+	
+	<div align="center" id="mini-search-block-np">
+	
+		
+			<p></p>
+			</br></br>
+				<input type="text" name="searchtext" size="60" placeholder="请输入关键字如:两房一厅" required>
+				<input type="submit" name="btnsearch" value="Find Apartments">
+			  
+		
+	</div>
+</form>	
+	
+	
+</div>
+
+
+<div id="main-content">
+<p></p>
+<p></p>
+<p></p>
+
+<table class="adslist">
+			<tr>
+				{% for a in address %}
+                {% if loop.index0 is divisibleby(3) %}
+			</tr>
+			<tr>
+				{% endif %}
+        <td>
+			<div class="posters">
+				<div class="date">{{a.showdate}}</div>
+					<center><b>{{a.title}}</b>
+					</center><br>
+					<b> 地址: {{a.street}} {{a.avenue}}</b><br>
+						{{a.newdes}}<a href="{{path('map_page',{'id':a.id})}}"><br><br>详细资料...</a>
+			</div>
+		</td>
+                {% if loop.last %}
+			</tr>
+			{% endif %}
+            {% endfor %}
+	</table>
+</div>
+
+<div id="login-box" class="login-popup">
+    <a href="" class="close">
+	<img src="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+    <form id="regform" action="newaddress" method="post">
+        <h1>Rental Info/出租资料</h1>
+        
+        <table> 
+            
+            <tr><td width="250px">Title/标题:</td> <td><input class="say" name="title" type="text" value="" /></td></tr>
+            <tr><td width="250px">Street/街名:</td> <td><input class="say" name="street" type="text" value="" /></td></tr>
+            <tr><td>Avenue/大道:</td> <td><input class="say" name="avenue" type="text" value="" /></td></tr>
+            <tr><td>Description/租房内容:</td> <td><textarea class="say" name="description"row="5" col="50"></textarea></td></tr>
+            <tr><td>Contact/联系方式:</td> <td><input class="say" name="contact" type='text' placeholder="xxx-xxx-xxx"></td></tr>
+            <tr><td>Zip Code/邮政编码:</td> <td><input class="say" name="zipcode" type='text' placeholder="#####"></td></tr>
+			<tr>
+				<td>Bath:</td> 
+				<td>
+				<select name="bathtxt">
+					{% for entity in bath %}
+						<option>{{ entity.numbath}}</option>
+					{% endfor %}
+				</select>
+				
+				</td>
+			</tr>
+            <tr>
+				<td>Rent Range:</td> 
+				<td>
+					<select name="pricetxt">
+						{% for entity in ranze %}
+							<option>{{ entity.pricerange}}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Laundry Facility:</td> 
+				<td>
+					<select name="londrytxt">
+						{% for entity in lndry %}
+							<option>{{ entity.laundrytype}}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td>选择出租房屋类型:</td>
+				<td class="styled-select">
+					<select name="renttype">
+						<option value="1">工作室 </option>
+						<option value="2">一房一厅</option>
+						<option value="3">两房一厅</option>
+						<option value="4">三間臥室</option>
+						<option value="5">四臥室</option>
+					</select>
+				</td>
+			</tr>
+            
+			<tr>
+				<td></td><td><input type="submit" name="submit" class="btnsubmit"  value="Submit The Paper/提交信息"></td>
+			</tr>
+    
+        </table>
+    </form>
+</div>
+
+<div id="footer">
+	<p align ="center">&copy; 2014 Zufung.com</p>
+</div>   

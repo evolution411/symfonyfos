@@ -1,0 +1,38 @@
+{# empty Twig template #}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+
+{% javascripts
+'@AcmeHelloBundle/Resources/public/js/jquery.simpleGal.js'
+'@AcmeHelloBundle/Resources/public/js/jquery.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+
+  <a href="{{path('mypost_page')}}">My Ads</a>
+ 
+
+ 
+
+
+
+	<table>
+            {% for a in piclist %}
+            <tr>
+			
+				<td>{{a.id}}</td>
+				<td>
+					<img src="{{asset(a.path)}}" class="custom" alt= "Placeholder">
+				</td>
+				
+			</tr>
+			{% endfor %}
+	
+	</table>
+<div id="footer">
+	<p align ="center">&copy; 2014 Zufung.com</p>
+</div>   

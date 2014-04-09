@@ -1,0 +1,42 @@
+{# empty Twig template #}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+
+ <a href="{{path('newaddress_page')}}">??/Home</a>
+ <a href="{{path('mypost_page')}}">????/My Ads</a>
+ 
+<form id="regform" action="" method="post">
+    
+        <h1>Rental Info/????</h1>
+        
+        <h1>Picture Upload form</h1>
+        
+        <table> 
+            <input type="hidden" name="id" value="{{address.id}}">
+			
+            <tr>
+				<td width="250px">Apartment Name: </td>
+				<td><input class="say" name="title" type="text" value="{{address.id}}" /></td>
+			</tr>
+            <tr>
+				<td width="250px">Select Image</td> 
+				<td><input id="file" type="file" name="file"/></td>
+			</tr>
+
+			
+			
+            <tr><td></td>
+				<td><input id="submit" type="submit" name="senddata" value="Upload me!"></td>
+			</tr>
+            <tr>
+				<td></td>
+				
+			</tr>
+    
+       </table>
+</form>	
+

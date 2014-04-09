@@ -1,0 +1,57 @@
+{# empty Twig template #}
+{% include "AcmeHelloBundle:Default:usermenu.html.twig"%}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+
+ 
+ 
+<div id="top-hdr-display-image-page">
+	
+</div>
+
+
+<div id="maindv-display-image-page-main-body">
+ 
+ <p></p>
+
+
+
+<div id="main-container">
+
+ {% for q in qutube %}
+	<div id="mini-block-vdo">
+		{% if vmsg=='youtube' %}
+				
+				<iframe width="420" height="345" src="http://www.youtube.com/embed/{{q}}"></iframe>
+				{% elseif vmsg=='0' %}
+					{%else%}
+						<iframe width="420" height="345" src="{{asset(vedio)}}"></iframe>
+					<h1> No vedio found !!</h1>	
+				{% endif %}
+			<p></p>
+	</div>
+{% endfor %}
+
+{% for a in utubelink_id %}	
+	<div id="mini-block-vdo-delete">
+		{% image '@AcmeHelloBundle/Resources/public/images/19701295-1.jpg' %}
+			<a align="center" href="{{path('deletevdo_page',{'id':a.id})}}" height="16" width="16">
+			<img src="{{ asset_url }}" alt="Delete this Link" /></a>
+		{% endimage %}
+	</div>
+{% endfor %}
+
+</div>
+
+
+ 
+
+	
+	
+	
+	
+</div>

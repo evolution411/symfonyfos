@@ -1,0 +1,181 @@
+acme_hello_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: AcmeHelloBundle:Default:index }
+blog_page:
+ pattern: /blog/{name}
+ defaults: { _controller:AcmeHelloBundle:Default:blog}
+
+original_size_image__page:
+ pattern: /original_size_image_/{img_id}
+ defaults: { _controller:AcmeHelloBundle:Default:original_size_image_}
+ 
+Delete_this_image__page:
+ pattern: /Delete_this_image_/{this_img_id}
+ defaults: { _controller:AcmeHelloBundle:Default:Delete_this_image_}
+ 
+Delete_this_post__page:
+ pattern: /Delete_this_post_/{this_post_id}
+ defaults: { _controller:AcmeHelloBundle:Default:Delete_this_post_}
+
+vdolist__page:
+ pattern: /vdolist_/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:vdolist_}
+ 
+imageDisplay_page:
+ pattern: /display_all_images_for/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:display_all_images_for}
+ 
+picupload_page:
+ pattern: /picupload/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:picupload} 
+ 
+newaddress_page:
+ pattern: /newaddress
+ defaults: { _controller:AcmeHelloBundle:Default:newaddress}
+
+advance_search_criteria__page:
+ pattern: /advance_search_criteria_
+ defaults: { _controller:AcmeHelloBundle:Default:advance_search_criteria_}
+
+address_page:
+ pattern: /address
+ defaults: {_controller:AcmeHelloBundle:Default:showall}
+
+map_page:
+ pattern: /map/{id}
+ defaults: {_controller:AcmeHelloBundle:Default:mapadd}
+
+newaddmsg:
+ pattern: /newaddmsg/{msg}
+ defaults: {_controller:AcmeHelloBundle:Default:newaddmsg}
+
+addmap_page:
+ pattern: /addmap/{locationId}
+ defaults: {_controller:AcmeHelloBundle:Default:newmap}
+
+adminads_page:
+ pattern: /backend
+ defaults: {_controller:AcmeHelloBundle:admin:showads}
+
+adminmaps_page:
+ pattern: /adminmaps
+ defaults: {_controller:AcmeHelloBundle:admin:showmaps}
+
+adminusers_page:
+ pattern: /adminusers
+ defaults: {_controller:AcmeHelloBundle:admin:showusers}
+
+deletevdo_page:
+ pattern: /deletevdo/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:deletevdo}
+
+user_profile__page:
+ pattern: /user_profile_
+ defaults: {_controller:AcmeHelloBundle:Default:user_profile_}
+
+change_user_passwd__page:
+ pattern: /change_user_passwd_
+ defaults: {_controller:AcmeHelloBundle:Default:change_user_passwd_} 
+ 
+search_page:
+ pattern: /search
+ defaults: {_controller:AcmeHelloBundle:Default:search}
+
+searchresult_page:
+ pattern: /searchresult
+ defaults: {_controller:AcmeHelloBundle:Default:search}
+
+mypost_page:
+ pattern: /mypost
+ defaults: {_controller:AcmeHelloBundle:Default:mypost}
+
+editposter_page:
+ pattern: /editposter/{id}
+ defaults: {_controller:AcmeHelloBundle:Default:editposter}
+
+uploadfile_page:
+ pattern: /uploadfile/{id}
+ defaults: {_controller:AcmeHelloBundle:Default:upload}
+ 
+videoupload_page:
+ pattern: /uploadvideo/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:uploadvideo}
+
+Administrator_page:
+ pattern: /Administrator
+ defaults: { _controller:AcmeHelloBundle:Default:Administrator}
+
+admin_page:
+ pattern: /admin
+ defaults: { _controller:AcmeHelloBundle:Default:admin}
+
+Alluser_page:
+ pattern: /Alluser
+ defaults: { _controller:AcmeHelloBundle:Default:Alluser}
+
+blockuser_page:
+ pattern: /blockuser
+ defaults: { _controller:AcmeHelloBundle:Default:blockuser}
+
+deactivated_page:
+ pattern: /deactivated/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:deactivated}
+
+activated_page:
+ pattern: /activated/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:activated}
+
+userpostedpictures_page:
+ pattern: /userpostedpictures/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:userpostedpictures}
+
+userpostedvedioss_page:
+ pattern: /userpostedvedioss/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:userpostedvedioss}
+ 
+member_page:
+ pattern: /member/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:member} 
+
+deactivate_picture_page:
+ pattern: /deactivate_picture/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:deactivate_picture}
+
+activate_picture_page:
+ pattern: /activate_picture/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:activate_picture}
+
+deactivate_vdo_page:
+ pattern: /deactivate_vdo/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:deactivate_vdo}
+
+activate_vdo_page:
+ pattern: /activate_vdo/{id}
+ defaults: { _controller:AcmeHelloBundle:Default:activate_vdo}
+
+adminlogin_page:
+ pattern: /adminlogin
+ defaults: {_controller:AcmeHelloBundle:Default:adminlogin}
+
+adminlogout_page:
+ pattern: /adminlogout
+ defaults: {_controller:AcmeHelloBundle:Default:adminlogout} 
+ 
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile

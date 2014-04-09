@@ -1,0 +1,112 @@
+
+.logo {
+	margin: 20px auto; border: 0px currentColor; text-align: center;
+}
+body {
+	font-family: "Open Sans",sans-serif;
+}
+input {
+	font-family: "Open Sans",sans-serif;
+}
+a {
+	font-family: "Open Sans",sans-serif;
+}
+h1 {
+	font-family: "Open Sans",sans-serif;
+}
+a {
+	color: rgb(79, 116, 191);
+}
+a:hover {
+	text-decoration: none;
+}
+h1 {
+	margin: 0px 0px 10px 30px; color: rgb(85, 85, 85); padding-top: 20px; font-size: 20px;
+}
+.line {
+	margin: 20px 0px 20px 30px; width: 365px; height: 1px; background-color: rgb(215, 215, 215);
+}
+.form {
+	margin: 30px auto; 
+	border-radius: 5px; 
+	width: 430px; 
+	box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.25); 
+	background-color: rgb(255, 255, 255); 
+	-moz-border-radius: 5px; 
+	-moz-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25); 
+	-webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+form input[type='text'] {
+	border-radius: 3px; -moz-border-radius: 3px;
+}
+input[type='password'] {
+	border-radius: 3px; -moz-border-radius: 3px;
+}
+input[type='submit'] {
+	border-radius: 3px; -moz-border-radius: 3px;
+}
+.btn-facebook {
+	color: rgb(255, 255, 255); box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.25); text-shadow: 0px -1px 0px rgba(0,0,0,0.3); -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25); -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+.btn-twitter {
+	color: rgb(255, 255, 255); box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.25); text-shadow: 0px -1px 0px rgba(0,0,0,0.3); -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25); -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+input[type='submit'] {
+	color: rgb(255, 255, 255); box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.25); text-shadow: 0px -1px 0px rgba(0,0,0,0.3); -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25); -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+form {
+	margin: 0px 0px 0px 30px;
+}
+form input[type='text'] {
+	margin: 10px 0px 0px; padding: 10px 14px 12px; border: 1px solid rgb(200, 200, 200); width: 335px; color: rgb(131, 131, 131); font-size: 15px; background-color: rgb(242, 242, 242);
+}
+input[type='password'] {
+	margin: 10px 0px 0px; padding: 10px 14px 12px; border: 1px solid rgb(200, 200, 200); width: 335px; color: rgb(131, 131, 131); font-size: 15px; background-color: rgb(242, 242, 242);
+}
+form input[type='submit'] {
+	padding: 8px 35px 10px; font-size: 15px;
+}
+form input[type='submit']:hover {
+	cursor: pointer;
+}
+.btn-sign-in {
+	margin: 30px 0px 30px 125px;
+}
+.btn-register {
+	margin: 30px 0px 30px 20px;
+}
+.forgotten-password-link {
+	margin-top: 40px; float: left;
+}
+#tac-checkbox {
+	margin-top: 40px; float: left;
+}
+label {
+	margin-top: 40px; float: left;
+}
+.forgotten-password-link {
+	margin-top: 40px; float: left;
+}
+label {
+	line-height: 12px; padding-left: 5px;
+}
+.sign-link {
+	margin: 40px 0px 0px 120px; text-align: center; float: left;
+}
+.btn-orange {
+	background: -ms-linear-gradient(rgb(255, 128, 0), rgb(255, 88, 0)); border: 1px solid rgb(255, 88, 0);
+}
+.btn-orange:hover {
+	background: -ms-linear-gradient(rgb(255, 88, 0), rgb(255, 88, 0));
+}
+.forgotten-password-box {
+	display: none;
+}
+.error-box {
+	display: none;
+}
+.ie-placeholders {
+	display: none;
+}

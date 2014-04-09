@@ -1,0 +1,47 @@
+{# empty Twig template #}
+{% include "AcmeHelloBundle:Default:usermenu.html.twig"%}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+
+ 
+ 
+<div id="top-hdr-display-image-page">
+	
+</div>
+
+
+<div id="maindv-display-image-page-main-body">
+ 
+ <p></p>
+	
+	
+	<table width = 300px style="border:1px solid black;border-collapse:collapse;">
+	{% for a in piclist %}
+		<tr align=center>
+			<td style="border:1px solid black;border-collapse:collapse;">Image:</td>
+			<td style="border:1px solid black;border-collapse:collapse;">
+				<a href="{{path('original_size_image__page',{'img_id':a.id})}}">
+				<img src="{{asset(a.path)}}" height="50" width="50" title="View full size Image">
+				</a>
+			</td>
+			<td style="border:1px solid black;border-collapse:collapse;">
+				{% image '@AcmeHelloBundle/Resources/public/images/19701295-1.jpg' %}
+				<a href="{{path('Delete_this_image__page',{'this_img_id':a.id})}}" height="16" width="16">
+				<img src="{{ asset_url }}" alt="Delete this picture" /></a>
+				{% endimage %}
+			</td>
+		</tr>
+	{% endfor %}
+
+</table>
+	
+	
+</div>
+
+<div id="footer">
+	<p align ="center">&copy; 2014 Zufung.com</p>
+</div>   

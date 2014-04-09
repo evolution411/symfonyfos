@@ -1,0 +1,202 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+{%block stylesheets%}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+{%endblock%}
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+
+{% block head %}
+<style type="text/css">
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:arial,sans-serif;
+  font-size:100%;
+  margin:3em;
+  background:#778899;
+  color:#fff;
+}
+h2,p{
+  font-size:80%;
+  font-weight:normal;
+}
+ul,li{
+  list-style:none;
+}
+ul{
+  overflow:hidden;
+  padding:3em;
+}
+ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:12em;
+  width:11em;
+  padding:1em;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  -moz-transition:-moz-transform .15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+}
+ul li{
+  margin:1em;
+  float:left;
+}
+ul li h2{
+  font-size:90%;
+  font-weight:bold;
+  padding-bottom:5px;
+}
+ul li p{
+  font-family:"Reenie Beanie",arial,sans-serif;
+  font-size:100%;
+}
+ul li a{
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -moz-transform:rotate(-6deg);
+}
+ul li:nth-child(even) a{
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+  background:#cfc;
+}
+ul li:nth-child(3n) a{
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background:#ccf;
+}
+ul li:nth-child(5n) a{
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+ul li a:hover,ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+ol{text-align:left;}
+ol li{display:inline;padding-right:1em;}
+ol li a{color:#fff;}
+</style>
+
+{% endblock %}
+<div id="top-hdr-adv-searchpage">
+<b><p align= "left"><a href="{{path('newaddress_page')}}"><font color="white">Home</b></font></a></p> </b>
+</div>
+
+
+<body>
+<form method="POST" action="advance_search_criteria_">
+	<div align="center" id="search-block">
+	
+	<p></p><p></p>
+		<div align="center" id="mini-search-block">
+		#Room:
+			<select name="bedtxt">
+				{% for entity in bedrooms %}
+					<option>{{ entity.bdroomtype}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		
+		<div align="center" id="mini-search-block">
+		#Bath:
+			<select name="bathtxt">
+				{% for entity in bath %}
+					<option>{{ entity.numbath}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		
+		<div align="center" id="mini-search-block">
+		#Rent:
+			<select name="pricetxt">
+				{% for entity in ranze %}
+					<option>{{ entity.pricerange}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		
+		<div align="center" id="mini-search-block-last">
+		#Laundry:
+			<select name="londrytxt">
+				{% for entity in lndry %}
+					<option>{{ entity.laundrytype}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div align="center" id="mini-search-block-1">
+			
+			#Search by Zipcode:
+			<input type="text" name="ziptxt">
+			
+		<select name="selectoption">
+			<option value="1">Any word matches</option>
+			<option value="2">Only word matches</option>
+		</select>
+		</div>
+		
+		<div align="center" id="mini-search-block-1">
+		<input class="search" type="submit" name="btnsearch" value="Find Apartment">
+		</div>
+		
+		
+		
+		
+		<div align="center" id="mini-search-block-1">
+		<p>Search Results :</p>
+		<p1>Your Searching key words are : {{bb}} + {{cc}} + {{dd}} + {{ee}} + {{ff}} + {{gg}}</p1>
+		</div>
+		<p></p></br>
+		
+
+	
+	<ul>
+	{% set count = 0 %}
+    {% for a in adv_srch_res %}
+	<li>
+		<h2><a href="{{path('map_page',{'id':a.id})}}">{{a.id}} - {{ a.title}} </br>
+		</br><font color="Chocolate"><b>Number of Bath:{{a.numbath}}</b></font></br>
+		</br><font color="DarkCyan"><b>Rent:{{a.rentamount}}</b></font></br></br>
+		Laundry-Facility:<font color="DarkCyan"><b>{{a.laundryfacility}}</b></br></br></font>
+		Zip:<font color="red"><b>{{a.zipcode}}</b></font></h2></a>
+		{% set count = count + 1 %}
+	</li>
+	{% endfor %}
+	</ul>	
+	
+	
+	Results Found : {{ count }}
+		
+	
+</form>
+
+</body>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        {% block head %}
+<script type="text/javascript">
+function showfilter(str)
+{
+if (str=="")
+  {
+  document.getElementById("txtHint").innerHTML="";
+  return;
+  } 
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","filter.php?q="+str,true);
+xmlhttp.send();
+}
+ </script>
+ {% endblock %}
+    </head>
+    <body>
+ <div class="filter">
+    <form>
+       <select name="renttype" id="renttype" onchange="showfilter(this.value);">
+      <option value="1">两房一厅</option>
+      <option value="2">一房一厅</option>
+      <option value="3">三房一厅</option>
+      <option value="4">单房出租</option>
+      <option value="5">其他</option>
+        </select></form>
+</div>
+ 
+        <br>
+<div name="txtHint" id="txtHint">
+
+</div>
+        
+        {% block myfilter%}
+
+            {% endblock %}
+    </body>
+</html>

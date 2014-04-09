@@ -1,0 +1,43 @@
+{# empty Twig template #}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+
+ 
+ 
+<div id="top-hdr-display-image-page">
+	<a href="{{path('newaddress_page')}}">主页/Home</a>
+	<a href="{{path('mypost_page')}}">我的广告/My Ads</a>	
+</div>
+
+
+<div id="maindv-display-image-page-main-body">
+ 
+ 
+ <form id="regform" action="" method="post">
+    
+        <h1>You are going to delete this Vedio Permanently.</h1>
+        
+        <table> 
+			<input type="hidden" name="id" value="{{piclist.id}}">
+            <tr><td width="250px">Are you sure?</td></tr>
+            <tr><td><input class="say" name="posteridtxt" type="hidden" value="{{piclist.posterid}}" /></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td>
+				<td>
+					<input type="submit" name="delcon" class="btnsubmit"  value="Yes, I'm Sure">
+					<input type="submit" name="cancelout" class="btnsubmit" value="No, Don't Delete"/>
+				</td>
+			</tr>
+        </table>
+</form>
+
+</div>
+
+<div id="footer">
+	<p align ="center"> ©2014 Zufung.com</p>
+</div>   

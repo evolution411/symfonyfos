@@ -1,0 +1,90 @@
+{% extends "AcmeHelloBundle:Default:basemap.html.twig"%}
+
+{% block container%}
+
+
+{% include "AcmeHelloBundle:Default:usermenu.html.twig"%}
+<body>
+{#<input type="hidden" id="lat" value="{{address.lat}}" />
+<input type="hidden" id="lng" value="{{address.lng}}" />
+<input type="hidden" id="addressname" value="{{name}}" />#}
+
+	<div id='column-right-map'>
+            {% if srchlst!=null %}
+		<div id="slider">
+  <a href="#" class="control_next">>></a>
+  <a href="#" class="control_prev"><</a>
+  
+  <ul>
+      {% for a in srchlst %}
+    <li><img src="{{asset(a.path)}}" ></li>
+    
+    {%endfor%}
+  </ul>  
+                </div>
+
+<div class="slider_option">
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox">Autoplay Slider</label>
+</div> {%endif%}
+	</div>
+	
+	<div id='column-left-address-map'>
+		
+		<h2><b>{{posterinfo.title}}</b></h2>
+		<p class="sansserif"><br>{{posterinfo.description}}</p>
+		<br><h2>Contact/联系方式:{{posterinfo.contact}}</h2>
+		<br>房型:{{posterinfo.renttype}}<br>
+		<br>浴:{{posterinfo.numbath}}<br>
+	</div>
+			
+		{% if address.lat=='nomap'%}
+			<div id='column-left-address-map'>
+				
+				<h2>{{posterinfo.title}}</h2>
+				<p><br><b> 地址: {{posterinfo.street}} {{posterinfo.avenue}}</b></p>
+				<br>{{posterinfo.description}}<br>
+				<br>联系方式:{{posterinfo.contact}}<br>
+				<br>房型:{{posterinfo.renttype}}<br>
+				<br>浴:{{posterinfo.numbath}}<br>
+				<br><h3>此广告没有配地图显示</b></h3>
+			</div>
+		{%endif%}
+		
+<div id='column-left-vdo1'>
+	{% for q in qutube %}
+		{% if vmsg=='youtube' %}
+				<iframe width="420" height="345" src="http://www.youtube.com/embed/{{q}}"></iframe>
+			{% elseif vmsg=='0' %}
+			{%else%}
+				<iframe width="420" height="345" src="{{asset(video)}}"></iframe>
+			{% endif %}
+		</br></br>
+	{% endfor %}
+	
+	
+		<table width = 300px style="border:0px solid black;border-collapse:collapse;">
+			{% for a in uploadedvdolist %}
+				<tr align=center>
+					<td style="border:0px solid black;border-collapse:collapse;">Vedio's Name</td>
+					<td style="border:0px solid black;border-collapse:collapse;">
+						{{a.posterid}}
+					</td>
+
+					<td style="border:0px solid black;border-collapse:collapse;">
+						<video width="320" height="240" controls>
+							<source src="{{asset(a.path)}}" type="video/mp4">
+							<source src="{{asset(a.path)}}" type="video/ogg" />
+						</video>
+						
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+
+</div>
+	
+</body>
+
+
+{% endblock %}

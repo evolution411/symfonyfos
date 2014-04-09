@@ -1,0 +1,31 @@
+{# empty Twig template #}
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock stylesheets%}
+{% if app.session.has('login') %} 
+welcome {{ app.session.get('login') }} 
+{%else%}
+
+<section class="login">
+	<div class="titulo">用户登入</div>
+	<form action="login" method="post">
+	
+    	<input type="text" required title="Username required" name="code" placeholder="请输入你的账户号码" data-icon="U">
+        <input type="password" required title="Password required" name="password" placeholder="请输入密码" data-icon="x">
+        <div class="olvido">
+        	<div class="col">
+				<a href="register" title="Ver Carásteres">注册账户/Register</a>
+			</div>
+            
+			<div class="col"><a href="#" title="Recuperar Password">Fotgot Password?</a></div>         
+        </div>
+         <input type="submit" name="btnlogin"  value="登入" class="enviar">
+    </form>
+</section>
+
+{% endif %}
+<div id="footer">
+	<p align ="center"> ©2014 Zufung.com</p>
+</div>   

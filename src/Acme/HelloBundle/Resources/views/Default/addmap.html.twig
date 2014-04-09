@@ -1,0 +1,25 @@
+{# empty Twig template #}
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock%}
+<div id="addmap" class="addmap-popup">
+    <a href="" class="close"><img src="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+    <form action="addmap" method="post">
+        <input type="hidden" name="locationId" value="{{locationId}}">
+        <h1>添加地图</h1>
+        <table>
+            <tr><td width="250px">House Number/门牌号:</td> <td><input class="say" name="housenum" type="text" value="" /></td></tr>
+            <tr><td width="250px">Street/街名:</td> <td><input class="say" name="street" type="text" value="" /></td></tr>
+            <tr><td>City/市区:</td> <td><input class="say" name="city" type="text" value="" /></td></tr>
+            <tr><td>State/州:</td> <td><input class="say" name="state" type="text" value=""></td></tr>
+            <tr><td>Zipcode/邮编号码:</td> <td><input class="say" name="zipcode"type='text' value=""></td></tr>
+           
+            <tr><td></td><td><input type="submit" name="submit" class="btnsubmit"  value="Submit The Paper/提交信息"></td></tr>
+ </form>
+</div>
+
+<div id="footer">
+	<p align ="center"> &copy; 2014 Zufung.com</p>
+</div>   

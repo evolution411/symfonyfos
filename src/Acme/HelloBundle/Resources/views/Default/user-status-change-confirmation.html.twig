@@ -1,0 +1,65 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+{%block stylesheets%}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+{%endblock%}
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+
+
+
+<div id="top-hdr-adv-searchpage">
+	<b><p align= "left"><a href="{{path('newaddress_page')}}"><font color="white">Home</b></font></a></p> </b>
+</div>
+
+
+<body>
+<div id="container1">
+	<div id="top1">
+		<h1>Welcome Admin!</h1>
+	</div>
+ 
+	<div id="leftnav1">
+		<p><a href="{{path('Administrator_page')}}">Main Page</a></p>
+		<p><a href="{{path('blockuser_page')}}">Block User</a></p>
+		<p><a href="{{path('Administrator_page')}}">Delete User</a></p>
+		<p><a href=#>Sign-out</a></p>
+	</div>
+	<div id="content1">
+		<h2>List of Users:</h2>
+		<p>
+		
+<form id="regform" action="" method="post">
+    
+        <h1>Title: Confirm Please:</h1>
+        
+        <table> 
+			<input type="hidden" name="id" value="{{piclist.id}}">
+            <tr><td width="250px">Are you sure?</td></tr>
+            <tr><td><input class="say" name="posteridtxt" type="text" value="{{piclist.code}}" /></td></tr>
+            <tr><input class="say" name="imgNametxt" type="text" value="{{piclist.password}}" /></td></tr>
+            <tr><td><input class="say" name="pathtxt" type="text" value="{{piclist.location_id}}" /></td></tr>
+            <tr><td><input type="text" value="0" class="say" name="statustxt"></td></tr>
+            <tr><td></td>
+				<td>
+					<input type="submit" name="deleteConfirmed" class="btnsubmit"  value="Block!!">
+					<input type="submit" name="cancel-or-not-deletebtn" class="btnsubmit" value="No, Don't Delete"/>
+				</td>
+			</tr>
+        </table>
+</form>
+		</p>
+	</div>
+		
+	<div id="footer1">
+		<p align ="center"> Zufung .com</p>
+	</div>
+</div>
+
+</body>

@@ -1,0 +1,33 @@
+{# empty Twig template #}
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/register.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock stylesheets%}
+
+<form id="form" action="register" method="post">
+{%for c in code%}
+	<input type="hidden" name="code" value="{{c.code}}">
+{%endfor%}
+
+<h1>您的账户号为/Login Code: 
+	{%for c in code%}
+		{{c.code}}
+	{%endfor%}
+</h1>
+  
+  <div class="inset">
+  <p>
+    <label for="password">设置密码/Password</label>
+    <input type="password" name="password" id="password">
+  </p>
+  <p>
+    <label for="password">确认密码/Confirm</label>
+    <input type="password" name="repassword" id="password">
+  </p>
+   </div>
+  <p class="p-container">
+  
+    <input type="submit" name="btnreg" id="go" value="注册账户">
+  </p>
+</form>

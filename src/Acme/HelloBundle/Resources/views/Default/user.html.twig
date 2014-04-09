@@ -1,0 +1,113 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+{%block stylesheets%}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+{%endblock%}
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+
+
+
+<div id="top-hdr-adv-searchpage">
+	<b><p align= "left"><a href="{{path('newaddress_page')}}"><font color="white">Home</b></font></a></p></b>
+</div>
+
+
+<body>
+<div id="container1">
+	<div id="top1">
+		<h1>Welcome Admin!</h1>
+	</div>
+ 
+	<div id="leftnav1">
+		<p><a href="{{path('Administrator_page')}}">Main Page</a></p>
+		<p><a href="{{path('Alluser_page')}}">All Users</a></p>
+		
+		<p><a href=#>Sign-out</a></p>
+	</div>
+	
+	<div id="content1">
+		<h2>User Activity :</h2>
+		<p>
+	
+	<form method="POST" action="member">
+            <table width="500px">
+                <tr>
+					<td>Access Code</td>
+					<td>
+					{{de}}
+					</td>
+				</tr>
+            
+				<tr>
+				<td>
+					{% for a in aa %}
+							{{a.num}}
+					{% endfor %}
+				</td>
+				
+				<tr>
+					<td>
+						This User posted : 
+					</td>
+					
+					<td>
+						{{aa}} poster.
+					</td>
+					<tr>
+					</tr>	
+					{% for a in poster_id %}
+						<tr>
+							<td>
+								<a href="{{path('map_page',{'id':a.id})}}">{{a.id}}</a>
+							</td>
+							<td>
+								<a href="{{path('userpostedpictures_page',{'id':a.id})}}">View Pictures</a>
+							</td>
+							
+							<td>
+								<a href="{{path('userpostedvedioss_page',{'id':a.id})}}">View Videos</a>
+							</td>
+							
+						</tr>
+					{% endfor %}
+					
+				</tr>
+				<tr>
+					<td>
+					
+					
+				
+					</td>
+				</tr>
+					
+				
+				<td>
+					
+				</td>
+				<td>
+				
+				</td>
+				</tr>	
+				
+                      
+            
+			
+			
+		</table>
+	</form>
+		</p>
+	</div>
+		
+	<div id="footer1">
+		<p align ="center"> Zufung .com</p>
+	</div>
+</div>
+
+</body>

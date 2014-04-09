@@ -1,0 +1,58 @@
+{# empty Twig template #}
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css'
+'@AcmeHelloBundle/Resources/public/style.css'
+%}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+{%endblock stylesheets%}
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+        
+ <div id="header">
+</div>
+<div class="logo">
+{% image '@AcmeHelloBundle/Resources/public/images/2.png' %} <a href="{{path('newaddress_page')}}">
+ <img src="{{ asset_url }}" alt="The alt text" /></a>
+{% endimage %}
+
+</div>    
+        
+<div class="user-nav">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Welcome Back {{ app.user.username }} !
+    <a href="{{path('fos_user_security_logout')}}">Logout</a>
+
+	<ul>
+		<a href="#login-box" class="login-window">添加广告/Add Ads</a>
+		<a href="{{path('mypost_page')}}">我的广告/My Ads</a>
+                <a href="{{path('fos_user_profile_show')}}"> 我的主页/Profile </a>
+	<a href="{{path('fos_user_change_password')}}"> 修改密码/Change Password </a>
+	</ul>
+	{% else %}
+		<a href="{{path('fos_user_security_login')}}"> 登入张贴广告<br/>
+			<div class="loginlink">Login to Post Ads</div>
+		</a>
+		
+		<a href="{{path('fos_user_registration_register')}}"> 用户注册<br/>
+			<div class="loginlink">Sign Up</div>
+		</a>
+	{%endif%}
+</div>
+
+
+</div>
+
+
+            <div id="login_reg_content">
+{%block body%}
+
+{%endblock%}
+                 </div>  
+<div id="footer">
+	<p align ="center">&copy; 2014 Zufung.com</p>
+</div>  

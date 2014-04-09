@@ -1,0 +1,37 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+{%block stylesheets%}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+{%endblock%}
+
+{%block javascripts%}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{%endblock%}
+
+{% block myfilter%}
+<div align="center" id="search-block-np">
+	
+	
+	<div align="center" id="mini-search-block-np">
+	
+		<div id="main-search">
+			<p></p>
+			<p></p>
+			<p></p>
+			<form class="form-wrapper cf" method="POST" action="search">
+				<input type="text" name="searchtext" placeholder="輸入關鍵字如：兩居室，郵編" required>
+				<input type="submit" name="btnsearch" value="Find Apartments">
+			</form>  
+		</div>
+	</div>
+</div>
+	
+	<div id="footer">
+		<p align ="center">&copy; 2014 Zufung.com</p>
+	</div>   
+
+{%endblock%}

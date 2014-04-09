@@ -1,0 +1,16 @@
+{# empty Twig template #}
+{#
+{% for id in locationId %}
+<a href="{{path('addmap_page',{'locationId':id})}}"><br>添加地图</a></div>
+{% endfor %}
+#}
+
+{%if msg=='addmap'%}
+<h2>恭喜,你已经成功添加了地图.按<a href="{{path('newaddress_page')}}"><b>这里</b>返回首页</a></div></h2>
+{%endif%}
+{%if msg=='addlocation'%}
+<h2>恭喜,你已经成功添加了出租广告.按<a href="{{path('newaddress_page')}}"><b>这里</b>返回首页</a></div></h2>
+{% for id in Lid %}
+<a href="{{path('addmap_page',{'locationId':id.Location})}}">添加地图</a></div>
+{% endfor %}
+{%endif%}

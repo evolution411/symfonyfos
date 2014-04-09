@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Acme\HelloBundle\Entity\Videos" table="videos">
+    <id name="id" type="integer" column="id"><generator strategy="IDENTITY"/>
+    </id>
+    <field name="path" type="string" column="path" length="100" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+    <field name="posterid" type="integer" column="posterid" nullable="true"/>
+	<field name="idcode" type="integer" column="idcode" nullable="true"/>
+  </entity>
+</doctrine-mapping>

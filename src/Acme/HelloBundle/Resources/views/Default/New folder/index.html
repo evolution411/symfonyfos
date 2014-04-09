@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="form-style.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600' rel='stylesheet' type='text/css' />
+  <link href="css/form-style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="topbar">
+ <div class='logo'>
+ <a href='#'><img src='your_logo.png' class='logo' alt='logo' /></a>
+ </div>
+</div>
+
+
+<div id="navbar">
+ <a href="index.html?home">Home</a>
+ <a href="index.html?about">About</a>
+ <a href="index.html?home">Contact me</a>
+</div>
+
+<div id="main">
+
+<div id="column_left">
+ <h1>Welcome to new space</h1>
+ 
+</div>
+
+<div id="column_right">
+ 
+
+ <div class='form'>
+      <h1>Sign in</h1>
+      <div class='line'></div>
+      
+     
+      
+      <!-- Span class ie-placeholder is there for IE browser. IE doesn't support placeholder attribute -->
+      <form class='input-form' action=''>
+        <span class='ie-placeholders'>Login:</span><input type='text' placeholder='Login' />
+        <span class='ie-placeholders'>Password:</span><input type='password' placeholder='Password' />
+        <a class='forgotten-password-link' href='#'>Forgotten password</a>
+        <input type='submit' class='btn-sign-in btn-orange' value='Sign in' />
+      </form>
+      
+      <!-- FORGOTTEN PASSWORD -->
+      <div class='forgotten-password-box'>
+        <form class='input-form'>
+          <span class='ie-placeholders'>Email:</span><input type='text' class='forgotten-password-email' placeholder='E-mail' />
+          <input type='submit' class='btn-orange' value='Send' /><br /><br />
+          We'll send you e-mail with password reset.
+        </form>
+      </div>
+      
+      <!-- ERROR STATE -->
+      <div class='error-box red'>
+        <span class='error-message'><b>Incorrect</b> login or password.</span>
+      </div>
+           
+      <div class='sign-link'>
+        Don't have an account? <a href='registration.html'>Sign up</a>
+      </div> 
+    </div>
+
+
+</div>
+
+<!--
+<div id="column_right_adsense">
+ <h3>AdSense</h3>
+Adsense 120 X 600
+</div>
+-->
+
+
+<!-- Don't remove spacer div. Solve an issue about container height -->
+<div class="spacer"></div>
+</div>
+
+<div id="footer">© 2013 All rights reserved by Masum</div>
+
+</div>
+
+</body>
+</html> 
