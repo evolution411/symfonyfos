@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="org.netbeans.modules.bugzilla">
+    <module_version install_time="1360798139005" last="false" origin="installer" specification_version="1.33.1">
+        <file crc="495300362" name="config/Modules/org-netbeans-modules-bugzilla.xml"/>
+        <file crc="3111346582" name="modules/locale/org-netbeans-modules-bugzilla_ja.jar"/>
+        <file crc="525391961" name="modules/locale/org-netbeans-modules-bugzilla_pt_BR.jar"/>
+        <file crc="2429770370" name="modules/locale/org-netbeans-modules-bugzilla_ru.jar"/>
+        <file crc="965485275" name="modules/locale/org-netbeans-modules-bugzilla_zh_CN.jar"/>
+        <file crc="1274550564" name="modules/org-netbeans-modules-bugzilla.jar"/>
+    </module_version>
+    <module_version install_time="1369159193996" last="true" origin="NetBeans Distribution" specification_version="1.33.2">
+        <file crc="495300362" name="config/Modules/org-netbeans-modules-bugzilla.xml"/>
+        <file crc="661422086" name="modules/locale/org-netbeans-modules-bugzilla_ja.jar"/>
+        <file crc="234945292" name="modules/locale/org-netbeans-modules-bugzilla_pt_BR.jar"/>
+        <file crc="180270450" name="modules/locale/org-netbeans-modules-bugzilla_ru.jar"/>
+        <file crc="1882390125" name="modules/locale/org-netbeans-modules-bugzilla_zh_CN.jar"/>
+        <file crc="3430231921" name="modules/org-netbeans-modules-bugzilla.jar"/>
+    </module_version>
+</module>

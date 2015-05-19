@@ -17,7 +17,7 @@
 
 {%block mymneu%}
 {%endblock%}
-
+{#
 <div align="center" id="search-block-np">
 <form method="POST" action="search">
 
@@ -60,8 +60,9 @@
 	
 </div>
 
-
+#}
 <div id="main-content">
+    
 	<h3><p align="center"> {{ st }} </p></h3>
 	<table class="adslist">
 		<tr>
@@ -83,9 +84,7 @@
 	</table>
 	
 	<div align="center" id="mini-search-block-1">
-		
 		<p>Search Results Found : {{count}}</p>
-		<p1>Your Searching key words are : {{bb}} + {{cc}}</p1>
 		</div>
 		<p></p></br>
 	</div>	

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.api.mobility">
+    <module_version install_time="1360796483531" last="true" origin="installer" specification_version="8.18.1">
+        <file crc="178964690" name="config/Modules/org-netbeans-api-mobility.xml"/>
+        <file crc="38913769" name="modules/locale/org-netbeans-api-mobility_ja.jar"/>
+        <file crc="2436708224" name="modules/locale/org-netbeans-api-mobility_pt_BR.jar"/>
+        <file crc="796369309" name="modules/locale/org-netbeans-api-mobility_ru.jar"/>
+        <file crc="1457335054" name="modules/locale/org-netbeans-api-mobility_zh_CN.jar"/>
+        <file crc="2663871906" name="modules/org-netbeans-api-mobility.jar"/>
+    </module_version>
+</module>

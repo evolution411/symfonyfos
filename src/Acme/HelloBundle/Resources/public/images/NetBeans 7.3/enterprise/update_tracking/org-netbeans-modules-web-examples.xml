@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.web.examples/1">
+    <module_version install_time="1360798810433" last="true" origin="installer" specification_version="1.26.1">
+        <file crc="1139270693" name="config/Modules/org-netbeans-modules-web-examples.xml"/>
+        <file crc="2197178204" name="modules/locale/org-netbeans-modules-web-examples_ja.jar"/>
+        <file crc="2422477723" name="modules/locale/org-netbeans-modules-web-examples_pt_BR.jar"/>
+        <file crc="1014441955" name="modules/locale/org-netbeans-modules-web-examples_ru.jar"/>
+        <file crc="3183881859" name="modules/locale/org-netbeans-modules-web-examples_zh_CN.jar"/>
+        <file crc="3782946207" name="modules/org-netbeans-modules-web-examples.jar"/>
+    </module_version>
+</module>

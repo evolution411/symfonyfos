@@ -6,85 +6,100 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 
 {%block stylesheets%}
-	{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+	{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' 
+'@AcmeHelloBundle/Resources/public/tabulous.css'%}
 	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
 	{% endstylesheets %}
 {%endblock%}
 
 {%block javascripts%}
-	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' %}
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' 
+'@AcmeHelloBundle/Resources/public/tabulous.js'
+'@AcmeHelloBundle/Resources/public/js.js'
+%}
 	<script src="{{ asset_url }}"></script>
 	{% endjavascripts %}
 {%endblock%}
+        <div id="main-center">
+<div id="recentpost-img">
+        <div id="slider">
+  <a href="#" class="control_next">></a>
+  <a href="#" class="control_prev"><</a>
+  <ul>
+      {% for a in images %}
+        <li><a href="{{path('map_page',{'id':a.posterid})}}"><img src="{{asset(a.path)}}" ></a></li>
+      {%endfor%}
+  </ul></div>
+    
+ </div>
+                <div id="aboutus">
+                    
+               <div id="tabs">
+		<ul>
+			<li><a href="#tabs-1" title="">Contact Us</a></li>
+			<li><a href="#tabs-2" title="">Acout Us</a></li>
+			<li><a href="#tabs-3" title="">Site Mission</a></li>
+		</ul>
+                       {%for i in info%}
+		<div id="tabs_container">
+		<div id="tabs-1">
+			    <p>Email: {{i.email}}</p>
+                            <p>Phone: {{i.phone}}</p>
+		</div>
 
-<div align="center" id="search-block-np">
-<form method="POST" action="search">
+		<div id="tabs-2">
+			    <p>{{i.aboutus}}</p>
+	
+		</div>
 
-	<div align="center" id="mini-search-block">
-		</br>
-		</br>
-		
-		<p>#Price Range:	
-			<select name="pricetxt">
-				{% for entity in ranze %}
-					<option>{{ entity.pricerange}}</option>
-				{% endfor %}
-			</select>
-		</p>
-	</div>
+		<div id="tabs-3">
+			    <p>{{i.mission}}</p>
+		</div>
 
-	<div align="center" id="mini-search-block-mid">
-		</br>
-		</br>
-		<p>
-			<select name="selectoption">
-			<option value="1">Or any word matches</option>
-			<option value="2">And only word matches</option>
-		</select>
-		</p>	
-	</div>
-	
-	<div align="center" id="mini-search-block-np">
-	
-		
-			<p></p>
-			</br></br>
-				<input type="text" name="searchtext" size="60" placeholder="请输入关键字如:两房一厅" required>
-				<input type="submit" name="btnsearch" value="Find Apartments">
-			  
-		
-	</div>
-</form>	
-	
-	
+		</div><!--End tabs container-->
+		{%endfor%}
+                </div>
+                </div>
 </div>
-
-
+       
+        
 <div id="main-content">
-<p></p>
-<p></p>
-<p></p>
-
+<div id="pagestyle">
+<ul id="pagination-flickr">{% if total_pages > 0 %}
+{% for i in 1..total_pages%}
+        {%if loop.first%}
+        <li class="previous-off {%if current_page==1%} disabled {%endif%}"> <a href="{{path('newaddress_page',{'page':current_page-1})}}">« Previous</a></li>
+        {%endif%}
+        <li {%if current_page==loop.index%} class="active" {%endif%}> <a href="{{path('newaddress_page',{'page':loop.index})}}">{{loop.index}}</a></li>
+        {%if loop.last%}
+         <li class="next{%if current_page==total_pages%} disabled {%endif%}"> <a href="{{path('newaddress_page',{'page':current_page+1})}}">Next »</a></li>
+        {%endif%}
+        {%endfor%}{%endif%}
+</ul></div>
 <table class="adslist">
-			<tr>
-				{% for a in address %}
+    <tr>
+		{% for a in address %}           
                 {% if loop.index0 is divisibleby(3) %}
-			</tr>
-			<tr>
-				{% endif %}
-        <td>
+                	</tr>
+                        <tr>
+			{% endif %}{% if a is iterable %}
+                       <td>
 			<div class="posters">
-				<div class="date">{{a.showdate}}</div>
-					<center><b>{{a.title}}</b>
-					</center><br>
-					<b> 地址: {{a.street}} {{a.avenue}}</b><br>
-						{{a.newdes}}<a href="{{path('map_page',{'id':a.id})}}"><br><br>详细资料...</a>
-			</div>
-		</td>
+				<div class="date">{{a.postdate|date('Y-m-d')}}</div>
+					<div class="postertitle"><center><b>{{a.title}}</b></div></center>
+					<br>
+					<div id="posterdetail"><b> 地址: {{a.street}} {{a.avenue}}</b><br>
+					{{a.description}}
+                                         <a href="{{path('map_page',{'id':a.id})}}"><br><br>详细资料...</a>
+			</div></div>
+			</td>
+		{%endif%}
                 {% if loop.last %}
 			</tr>
 			{% endif %}
             {% endfor %}
+    {# pagination code #}   
+                 
 	</table>
 </div>
 
@@ -95,63 +110,40 @@
         <h1>Rental Info/出租资料</h1>
         
         <table> 
-            
+            <tr>
+            <label>Area: </label>
+                {% for a in area %}
+		<input type="radio" name="area" value="{{a.id}}" required>{{a.name}}
+		{% endfor %}
+            </tr>
             <tr><td width="250px">Title/标题:</td> <td><input class="say" name="title" type="text" value="" /></td></tr>
             <tr><td width="250px">Street/街名:</td> <td><input class="say" name="street" type="text" value="" /></td></tr>
             <tr><td>Avenue/大道:</td> <td><input class="say" name="avenue" type="text" value="" /></td></tr>
             <tr><td>Description/租房内容:</td> <td><textarea class="say" name="description"row="5" col="50"></textarea></td></tr>
             <tr><td>Contact/联系方式:</td> <td><input class="say" name="contact" type='text' placeholder="xxx-xxx-xxx"></td></tr>
             <tr><td>Zip Code/邮政编码:</td> <td><input class="say" name="zipcode" type='text' placeholder="#####"></td></tr>
-			<tr>
-				<td>Bath:</td> 
-				<td>
-				<select name="bathtxt">
-					{% for entity in bath %}
-						<option>{{ entity.numbath}}</option>
-					{% endfor %}
-				</select>
-				
-				</td>
-			</tr>
+            <tr><td>Rent Range:</td> 
+            <td><select name="pricetxt">
+		{% for entity in ranze %}
+		<option>{{ entity.pricerange}}</option>
+		{% endfor %}
+		</select>
+            </td>
+	    </tr><tr>
+		<td>选择出租房屋类型:</td>
+		<td class="styled-select">
+		<select name="renttype">
+		<option value="1">工作室 </option>
+		<option value="2">一房一厅</option>
+		<option value="3">两房一厅</option>
+		<option value="4">三房一厅</option>
+		<option value="5">四房一厅</option>
+		</select>
+		</td>
+		</tr>
             <tr>
-				<td>Rent Range:</td> 
-				<td>
-					<select name="pricetxt">
-						{% for entity in ranze %}
-							<option>{{ entity.pricerange}}</option>
-						{% endfor %}
-					</select>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>Laundry Facility:</td> 
-				<td>
-					<select name="londrytxt">
-						{% for entity in lndry %}
-							<option>{{ entity.laundrytype}}</option>
-						{% endfor %}
-					</select>
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td>选择出租房屋类型:</td>
-				<td class="styled-select">
-					<select name="renttype">
-						<option value="1">工作室 </option>
-						<option value="2">一房一厅</option>
-						<option value="3">两房一厅</option>
-						<option value="4">三間臥室</option>
-						<option value="5">四臥室</option>
-					</select>
-				</td>
-			</tr>
-            
-			<tr>
-				<td></td><td><input type="submit" name="submit" class="btnsubmit"  value="Submit The Paper/提交信息"></td>
-			</tr>
+		<td></td><td><input type="submit" name="submit" class="btnsubmit"  value="Submit The Paper/提交信息"></td>
+	    </tr>
     
         </table>
     </form>

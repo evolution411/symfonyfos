@@ -6,39 +6,88 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Markers
+ *
+ * @ORM\Table(name="markers")
+ * @ORM\Entity
  */
 class Markers
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="location_id", type="integer", nullable=false)
+     */
+    private $locationId;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=60, nullable=true)
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=100, nullable=false)
      */
     private $address;
 
     /**
      * @var float
+     *
+     * @ORM\Column(name="lat", type="float", precision=10, scale=6, nullable=false)
      */
     private $lat;
 
     /**
      * @var float
+     *
+     * @ORM\Column(name="lng", type="float", precision=10, scale=6, nullable=false)
      */
     private $lng;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=30, nullable=true)
      */
     private $type;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-  
+
+
+
+    /**
+     * Set locationId
+     *
+     * @param integer $locationId
+     * @return Markers
+     */
+    public function setLocationId($locationId)
+    {
+        $this->locationId = $locationId;
+
+        return $this;
+    }
+
+    /**
+     * Get locationId
+     *
+     * @return integer 
+     */
+    public function getLocationId()
+    {
+        return $this->locationId;
+    }
+
     /**
      * Set name
      *
@@ -48,7 +97,7 @@ class Markers
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -71,7 +120,7 @@ class Markers
     public function setAddress($address)
     {
         $this->address = $address;
-    
+
         return $this;
     }
 
@@ -94,7 +143,7 @@ class Markers
     public function setLat($lat)
     {
         $this->lat = $lat;
-    
+
         return $this;
     }
 
@@ -117,7 +166,7 @@ class Markers
     public function setLng($lng)
     {
         $this->lng = $lng;
-    
+
         return $this;
     }
 
@@ -140,7 +189,7 @@ class Markers
     public function setType($type)
     {
         $this->type = $type;
-    
+
         return $this;
     }
 
@@ -162,33 +211,5 @@ class Markers
     public function getId()
     {
         return $this->id;
-    }
-    /**
-     * @var integer
-     */
-    private $locationId;
-
-
-    /**
-     * Set locationId
-     *
-     * @param integer $locationId
-     * @return Markers
-     */
-    public function setLocationId($locationId)
-    {
-        $this->locationId = $locationId;
-    
-        return $this;
-    }
-
-    /**
-     * Get locationId
-     *
-     * @return integer 
-     */
-    public function getLocationId()
-    {
-        return $this->locationId;
     }
 }

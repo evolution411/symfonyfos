@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.insane/1">
+    <module_version install_time="1360794878143" last="true" origin="installer" specification_version="1.20.1.1">
+        <file crc="288786892" name="config/Modules/org-netbeans-insane.xml"/>
+        <file crc="1563581592" name="modules/locale/org-netbeans-insane_ja.jar"/>
+        <file crc="742312558" name="modules/locale/org-netbeans-insane_pt_BR.jar"/>
+        <file crc="4211742518" name="modules/locale/org-netbeans-insane_ru.jar"/>
+        <file crc="2717605558" name="modules/locale/org-netbeans-insane_zh_CN.jar"/>
+        <file crc="4123855200" name="modules/org-netbeans-insane.jar"/>
+    </module_version>
+</module>

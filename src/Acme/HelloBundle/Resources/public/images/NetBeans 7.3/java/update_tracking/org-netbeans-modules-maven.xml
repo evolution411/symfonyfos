@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.maven/2">
+    <module_version install_time="1360798636727" last="true" origin="installer" specification_version="2.67.1">
+        <file crc="1990391501" name="config/Modules/org-netbeans-modules-maven.xml"/>
+        <file crc="632073434" name="modules/locale/org-netbeans-modules-maven_ja.jar"/>
+        <file crc="876838485" name="modules/locale/org-netbeans-modules-maven_pt_BR.jar"/>
+        <file crc="468643229" name="modules/locale/org-netbeans-modules-maven_ru.jar"/>
+        <file crc="4187635390" name="modules/locale/org-netbeans-modules-maven_zh_CN.jar"/>
+        <file crc="629084654" name="modules/org-netbeans-modules-maven.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.websvc.saas.services.twitter">
+    <module_version install_time="1360795924406" last="true" origin="installer" specification_version="1.18.1">
+        <file crc="3083131037" name="config/Modules/org-netbeans-modules-websvc-saas-services-twitter.xml"/>
+        <file crc="4028728918" name="modules/locale/org-netbeans-modules-websvc-saas-services-twitter_ja.jar"/>
+        <file crc="3725471628" name="modules/locale/org-netbeans-modules-websvc-saas-services-twitter_pt_BR.jar"/>
+        <file crc="684908951" name="modules/locale/org-netbeans-modules-websvc-saas-services-twitter_ru.jar"/>
+        <file crc="660315504" name="modules/locale/org-netbeans-modules-websvc-saas-services-twitter_zh_CN.jar"/>
+        <file crc="2592579554" name="modules/org-netbeans-modules-websvc-saas-services-twitter.jar"/>
+    </module_version>
+</module>

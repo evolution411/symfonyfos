@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.websvc.restapi/0">
+    <module_version install_time="1360799276510" last="true" origin="installer" specification_version="1.18.1">
+        <file crc="567035595" name="config/Modules/org-netbeans-modules-websvc-restapi.xml"/>
+        <file crc="2147664844" name="modules/locale/org-netbeans-modules-websvc-restapi_ja.jar"/>
+        <file crc="2971950924" name="modules/locale/org-netbeans-modules-websvc-restapi_pt_BR.jar"/>
+        <file crc="3505347782" name="modules/locale/org-netbeans-modules-websvc-restapi_ru.jar"/>
+        <file crc="3146502649" name="modules/locale/org-netbeans-modules-websvc-restapi_zh_CN.jar"/>
+        <file crc="527151926" name="modules/org-netbeans-modules-websvc-restapi.jar"/>
+    </module_version>
+</module>

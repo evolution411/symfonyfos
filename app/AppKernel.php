@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             //new FOS\FacebookBundle\FOSFacebookBundle(),
 
             new Acme\UserBundle\AcmeUserBundle(),
-			new Acme\HelloBundle\AcmeHelloBundle(),
+	    new Acme\HelloBundle\AcmeHelloBundle(),
+           // new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

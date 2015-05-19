@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.web.kit">
+    <module_version install_time="1360800115351" last="true" origin="installer" specification_version="1.18.1">
+        <file crc="1818208259" name="VERSION.txt"/>
+        <file crc="2921192417" name="config/Modules/org-netbeans-modules-web-kit.xml"/>
+        <file crc="589916922" name="modules/locale/org-netbeans-modules-web-kit_ja.jar"/>
+        <file crc="2852016095" name="modules/locale/org-netbeans-modules-web-kit_pt_BR.jar"/>
+        <file crc="1023491649" name="modules/locale/org-netbeans-modules-web-kit_ru.jar"/>
+        <file crc="2156955272" name="modules/locale/org-netbeans-modules-web-kit_zh_CN.jar"/>
+        <file crc="2891517733" name="modules/org-netbeans-modules-web-kit.jar"/>
+    </module_version>
+</module>

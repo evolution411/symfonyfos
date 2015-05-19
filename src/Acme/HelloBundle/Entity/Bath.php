@@ -6,29 +6,29 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Bath
+ *
+ * @ORM\Table(name="bath")
+ * @ORM\Entity
  */
 class Bath
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
+     *
+     * @ORM\Column(name="numbath", type="string", length=50, nullable=false)
      */
     private $numbath;
 
-
     /**
-     * Get id
+     * @var integer
      *
-     * @return integer 
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
+
 
     /**
      * Set numbath
@@ -39,7 +39,7 @@ class Bath
     public function setNumbath($numbath)
     {
         $this->numbath = $numbath;
-    
+
         return $this;
     }
 
@@ -51,5 +51,15 @@ class Bath
     public function getNumbath()
     {
         return $this->numbath;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

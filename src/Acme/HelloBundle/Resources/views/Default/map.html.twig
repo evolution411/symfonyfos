@@ -1,37 +1,28 @@
 {% extends "AcmeHelloBundle:Default:basemap.html.twig"%}
-
 {% block container%}
-
-
 {% include "AcmeHelloBundle:Default:usermenu.html.twig"%}
+
 <body>
 {#<input type="hidden" id="lat" value="{{address.lat}}" />
 <input type="hidden" id="lng" value="{{address.lng}}" />
 <input type="hidden" id="addressname" value="{{name}}" />#}
-
-	<div id='column-right-map'>
+<div id='column-right-map'>
             {% if srchlst!=null %}
 		<div id="slider">
   <a href="#" class="control_next">>></a>
   <a href="#" class="control_prev"><</a>
-  
   <ul>
       {% for a in srchlst %}
-    <li><img src="{{asset(a.path)}}" ></li>
-    
-    {%endfor%}
-  </ul>  
-                </div>
+        <li><img src="{{asset(a.path)}}" ></li>
+      {%endfor%}
+  </ul></div>
 
 <div class="slider_option">
   <input type="checkbox" id="checkbox">
   <label for="checkbox">Autoplay Slider</label>
 </div> {%endif%}
-	</div>
-	
-	<div id='column-left-address-map'>
-		
-		<h2><b>{{posterinfo.title}}</b></h2>
+	</div>	
+	<div id='column-left-address-map'><h2><b>{{posterinfo.title}}</b></h2>
 		<p class="sansserif"><br>{{posterinfo.description}}</p>
 		<br><h2>Contact/联系方式:{{posterinfo.contact}}</h2>
 		<br>房型:{{posterinfo.renttype}}<br>
@@ -61,8 +52,6 @@
 			{% endif %}
 		</br></br>
 	{% endfor %}
-	
-	
 		<table width = 300px style="border:0px solid black;border-collapse:collapse;">
 			{% for a in uploadedvdolist %}
 				<tr align=center>
@@ -85,6 +74,4 @@
 </div>
 	
 </body>
-
-
 {% endblock %}

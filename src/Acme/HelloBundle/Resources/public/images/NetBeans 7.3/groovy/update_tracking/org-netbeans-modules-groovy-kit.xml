@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.groovy.kit">
+    <module_version install_time="1360799996124" last="true" origin="installer" specification_version="1.25.1">
+        <file crc="2970013914" name="VERSION.txt"/>
+        <file crc="3005287587" name="config/Modules/org-netbeans-modules-groovy-kit.xml"/>
+        <file crc="1707196973" name="modules/locale/org-netbeans-modules-groovy-kit_ja.jar"/>
+        <file crc="612074157" name="modules/locale/org-netbeans-modules-groovy-kit_pt_BR.jar"/>
+        <file crc="1890613910" name="modules/locale/org-netbeans-modules-groovy-kit_ru.jar"/>
+        <file crc="3763711696" name="modules/locale/org-netbeans-modules-groovy-kit_zh_CN.jar"/>
+        <file crc="3493562938" name="modules/org-netbeans-modules-groovy-kit.jar"/>
+    </module_version>
+</module>

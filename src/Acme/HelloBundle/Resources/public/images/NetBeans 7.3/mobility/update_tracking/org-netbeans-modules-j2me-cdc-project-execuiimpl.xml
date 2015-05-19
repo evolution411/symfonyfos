@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2me.cdc.project.execuiimpl">
+    <module_version install_time="1360798292877" last="true" origin="installer" specification_version="1.16.1">
+        <file crc="3495289147" name="config/Modules/org-netbeans-modules-j2me-cdc-project-execuiimpl.xml"/>
+        <file crc="4193234518" name="modules/locale/org-netbeans-modules-j2me-cdc-project-execuiimpl_ja.jar"/>
+        <file crc="123678632" name="modules/locale/org-netbeans-modules-j2me-cdc-project-execuiimpl_pt_BR.jar"/>
+        <file crc="688993906" name="modules/locale/org-netbeans-modules-j2me-cdc-project-execuiimpl_ru.jar"/>
+        <file crc="3084434625" name="modules/locale/org-netbeans-modules-j2me-cdc-project-execuiimpl_zh_CN.jar"/>
+        <file crc="1190400010" name="modules/org-netbeans-modules-j2me-cdc-project-execuiimpl.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.web.client.rest">
+    <module_version install_time="1360799696129" last="true" origin="installer" specification_version="1.2.1">
+        <file crc="1660755240" name="config/Modules/org-netbeans-modules-web-client-rest.xml"/>
+        <file crc="824117456" name="modules/locale/org-netbeans-modules-web-client-rest_ja.jar"/>
+        <file crc="3896728418" name="modules/locale/org-netbeans-modules-web-client-rest_pt_BR.jar"/>
+        <file crc="129183785" name="modules/locale/org-netbeans-modules-web-client-rest_ru.jar"/>
+        <file crc="3931099369" name="modules/locale/org-netbeans-modules-web-client-rest_zh_CN.jar"/>
+        <file crc="100425471" name="modules/org-netbeans-modules-web-client-rest.jar"/>
+    </module_version>
+</module>

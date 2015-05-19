@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2me.cdc.platform.ojec">
+    <module_version install_time="1360797629669" last="true" origin="installer" specification_version="1.9.1">
+        <file crc="901441361" name="config/Modules/org-netbeans-modules-j2me-cdc-platform-ojec.xml"/>
+        <file crc="3153808598" name="modules/locale/org-netbeans-modules-j2me-cdc-platform-ojec_ja.jar"/>
+        <file crc="551121991" name="modules/locale/org-netbeans-modules-j2me-cdc-platform-ojec_pt_BR.jar"/>
+        <file crc="1376112420" name="modules/locale/org-netbeans-modules-j2me-cdc-platform-ojec_ru.jar"/>
+        <file crc="3833070655" name="modules/locale/org-netbeans-modules-j2me-cdc-platform-ojec_zh_CN.jar"/>
+        <file crc="3861494469" name="modules/org-netbeans-modules-j2me-cdc-platform-ojec.jar"/>
+    </module_version>
+</module>

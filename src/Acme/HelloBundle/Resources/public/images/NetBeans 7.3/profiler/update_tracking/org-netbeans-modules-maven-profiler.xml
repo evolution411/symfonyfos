@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.maven.profiler/1">
+    <module_version install_time="1360798666933" last="true" origin="installer" specification_version="1.20.1">
+        <file crc="3344657031" name="config/Modules/org-netbeans-modules-maven-profiler.xml"/>
+        <file crc="2856400034" name="modules/locale/org-netbeans-modules-maven-profiler_ja.jar"/>
+        <file crc="1060645612" name="modules/locale/org-netbeans-modules-maven-profiler_pt_BR.jar"/>
+        <file crc="2219687994" name="modules/locale/org-netbeans-modules-maven-profiler_ru.jar"/>
+        <file crc="2296115650" name="modules/locale/org-netbeans-modules-maven-profiler_zh_CN.jar"/>
+        <file crc="2759676798" name="modules/org-netbeans-modules-maven-profiler.jar"/>
+    </module_version>
+</module>

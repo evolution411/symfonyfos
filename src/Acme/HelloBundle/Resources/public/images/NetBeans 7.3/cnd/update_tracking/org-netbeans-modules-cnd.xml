@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.cnd/1">
+    <module_version install_time="1360798009777" last="true" origin="installer" specification_version="1.25.1.1">
+        <file crc="1346693608" name="bin/dorun.sh"/>
+        <file crc="525386675" name="config/Modules/org-netbeans-modules-cnd.xml"/>
+        <file crc="3668804200" name="modules/docs/org-netbeans-modules-cnd.jar"/>
+        <file crc="219295433" name="modules/locale/org-netbeans-modules-cnd_ja.jar"/>
+        <file crc="1413801560" name="modules/locale/org-netbeans-modules-cnd_pt_BR.jar"/>
+        <file crc="465303558" name="modules/locale/org-netbeans-modules-cnd_ru.jar"/>
+        <file crc="4284199673" name="modules/locale/org-netbeans-modules-cnd_zh_CN.jar"/>
+        <file crc="395679324" name="modules/org-netbeans-modules-cnd.jar"/>
+    </module_version>
+</module>

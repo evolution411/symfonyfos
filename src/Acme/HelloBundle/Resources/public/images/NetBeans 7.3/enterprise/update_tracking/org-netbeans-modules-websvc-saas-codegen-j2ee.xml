@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.websvc.saas.codegen.j2ee">
+    <module_version install_time="1360799282758" last="true" origin="installer" specification_version="1.17.1">
+        <file crc="4245319412" name="config/Modules/org-netbeans-modules-websvc-saas-codegen-j2ee.xml"/>
+        <file crc="1012162426" name="modules/locale/org-netbeans-modules-websvc-saas-codegen-j2ee_ja.jar"/>
+        <file crc="3179378662" name="modules/locale/org-netbeans-modules-websvc-saas-codegen-j2ee_pt_BR.jar"/>
+        <file crc="2179343513" name="modules/locale/org-netbeans-modules-websvc-saas-codegen-j2ee_ru.jar"/>
+        <file crc="3355368353" name="modules/locale/org-netbeans-modules-websvc-saas-codegen-j2ee_zh_CN.jar"/>
+        <file crc="1666907514" name="modules/org-netbeans-modules-websvc-saas-codegen-j2ee.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="org.netbeans.modules.tasklist.ui/1">
+    <module_version install_time="1360797481927" last="false" origin="installer" specification_version="1.21.1.1">
+        <file crc="2796626611" name="config/Modules/org-netbeans-modules-tasklist-ui.xml"/>
+        <file crc="926389581" name="modules/locale/org-netbeans-modules-tasklist-ui_ja.jar"/>
+        <file crc="10305452" name="modules/locale/org-netbeans-modules-tasklist-ui_pt_BR.jar"/>
+        <file crc="948691485" name="modules/locale/org-netbeans-modules-tasklist-ui_ru.jar"/>
+        <file crc="3674852721" name="modules/locale/org-netbeans-modules-tasklist-ui_zh_CN.jar"/>
+        <file crc="3570304114" name="modules/org-netbeans-modules-tasklist-ui.jar"/>
+    </module_version>
+    <module_version install_time="1369159191910" last="true" origin="NetBeans Distribution" specification_version="1.21.2.1">
+        <file crc="2796626611" name="config/Modules/org-netbeans-modules-tasklist-ui.xml"/>
+        <file crc="4001135937" name="modules/locale/org-netbeans-modules-tasklist-ui_ja.jar"/>
+        <file crc="3960484643" name="modules/locale/org-netbeans-modules-tasklist-ui_pt_BR.jar"/>
+        <file crc="2424608794" name="modules/locale/org-netbeans-modules-tasklist-ui_ru.jar"/>
+        <file crc="694392853" name="modules/locale/org-netbeans-modules-tasklist-ui_zh_CN.jar"/>
+        <file crc="4147548930" name="modules/org-netbeans-modules-tasklist-ui.jar"/>
+    </module_version>
+</module>

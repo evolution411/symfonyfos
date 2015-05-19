@@ -1,0 +1,32 @@
+<?php
+
+namespace Acme\HelloBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Price
+ *
+ * @ORM\Table(name="price")
+ * @ORM\Entity
+ */
+class Price
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pricerange", type="string", length=50, nullable=false)
+     */
+    private $pricerange;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

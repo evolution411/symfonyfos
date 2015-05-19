@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="org.netbeans.modules.utilities/1">
+    <module_version install_time="1360796773338" last="false" origin="installer" specification_version="1.47.1">
+        <file crc="754223576" name="config/Modules/org-netbeans-modules-utilities.xml"/>
+        <file crc="1644259853" name="modules/locale/org-netbeans-modules-utilities_ja.jar"/>
+        <file crc="2840759684" name="modules/locale/org-netbeans-modules-utilities_pt_BR.jar"/>
+        <file crc="2384985963" name="modules/locale/org-netbeans-modules-utilities_ru.jar"/>
+        <file crc="3594047565" name="modules/locale/org-netbeans-modules-utilities_zh_CN.jar"/>
+        <file crc="916083711" name="modules/org-netbeans-modules-utilities.jar"/>
+    </module_version>
+    <module_version install_time="1369159193838" last="true" origin="NetBeans Distribution" specification_version="1.47.2">
+        <file crc="754223576" name="config/Modules/org-netbeans-modules-utilities.xml"/>
+        <file crc="1286668869" name="modules/locale/org-netbeans-modules-utilities_ja.jar"/>
+        <file crc="1220235156" name="modules/locale/org-netbeans-modules-utilities_pt_BR.jar"/>
+        <file crc="4180901189" name="modules/locale/org-netbeans-modules-utilities_ru.jar"/>
+        <file crc="3269461653" name="modules/locale/org-netbeans-modules-utilities_zh_CN.jar"/>
+        <file crc="404358889" name="modules/org-netbeans-modules-utilities.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.websvc.wsitmodelext">
+    <module_version install_time="1360797010580" last="true" origin="installer" specification_version="3.20.1">
+        <file crc="1685473853" name="config/Modules/org-netbeans-modules-websvc-wsitmodelext.xml"/>
+        <file crc="2040790245" name="modules/locale/org-netbeans-modules-websvc-wsitmodelext_ja.jar"/>
+        <file crc="2327591926" name="modules/locale/org-netbeans-modules-websvc-wsitmodelext_pt_BR.jar"/>
+        <file crc="922449008" name="modules/locale/org-netbeans-modules-websvc-wsitmodelext_ru.jar"/>
+        <file crc="1013458616" name="modules/locale/org-netbeans-modules-websvc-wsitmodelext_zh_CN.jar"/>
+        <file crc="163743215" name="modules/org-netbeans-modules-websvc-wsitmodelext.jar"/>
+    </module_version>
+</module>

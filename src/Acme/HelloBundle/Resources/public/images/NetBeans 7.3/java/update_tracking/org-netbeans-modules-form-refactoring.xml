@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.form.refactoring/0">
+    <module_version install_time="1360798371088" last="true" origin="installer" specification_version="0.7.1.1.4.1">
+        <file crc="1558902617" name="config/Modules/org-netbeans-modules-form-refactoring.xml"/>
+        <file crc="4090913281" name="modules/locale/org-netbeans-modules-form-refactoring_ja.jar"/>
+        <file crc="3325775889" name="modules/locale/org-netbeans-modules-form-refactoring_pt_BR.jar"/>
+        <file crc="3295824303" name="modules/locale/org-netbeans-modules-form-refactoring_ru.jar"/>
+        <file crc="521417511" name="modules/locale/org-netbeans-modules-form-refactoring_zh_CN.jar"/>
+        <file crc="3252368084" name="modules/org-netbeans-modules-form-refactoring.jar"/>
+    </module_version>
+</module>

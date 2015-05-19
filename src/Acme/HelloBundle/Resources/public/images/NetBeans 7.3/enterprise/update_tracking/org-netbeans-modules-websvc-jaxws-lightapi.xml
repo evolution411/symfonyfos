@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.websvc.jaxws.lightapi">
+    <module_version install_time="1360798444578" last="true" origin="installer" specification_version="1.15.1">
+        <file crc="301239234" name="config/Modules/org-netbeans-modules-websvc-jaxws-lightapi.xml"/>
+        <file crc="2940723183" name="modules/locale/org-netbeans-modules-websvc-jaxws-lightapi_ja.jar"/>
+        <file crc="1266018910" name="modules/locale/org-netbeans-modules-websvc-jaxws-lightapi_pt_BR.jar"/>
+        <file crc="38569709" name="modules/locale/org-netbeans-modules-websvc-jaxws-lightapi_ru.jar"/>
+        <file crc="140195465" name="modules/locale/org-netbeans-modules-websvc-jaxws-lightapi_zh_CN.jar"/>
+        <file crc="2515295197" name="modules/org-netbeans-modules-websvc-jaxws-lightapi.jar"/>
+    </module_version>
+</module>

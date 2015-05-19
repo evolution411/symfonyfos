@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.php.editor">
+    <module_version install_time="1360799539331" last="true" origin="installer" specification_version="1.29.1.2">
+        <file crc="1004887788" name="config/Modules/org-netbeans-modules-php-editor.xml"/>
+        <file crc="85434726" name="docs/predefined_vars.zip"/>
+        <file crc="173485577" name="modules/locale/org-netbeans-modules-php-editor_ja.jar"/>
+        <file crc="1098532536" name="modules/locale/org-netbeans-modules-php-editor_pt_BR.jar"/>
+        <file crc="1406660134" name="modules/locale/org-netbeans-modules-php-editor_ru.jar"/>
+        <file crc="1188710723" name="modules/locale/org-netbeans-modules-php-editor_zh_CN.jar"/>
+        <file crc="204158479" name="modules/org-netbeans-modules-php-editor.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.lib.nbjavac">
+    <module_version install_time="1360794994036" last="true" origin="installer" specification_version="1.5.1.1.20">
+        <file crc="544358050" name="config/Modules/org-netbeans-lib-nbjavac.xml"/>
+        <file crc="1322826810" name="modules/locale/org-netbeans-lib-nbjavac_ja.jar"/>
+        <file crc="1828016412" name="modules/locale/org-netbeans-lib-nbjavac_pt_BR.jar"/>
+        <file crc="3562441053" name="modules/locale/org-netbeans-lib-nbjavac_ru.jar"/>
+        <file crc="1266924783" name="modules/locale/org-netbeans-lib-nbjavac_zh_CN.jar"/>
+        <file crc="2516762629" name="modules/org-netbeans-lib-nbjavac.jar"/>
+    </module_version>
+</module>

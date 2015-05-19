@@ -1,37 +1,11 @@
-{# empty Twig template #}
-        
-            {%if user=="noresult"%}
-            <form action='adminusers' method='POST'>
-            <input type='submit' value='Generate Access Code' name='btngencode'>
-            </form>
-            <br>
-            {%endif%}
-        
-	{%if user!="noresult"%}
-		<table width="700px">
-                <tr>
-					<td>ID</td>
-					<td>Access Code</td>
-					<td>Password</td>
-					<td>Location ID</td>
-					<td>Active</td>
-				</tr>
-            
-            
-				{% for a in user %}
-                <tr>
-                    <td>{{a.id}}</td>
-					<td>{{a.code}}</td>
-					<td>{{a.password}}</td>
-					<td>{{a.locationId}}</td>
-					<td>{{a.active}}</td>
-                </tr>
-				{% endfor %}
-                
-				<form action='adminusers' method='POST'>
-                      <input type='submit' value='Generate Access Code' name='btngencode'>
-                </form>
-    {%endif%}
-        </table>
-          
-            
+         
+<form action="" method="post">
+    
+<table>
+    
+   {# <tr><td>Username: </td><td><input type="text" name="username" value="{{ user.username }}"></td></tr>
+    <tr><td>Email: </td><td><input type="text" name="email" value="{{ user.email }}"></td></tr>
+    <tr><td></td><td><input type="submit" name="btnmodify" value="Update User"></td></tr>#}User:{{user}}
+    
+</table>
+</form>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.web.monitor/1">
+    <module_version install_time="1360796668115" last="true" origin="installer" specification_version="1.35.1">
+        <file crc="2882981240" name="config/Modules/org-netbeans-modules-web-monitor.xml"/>
+        <file crc="2260926819" name="modules/docs/org-netbeans-modules-web-monitor.jar"/>
+        <file crc="355796596" name="modules/ext/locale/org-netbeans-modules-web-httpmonitor_ja.jar"/>
+        <file crc="3993689197" name="modules/ext/locale/org-netbeans-modules-web-httpmonitor_pt_BR.jar"/>
+        <file crc="1358204570" name="modules/ext/locale/org-netbeans-modules-web-httpmonitor_ru.jar"/>
+        <file crc="1682207755" name="modules/ext/locale/org-netbeans-modules-web-httpmonitor_zh_CN.jar"/>
+        <file crc="2337074169" name="modules/ext/org-netbeans-modules-web-httpmonitor.jar"/>
+        <file crc="1568876607" name="modules/locale/org-netbeans-modules-web-monitor_ja.jar"/>
+        <file crc="3562639233" name="modules/locale/org-netbeans-modules-web-monitor_pt_BR.jar"/>
+        <file crc="1025064887" name="modules/locale/org-netbeans-modules-web-monitor_ru.jar"/>
+        <file crc="2184544215" name="modules/locale/org-netbeans-modules-web-monitor_zh_CN.jar"/>
+        <file crc="1585232574" name="modules/org-netbeans-modules-web-monitor.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.libs.ppawtlayout/1">
+    <module_version install_time="1360795067773" last="true" origin="installer" specification_version="1.18.1">
+        <file crc="124748992" name="config/Modules/org-netbeans-libs-ppawtlayout.xml"/>
+        <file crc="2924302438" name="modules/ext/cdc-pp-awt-layout.jar"/>
+        <file crc="3916957453" name="modules/locale/org-netbeans-libs-ppawtlayout_ja.jar"/>
+        <file crc="4055749930" name="modules/locale/org-netbeans-libs-ppawtlayout_pt_BR.jar"/>
+        <file crc="2419603880" name="modules/locale/org-netbeans-libs-ppawtlayout_ru.jar"/>
+        <file crc="2018121261" name="modules/locale/org-netbeans-libs-ppawtlayout_zh_CN.jar"/>
+        <file crc="1839896405" name="modules/org-netbeans-libs-ppawtlayout.jar"/>
+        <file crc="1899261303" name="sources/cdc-pp-awt-layout-src.zip"/>
+    </module_version>
+</module>

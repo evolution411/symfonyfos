@@ -5,56 +5,62 @@ namespace Acme\HelloBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * images
+ * Images
+ *
+ * @ORM\Table(name="images")
+ * @ORM\Entity
  */
-class images
+class Images
 {
     /**
      * @var integer
-     */
-    private $id;
-
-    /**
-     * @var integer
+     *
+     * @ORM\Column(name="posterid", type="integer", nullable=false)
      */
     private $posterid;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="img_name", type="string", length=200, nullable=false)
      */
     private $imgName;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="path", type="string", length=100, nullable=false)
      */
     private $path;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
      */
     private $status;
 
-
     /**
-     * Get id
+     * @var integer
      *
-     * @return integer 
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
+
 
     /**
      * Set posterid
      *
      * @param integer $posterid
-     * @return images
+     * @return Images
      */
     public function setPosterid($posterid)
     {
         $this->posterid = $posterid;
-    
+
         return $this;
     }
 
@@ -72,12 +78,12 @@ class images
      * Set imgName
      *
      * @param string $imgName
-     * @return images
+     * @return Images
      */
     public function setImgName($imgName)
     {
         $this->imgName = $imgName;
-    
+
         return $this;
     }
 
@@ -95,12 +101,12 @@ class images
      * Set path
      *
      * @param string $path
-     * @return images
+     * @return Images
      */
     public function setPath($path)
     {
         $this->path = $path;
-    
+
         return $this;
     }
 
@@ -118,12 +124,12 @@ class images
      * Set status
      *
      * @param integer $status
-     * @return images
+     * @return Images
      */
     public function setStatus($status)
     {
         $this->status = $status;
-    
+
         return $this;
     }
 
@@ -135,5 +141,15 @@ class images
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

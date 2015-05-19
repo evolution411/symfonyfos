@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.web.clientproject.api">
+    <module_version install_time="1360798997641" last="true" origin="installer" specification_version="1.14.1">
+        <file crc="690252550" name="config/Modules/org-netbeans-modules-web-clientproject-api.xml"/>
+        <file crc="385157716" name="modules/locale/org-netbeans-modules-web-clientproject-api_ja.jar"/>
+        <file crc="1165766900" name="modules/locale/org-netbeans-modules-web-clientproject-api_pt_BR.jar"/>
+        <file crc="1200318134" name="modules/locale/org-netbeans-modules-web-clientproject-api_ru.jar"/>
+        <file crc="2869921486" name="modules/locale/org-netbeans-modules-web-clientproject-api_zh_CN.jar"/>
+        <file crc="4047952621" name="modules/org-netbeans-modules-web-clientproject-api.jar"/>
+    </module_version>
+</module>

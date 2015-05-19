@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.websvc.editor.hints">
+    <module_version install_time="1360799341651" last="true" origin="installer" specification_version="1.20.1">
+        <file crc="3622609901" name="config/Modules/org-netbeans-modules-websvc-editor-hints.xml"/>
+        <file crc="1150731281" name="modules/locale/org-netbeans-modules-websvc-editor-hints_ja.jar"/>
+        <file crc="2914558417" name="modules/locale/org-netbeans-modules-websvc-editor-hints_pt_BR.jar"/>
+        <file crc="661061633" name="modules/locale/org-netbeans-modules-websvc-editor-hints_ru.jar"/>
+        <file crc="3471702115" name="modules/locale/org-netbeans-modules-websvc-editor-hints_zh_CN.jar"/>
+        <file crc="1761782712" name="modules/org-netbeans-modules-websvc-editor-hints.jar"/>
+    </module_version>
+</module>

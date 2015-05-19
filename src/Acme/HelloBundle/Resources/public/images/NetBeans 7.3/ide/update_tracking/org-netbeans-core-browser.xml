@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.core.browser/1">
+    <module_version install_time="1360796091546" last="true" origin="installer" specification_version="1.17.1.1">
+        <file crc="2536127157" name="config/Modules/org-netbeans-core-browser.xml"/>
+        <file crc="105814670" name="modules/locale/org-netbeans-core-browser_ja.jar"/>
+        <file crc="1634048572" name="modules/locale/org-netbeans-core-browser_pt_BR.jar"/>
+        <file crc="3007825617" name="modules/locale/org-netbeans-core-browser_ru.jar"/>
+        <file crc="1351987987" name="modules/locale/org-netbeans-core-browser_zh_CN.jar"/>
+        <file crc="2722179246" name="modules/org-netbeans-core-browser.jar"/>
+    </module_version>
+</module>

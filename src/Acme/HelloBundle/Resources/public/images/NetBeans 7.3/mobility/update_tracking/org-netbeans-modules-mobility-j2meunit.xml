@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.mobility.j2meunit">
+    <module_version install_time="1360799628484" last="true" origin="installer" specification_version="1.22.1">
+        <file crc="1031989301" name="config/Modules/org-netbeans-modules-mobility-j2meunit.xml"/>
+        <file crc="2136108709" name="modules/docs/jmunit-1.2.1-api.zip"/>
+        <file crc="3316207997" name="modules/ext/jmunit4cldc10-1.2.1.jar"/>
+        <file crc="898306671" name="modules/ext/jmunit4cldc11-1.2.1.jar"/>
+        <file crc="1987879270" name="modules/locale/org-netbeans-modules-mobility-j2meunit_ja.jar"/>
+        <file crc="3921206333" name="modules/locale/org-netbeans-modules-mobility-j2meunit_pt_BR.jar"/>
+        <file crc="3532818737" name="modules/locale/org-netbeans-modules-mobility-j2meunit_ru.jar"/>
+        <file crc="470675731" name="modules/locale/org-netbeans-modules-mobility-j2meunit_zh_CN.jar"/>
+        <file crc="4202390195" name="modules/org-netbeans-modules-mobility-j2meunit.jar"/>
+    </module_version>
+</module>

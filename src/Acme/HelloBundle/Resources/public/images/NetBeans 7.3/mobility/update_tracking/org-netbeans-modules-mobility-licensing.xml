@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.mobility.licensing">
+    <module_version install_time="1360796474955" last="true" origin="installer" specification_version="1.18.1">
+        <file crc="2521151584" name="config/Modules/org-netbeans-modules-mobility-licensing.xml"/>
+        <file crc="2783203303" name="modules/locale/org-netbeans-modules-mobility-licensing_ja.jar"/>
+        <file crc="3187145550" name="modules/locale/org-netbeans-modules-mobility-licensing_pt_BR.jar"/>
+        <file crc="1791335915" name="modules/locale/org-netbeans-modules-mobility-licensing_ru.jar"/>
+        <file crc="3226614310" name="modules/locale/org-netbeans-modules-mobility-licensing_zh_CN.jar"/>
+        <file crc="2717205702" name="modules/org-netbeans-modules-mobility-licensing.jar"/>
+    </module_version>
+</module>

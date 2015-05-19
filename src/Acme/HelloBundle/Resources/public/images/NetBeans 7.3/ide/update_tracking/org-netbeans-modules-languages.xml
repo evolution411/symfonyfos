@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.languages/0">
+    <module_version install_time="1360797450559" last="true" origin="installer" specification_version="1.111.1.2">
+        <file crc="4097652955" name="config/Modules/org-netbeans-modules-languages.xml"/>
+        <file crc="3505416980" name="modules/locale/org-netbeans-modules-languages_ja.jar"/>
+        <file crc="4203983146" name="modules/locale/org-netbeans-modules-languages_pt_BR.jar"/>
+        <file crc="3695987604" name="modules/locale/org-netbeans-modules-languages_ru.jar"/>
+        <file crc="846708550" name="modules/locale/org-netbeans-modules-languages_zh_CN.jar"/>
+        <file crc="1160211964" name="modules/org-netbeans-modules-languages.jar"/>
+    </module_version>
+</module>

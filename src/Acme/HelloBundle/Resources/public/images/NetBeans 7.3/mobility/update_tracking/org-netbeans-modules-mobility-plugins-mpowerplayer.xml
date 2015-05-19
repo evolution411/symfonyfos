@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.mobility.plugins.mpowerplayer">
+    <module_version install_time="1360796523542" last="true" origin="installer" specification_version="1.17.1">
+        <file crc="2833535536" name="config/Modules/org-netbeans-modules-mobility-plugins-mpowerplayer.xml"/>
+        <file crc="3285344760" name="modules/locale/org-netbeans-modules-mobility-plugins-mpowerplayer_ja.jar"/>
+        <file crc="1102151083" name="modules/locale/org-netbeans-modules-mobility-plugins-mpowerplayer_pt_BR.jar"/>
+        <file crc="820725330" name="modules/locale/org-netbeans-modules-mobility-plugins-mpowerplayer_ru.jar"/>
+        <file crc="2740694634" name="modules/locale/org-netbeans-modules-mobility-plugins-mpowerplayer_zh_CN.jar"/>
+        <file crc="2697236711" name="modules/org-netbeans-modules-mobility-plugins-mpowerplayer.jar"/>
+    </module_version>
+</module>

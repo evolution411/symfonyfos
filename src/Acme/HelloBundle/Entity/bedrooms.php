@@ -5,70 +5,41 @@ namespace Acme\HelloBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * bedrooms
+ * Bedrooms
+ *
+ * @ORM\Table(name="bedrooms")
+ * @ORM\Entity
  */
-class bedrooms
+class Bedrooms
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
-     * @var integer
-     */
-//    private $bdid;
-
-    /**
      * @var string
+     *
+     * @ORM\Column(name="bdroomtype", type="string", length=50, nullable=false)
      */
     private $bdroomtype;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-	 
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    /**
-     * Set bdid
-     *
-     * @param integer $bdid
-     * @return bedrooms
-     */
-  /*  public function setBdid($bdid)
-    {
-        $this->bdid = $bdid;
-    
-        return $this;
-    }
-*/
-    /**
-     * Get bdid
-     *
-     * @return integer 
-     */
-  /*  public function getBdid()
-    {
-        return $this->bdid;
-    }
-*/
+
     /**
      * Set bdroomtype
      *
      * @param string $bdroomtype
-     * @return bedrooms
+     * @return Bedrooms
      */
     public function setBdroomtype($bdroomtype)
     {
         $this->bdroomtype = $bdroomtype;
-    
+
         return $this;
     }
 
@@ -80,5 +51,15 @@ class bedrooms
     public function getBdroomtype()
     {
         return $this->bdroomtype;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

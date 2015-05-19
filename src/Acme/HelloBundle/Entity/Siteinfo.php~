@@ -1,0 +1,46 @@
+<?php
+
+namespace Acme\HelloBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Siteinfo
+ *
+ * @ORM\Table(name="siteinfo")
+ * @ORM\Entity
+ */
+class Siteinfo
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sitephone", type="string", length=20, nullable=false)
+     */
+    private $sitephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aboutus", type="string", length=250, nullable=false)
+     */
+    private $aboutus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mission", type="string", length=250, nullable=false)
+     */
+    private $mission;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="siteemail", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $siteemail;
+
+
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2ee.dd.webservice">
+    <module_version install_time="1360798429737" last="true" origin="installer" specification_version="1.24.1">
+        <file crc="3128345248" name="config/Modules/org-netbeans-modules-j2ee-dd-webservice.xml"/>
+        <file crc="1494869333" name="modules/locale/org-netbeans-modules-j2ee-dd-webservice_ja.jar"/>
+        <file crc="2462436445" name="modules/locale/org-netbeans-modules-j2ee-dd-webservice_pt_BR.jar"/>
+        <file crc="1574877041" name="modules/locale/org-netbeans-modules-j2ee-dd-webservice_ru.jar"/>
+        <file crc="2202645768" name="modules/locale/org-netbeans-modules-j2ee-dd-webservice_zh_CN.jar"/>
+        <file crc="4117050246" name="modules/org-netbeans-modules-j2ee-dd-webservice.jar"/>
+    </module_version>
+</module>

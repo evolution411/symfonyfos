@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2eeapis/1">
+    <module_version install_time="1360795775422" last="true" origin="installer" specification_version="1.26.1">
+        <file crc="4186342088" name="config/Modules/org-netbeans-modules-j2eeapis.xml"/>
+        <file crc="4251592787" name="modules/ext/jsr88javax.jar"/>
+        <file crc="3968725968" name="modules/locale/org-netbeans-modules-j2eeapis_ja.jar"/>
+        <file crc="441179365" name="modules/locale/org-netbeans-modules-j2eeapis_pt_BR.jar"/>
+        <file crc="2191197604" name="modules/locale/org-netbeans-modules-j2eeapis_ru.jar"/>
+        <file crc="307348947" name="modules/locale/org-netbeans-modules-j2eeapis_zh_CN.jar"/>
+        <file crc="466448691" name="modules/org-netbeans-modules-j2eeapis.jar"/>
+    </module_version>
+</module>

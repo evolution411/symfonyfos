@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.svg.perseus">
+    <module_version install_time="1360795837806" last="true" origin="installer" specification_version="1.19.1">
+        <file crc="895705640" name="config/Modules/org-netbeans-modules-svg-perseus.xml"/>
+        <file crc="1437995298" name="modules/ext/perseus-nb-1.0.1.jar"/>
+        <file crc="680079977" name="modules/locale/org-netbeans-modules-svg-perseus_ja.jar"/>
+        <file crc="3312712911" name="modules/locale/org-netbeans-modules-svg-perseus_pt_BR.jar"/>
+        <file crc="1137788787" name="modules/locale/org-netbeans-modules-svg-perseus_ru.jar"/>
+        <file crc="142034408" name="modules/locale/org-netbeans-modules-svg-perseus_zh_CN.jar"/>
+        <file crc="3523129654" name="modules/org-netbeans-modules-svg-perseus.jar"/>
+    </module_version>
+</module>

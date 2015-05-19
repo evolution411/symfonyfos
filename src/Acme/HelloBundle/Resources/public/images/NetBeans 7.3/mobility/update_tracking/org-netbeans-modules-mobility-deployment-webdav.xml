@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.mobility.deployment.webdav">
+    <module_version install_time="1360796499099" last="true" origin="installer" specification_version="1.19.1">
+        <file crc="4136625939" name="config/Modules/org-netbeans-modules-mobility-deployment-webdav.xml"/>
+        <file crc="4091200003" name="modules/ext/commons-httpclient-3.0.1.jar"/>
+        <file crc="4193239617" name="modules/ext/jakarta-slide-ant-webdav-2.1.jar"/>
+        <file crc="1400804575" name="modules/ext/jakarta-slide-webdavlib-2.1.jar"/>
+        <file crc="1807649264" name="modules/ext/jdom-1.0.jar"/>
+        <file crc="2622920049" name="modules/locale/org-netbeans-modules-mobility-deployment-webdav_ja.jar"/>
+        <file crc="1628002663" name="modules/locale/org-netbeans-modules-mobility-deployment-webdav_pt_BR.jar"/>
+        <file crc="508167782" name="modules/locale/org-netbeans-modules-mobility-deployment-webdav_ru.jar"/>
+        <file crc="3543716550" name="modules/locale/org-netbeans-modules-mobility-deployment-webdav_zh_CN.jar"/>
+        <file crc="2890380496" name="modules/org-netbeans-modules-mobility-deployment-webdav.jar"/>
+        <file crc="1568055647" name="modules/scr/deploy-webdav-impl.xml"/>
+    </module_version>
+</module>

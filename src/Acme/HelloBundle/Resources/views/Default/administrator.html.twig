@@ -20,29 +20,45 @@
 
 
 <body>
+
 <div id="container1">
 	<div id="top1">
-		{% if app.session.has('login') %} 
-		welcome {{ app.session.get('adminlogin') }} 
+		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Welcome Back {{ app.user.username }} !
+    <a href="{{path('fos_user_security_logout')}}">Logout</a>
 		
 		
 		
 	</div>
  
 	<div id="leftnav1">
-		
-		<p><a href="{{path('Alluser_page')}}">All Users</a></p>
+                    
+		<p><a href="">All Users</a></p>
 		<p><a href="{{path('blockuser_page')}}">Blocked Users</a></p>
-		<p><a href="#">Create Ads</a></p>
-		<p><a href="{{path('adminlogout_page')}}">Signout</a></p>
+                <p><a href="{{path('adminads_page')}}">All Posters </a></p>
+		<p><a href="{{path('adminnewposter_page')}}">Create Ads</a></p>
+		<p><a href="{{path('adminmaps_page')}}">Site Info</a></p>
 		
 		
 	</div>
 	<div id="content1">
 		<h2>Control Panel</h2>
-		<p>
-		Whats up
-		</p>
+		
+                <form action="{{path('adminusers_page')}}" method="POST">
+                <fieldset>
+                <legend>Search User or Posters</legend>
+                Email:
+                <input type="text" name="srchemail" placeholder="Email">
+                <br>
+                Username:
+                <input type="text" name="srchname" placeholder="Username">
+                <br>
+                <input type="submit" name="btnsrchuser" value="Search User">
+                </fieldset>
+                </form>
+		
+                
+               
 	</div>
 	{% else %}
 		<div id="content1">

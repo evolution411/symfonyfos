@@ -15,50 +15,6 @@
 <div class="overlay" id="overlay" style="display:none;"></div>
 
 
-<div align="center" id="search-block-np-mypost">
-<form method="POST" action="search">
-
-	<div align="center" id="mini-search-block">
-		</br>
-		</br>
-		
-		<p>#Price Range:	
-			<select name="pricetxt">
-				{% for entity in ranze %}
-					<option>{{ entity.pricerange}}</option>
-				{% endfor %}
-			</select>
-		</p>
-	</div>
-
-	<div align="center" id="mini-search-block-mid">
-		</br>
-		</br>
-		<p>
-			<select name="selectoption">
-			<option value="1">Or any word matches</option>
-			<option value="2">And only word matches</option>
-		</select>
-		</p>	
-	</div>
-	
-	<div align="center" id="mini-search-block-np">
-	
-		
-			<p></p>
-			</br></br>
-				<input type="text" name="searchtext" size="60" placeholder="輸入關鍵字如：兩居室，郵編" required>
-				<input type="submit" name="btnsearch" value="Find Apartments">
-			  
-		
-	</div>
-</form>	
-	
-	
-</div>
-
-
-
 <div id="maindv">
 	<div id="myposter-small">
 		<table>

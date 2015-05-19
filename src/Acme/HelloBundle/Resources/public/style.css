@@ -36,11 +36,11 @@ p1 {font-size:11px;}
 .logo img{
 position:absolute;
 float:left;
-left: 15em;
+left: 10em;
 height: 100px;
 width: 400px;
 top:15px;
-margin:-20px auto auto -180px;
+margin:-20px auto auto -11%;
 
 }
 #header{
@@ -53,19 +53,23 @@ width: 100%;
 
 }
 .user-nav{
-position: absolute;
-z-index: 4000;
-text-align:left;
-background-color:#3B5998;
-margin: 10px auto 0 350px;
-padding-top:5px;
-width: 898px;
-height:50px;
-border-bottom: 1px solid #bbb;
-font-size: 13px;
+    background-color: #3b5998;
+    border-bottom: 1px solid #bbb;
+    font-size: 13px;
+    height: 50px;
+    top:10px;
+    left: 26%;
+    padding-top: 3px;
+    position: absolute;
+    text-align: left;
+    width: 898px;
+    z-index: 4000;
 }
 .user-nav a:hover{
 color:#00A8DB;
+}
+#welmsg{
+    float: right;
 }
 .user-nav a
 {
@@ -79,7 +83,6 @@ color:#00A8DB;
 	text-decoration:none;
 	border-right:1px solid #eee;
 	letter-spacing: -1px;
-
 }
 .loginlink{
 display: block;
@@ -113,7 +116,7 @@ ul#nav {
 #maincontent{
 	position:absolute;
 	top:0px;
-    left:250px;
+        left:250px;
 }
 ul#nav li a {
     transition: all 0.3s ease-out;;
@@ -144,8 +147,8 @@ root {
     width: 550px;
 }
 .posters{
-    height:200px;
-    width: 180px;
+    height:160px;
+    width: 150px;
     
 }
 .posters:hover{
@@ -157,7 +160,7 @@ root {
     box-shadow: 0px 3px 15px hsla(0,0%,0%,.08);
     margin: 23px auto; /* to make gap between two posters horizontal gap */
     position: relative;
-    
+    font-size:14px;
     border: 1px solid #dfdfd3;
     background-image: -webkit-radial-gradient(#d6d5d6 30%, transparent 20%),
                       -webkit-radial-gradient(#cfcfc3 38%, transparent 24%),
@@ -186,7 +189,10 @@ regform:after {
     top: 0;
     width: 3px;
 }
-
+#posterdetail{
+margin-left: 0px;
+font-size:12px;
+}
 regform a,.posters a{
     color: hsla(0,75%,37%,1);
     text-decoration: none;
@@ -280,7 +286,8 @@ resize: none;
 .date{
 position: absolute;
 float:right;
-margin: 100px auto 0 150px;
+vertical-align:text-bottom;
+margin:150px auto auto 120px;
 font-weight: normal;
 font-size: 13px;
 }
@@ -313,6 +320,11 @@ float: right;
 .adslist{
    position: relative;
    margin: 0 auto 0 auto;   
+   width:100%;
+}
+.adslist,td{
+
+height:100%;
 }
 /* ------------------------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------------------------*/
@@ -536,7 +548,7 @@ display:block;
 	position:relative;
 	top: 20px;
 	width:80%;
-	height:35%;
+	height:45%;
 	margin: 0 auto auto auto;
 	border:1px solid grey;
 }
@@ -545,11 +557,14 @@ display:block;
 {
 	position:relative;
 	top: 70px;
+        padding-top:15px;
 	width:85%;
-	height:20%;
+	height:120px;
 	margin: 0 auto auto auto;
-	border:1px solid grey;
+        font-size:15px;
+	/*border:1px solid grey;*/
 	background-color:#BBD2EA;
+        
 }
 
 #search-block-np-mypost
@@ -557,47 +572,58 @@ display:block;
 	position:relative;
 	top: 20px;
 	width:100%;
-	height:25%;
+	height:30%;
 	margin: 0 auto auto auto;
 	border:0px solid grey;
 	
 }
-
+.srchtxt{
+background: #eee;
+padding:5px;/*
+ border-radius:10px 0 0 10px;
+-moz-border-radius:10px 0 0 10px;
+-webkit-border-radius:10px 0 0 10px;
+-o-border-radius:10px 0 0 10px;*/
+border:0 none;
+width:160px;
+}
+.srchbtn{
+background:#0099ff;
+color:white;
+font: 'trebuchet ms', trebuchet;
+padding:10px 20px;
+border-radius:10px 10px 10px 10px;
+-moz-border-radius:10px 10px 10px 10px;
+-webkit-border-radius:10px 10px 10px 10px;
+-o-border-radius:10px 10px 10px 10px;
+border:0 none;
+font-weight:bold;
+}
+/*
 #mini-search-block-np
 {
 	position:relative;
 	top: 0px;
-	width:55%;
-	height:100%;
-	margin: 0 auto auto auto;
+	width:50%;
+	height:50%;
+        margin-left:-400px;
+	margin: 20px auto auto auto;
 	border:0px solid grey;
-	float: right;
+	float: left;
 	
 }
-
+*/
 #mini-search-block
 {
 	position:relative;
-	top: 0px;
-	width:27%;
+	width:70%;
 	height:100%;
-	margin: 0 auto auto auto;
 	border:0px solid grey;
+        margin:5px auto auto 180px;
 	float: left;
 	
 }
 
-#mini-search-block-mid
-{
-	position:relative;
-	top: 0px;
-	width:12%;
-	height:100%;
-	margin: 0 auto auto auto;
-	border:0px solid grey;
-	float: left;
-	
-}
 
 #mini-search-block-last
 {
@@ -722,7 +748,9 @@ input.search {
  #content h2 { margin: 0 0 .5em 0; }
  
  #slider {
-  position: relative;
+     width:500px;
+     height:300px;
+  position: absolute;
   overflow: hidden;
   margin: 20px auto 0 auto;
   border-radius: 4px;
@@ -789,4 +817,148 @@ a.control_next {
   margin: 10px auto;
   width: 160px;
   font-size: 18px;
+}
+.mini-search-block{
+    position: absolute;
+    margin-top:310px;
+}
+/* drop down select option css*/
+#mini-search-block select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+#mini-search-block label {position:relative}
+#mini-search-block label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+#mini-search-block label:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+.andor{
+    width:60px;
+}
+.pricerange, .apttype{
+    width:120px;
+}
+
+#pagestyle
+{
+position: relative;
+width:100%;
+background-color:#3B5998;
+float: right;
+margin:-36px auto auto 750px;
+border:0; 
+padding-top:-10px;
+
+}
+
+#pagination-flickr li{
+    
+border:0;
+margin:0;
+padding:0;
+font-size:14px;
+list-style:none;
+color: #fff;
+}
+#pagination-flickr a{
+/*border:solid 1px #DDDDDD;*/
+
+color: #fff;
+
+}
+#pagination-flickr .previous-off,
+#pagination-flickr .next {
+color:#666666;
+display:block;
+float:left;
+font-weight:bold;
+padding:0px 0px;
+}
+#pagination-flickr .next a,
+#pagination-flickr .previous-off a {
+font-weight:bold;
+/*border:solid 1px #FFFFFF;*/
+} 
+#pagination-flickr .active{
+font-weight:bold;
+background-color:#6DA958;;
+display:block;
+float:left;
+padding:0px 0px;
+
+}
+
+#pagination-flickr .disabled{
+
+pointer-events: none;
+cursor: default;
+}
+#pagination-flickr a:link,
+#pagination-flickr a:visited {
+color:#fff;
+display:block;
+float:left;
+padding:3px 6px;
+text-decoration:none;
+}
+#pagination-flickr a:hover{
+color:#000000;
+}
+#main-center{
+    top:60px;
+    position:relative;
+    width:85%;
+    height:350px;
+    margin: 0 auto auto auto;
+}
+
+#aboutus{
+   position:absolute;
+   top:22px;
+   width:595px;
+   height:300px;
+   left:48%;
+   background-color:#224;
+   color:white;
+   border-radius: 4px;
 }

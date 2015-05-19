@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.javacard.apdu.io/1">
+    <module_version install_time="1360795782145" last="true" origin="installer" specification_version="1.12.1">
+        <file crc="707367833" name="config/Modules/org-netbeans-modules-javacard-apdu-io.xml"/>
+        <file crc="3023051667" name="modules/ext/apduio.jar"/>
+        <file crc="1910833357" name="modules/locale/org-netbeans-modules-javacard-apdu-io_ja.jar"/>
+        <file crc="1312442833" name="modules/locale/org-netbeans-modules-javacard-apdu-io_pt_BR.jar"/>
+        <file crc="3357318414" name="modules/locale/org-netbeans-modules-javacard-apdu-io_ru.jar"/>
+        <file crc="2131552462" name="modules/locale/org-netbeans-modules-javacard-apdu-io_zh_CN.jar"/>
+        <file crc="444979705" name="modules/org-netbeans-modules-javacard-apdu-io.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2ee.metadata.model.support/1">
+    <module_version install_time="1360798392879" last="true" origin="installer" specification_version="1.20.1">
+        <file crc="1517340586" name="config/Modules/org-netbeans-modules-j2ee-metadata-model-support.xml"/>
+        <file crc="4241075112" name="modules/locale/org-netbeans-modules-j2ee-metadata-model-support_ja.jar"/>
+        <file crc="1219480272" name="modules/locale/org-netbeans-modules-j2ee-metadata-model-support_pt_BR.jar"/>
+        <file crc="2751943122" name="modules/locale/org-netbeans-modules-j2ee-metadata-model-support_ru.jar"/>
+        <file crc="2501311181" name="modules/locale/org-netbeans-modules-j2ee-metadata-model-support_zh_CN.jar"/>
+        <file crc="3364643887" name="modules/org-netbeans-modules-j2ee-metadata-model-support.jar"/>
+    </module_version>
+</module>

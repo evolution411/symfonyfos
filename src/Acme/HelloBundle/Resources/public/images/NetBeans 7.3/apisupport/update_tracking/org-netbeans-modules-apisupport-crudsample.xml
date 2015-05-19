@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.apisupport.crudsample">
+    <module_version install_time="1360797931368" last="true" origin="installer" specification_version="1.13.1">
+        <file crc="3036815226" name="config/Modules/org-netbeans-modules-apisupport-crudsample.xml"/>
+        <file crc="3276285984" name="modules/locale/org-netbeans-modules-apisupport-crudsample_ja.jar"/>
+        <file crc="2956626019" name="modules/locale/org-netbeans-modules-apisupport-crudsample_pt_BR.jar"/>
+        <file crc="584826641" name="modules/locale/org-netbeans-modules-apisupport-crudsample_ru.jar"/>
+        <file crc="2759735576" name="modules/locale/org-netbeans-modules-apisupport-crudsample_zh_CN.jar"/>
+        <file crc="4006800682" name="modules/org-netbeans-modules-apisupport-crudsample.jar"/>
+    </module_version>
+</module>

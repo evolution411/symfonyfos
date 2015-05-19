@@ -1,4 +1,15 @@
 {# empty Twig template #}
+
+{%block stylesheets%}
+{% stylesheets '@AcmeHelloBundle/Resources/public/style.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+
+{% stylesheets '@AcmeHelloBundle/Resources/public/style2.css' %}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+
+{%endblock%}
 {%block menu%}
         <div id="menu">
             <ul>
@@ -10,13 +21,45 @@
 {%endblock%}
        
 <form method='POST' action='backend'>
-             <input type='submit' name='btnGencode' value='generate'>
+             <input type='submit' name='btnGencode' value='Update'>
         </form>
-            <table width="500px">
-                <tr><td>标题</td><td>街道</td><td>大道</td><td>出租资料</td><td>联系方式</b></tr>
-            {% for a in address %}
-                    <tr>
-                        <td> {{a.title}}</td><td>{{a.street}}</td><td>{{a.avenue}}</td><td>{{a.description}}</td><td>{{a.contact}}</td>
-                    </tr>
-            {% endfor %}
-            </table></body></html>
+            <div id="maindv">
+	<div id="myposter-small">
+		<table>
+			<tr>
+				{% for a in address %}
+					{% if loop.index0 is divisibleby(3) %}
+			</tr>
+			
+			<tr>
+				{% endif %}
+			<td>
+				<div class="posters">
+					<p1><b><a href="{{path('editposter_page',{'id':a.id})}}">Edit Post</a> | </b></p1> 
+					<p1><b><a href="{{path('uploadfile_page',{'id':a.id})}}">[+] Image</a> | </b></p1>
+					<p1><b><a href="{{path('videoupload_page',{'id':a.id})}}">[+] Video</a> | </b></p1>
+					<p1><b><a href="{{path('imageDisplay_page',{'id':a.id})}}">[All]IMG</a> | </b></p1>
+					<p1><b><a href="{{path('vdolist__page',{'id':a.id})}}">[All] vedios</a></b></p1>
+					
+					{% image '@AcmeHelloBundle/Resources/public/images/close_pop.png' %}
+					<a href="{{path('Delete_this_post__page',{'this_post_id':a.id})}}" height="16" width="16" class="posterclose" title="Delete This post" alt="Delete Post">
+					<img src="{{ asset_url }}" /></a>
+					{% endimage %}
+					
+					
+					<p><font color="blue"><strong>Name :{{a.title}}</strong></font></p>
+					<p></p>
+					<strong>Description :</strong><br>{{a.description}}<a href="{{path('map_page',{'id':a.id})}}"><br><br>详细资料...</a>
+					
+				</div>
+			</td>
+					
+					{% if loop.last %}
+			</tr>
+					{% endif %}
+				{%endfor%}
+		</table>
+	</div>
+	
+
+</div>   </body></html>

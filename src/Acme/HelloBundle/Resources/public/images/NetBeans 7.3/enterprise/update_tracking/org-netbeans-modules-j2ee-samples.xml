@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2ee.samples">
+    <module_version install_time="1360798814323" last="true" origin="installer" specification_version="1.21.1">
+        <file crc="1199678412" name="config/Modules/org-netbeans-modules-j2ee-samples.xml"/>
+        <file crc="2290493489" name="modules/locale/org-netbeans-modules-j2ee-samples_ja.jar"/>
+        <file crc="2219854933" name="modules/locale/org-netbeans-modules-j2ee-samples_pt_BR.jar"/>
+        <file crc="2732315978" name="modules/locale/org-netbeans-modules-j2ee-samples_ru.jar"/>
+        <file crc="1969299569" name="modules/locale/org-netbeans-modules-j2ee-samples_zh_CN.jar"/>
+        <file crc="966177661" name="modules/org-netbeans-modules-j2ee-samples.jar"/>
+    </module_version>
+</module>

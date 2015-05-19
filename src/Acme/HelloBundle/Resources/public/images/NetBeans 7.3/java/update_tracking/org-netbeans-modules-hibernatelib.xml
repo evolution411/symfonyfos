@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.hibernatelib/1">
+    <module_version install_time="1360796297394" last="true" origin="installer" specification_version="1.17.1.325.238">
+        <file crc="359906645" name="config/Modules/org-netbeans-modules-hibernatelib.xml"/>
+        <file crc="2845247298" name="modules/ext/hibernate/antlr-2.7.6.jar"/>
+        <file crc="661459727" name="modules/ext/hibernate/asm-attrs.jar"/>
+        <file crc="3433148787" name="modules/ext/hibernate/asm.jar"/>
+        <file crc="2325987554" name="modules/ext/hibernate/cglib-2.1.3.jar"/>
+        <file crc="2236771963" name="modules/ext/hibernate/commons-collections-2.1.1.jar"/>
+        <file crc="2579157960" name="modules/ext/hibernate/dom4j-1.6.1.jar"/>
+        <file crc="2515021916" name="modules/ext/hibernate/ehcache-1.2.3.jar"/>
+        <file crc="2353860798" name="modules/ext/hibernate/ejb3-persistence.jar"/>
+        <file crc="3725444181" name="modules/ext/hibernate/hibernate-annotations.jar"/>
+        <file crc="649810590" name="modules/ext/hibernate/hibernate-commons-annotations.jar"/>
+        <file crc="1768370584" name="modules/ext/hibernate/hibernate-entitymanager.jar"/>
+        <file crc="2799991656" name="modules/ext/hibernate/hibernate-tools.jar"/>
+        <file crc="1309945241" name="modules/ext/hibernate/hibernate3.jar"/>
+        <file crc="3086104" name="modules/ext/hibernate/javassist.jar"/>
+        <file crc="2356556328" name="modules/ext/hibernate/jdbc2_0-stdext.jar"/>
+        <file crc="4013129527" name="modules/ext/hibernate/jta.jar"/>
+        <file crc="1541726343" name="modules/ext/hibernate/jtidy-r8-20060801.jar"/>
+        <file crc="4138439587" name="modules/locale/org-netbeans-modules-hibernatelib_ja.jar"/>
+        <file crc="374825030" name="modules/locale/org-netbeans-modules-hibernatelib_pt_BR.jar"/>
+        <file crc="2814983872" name="modules/locale/org-netbeans-modules-hibernatelib_ru.jar"/>
+        <file crc="1809496834" name="modules/locale/org-netbeans-modules-hibernatelib_zh_CN.jar"/>
+        <file crc="2836920915" name="modules/org-netbeans-modules-hibernatelib.jar"/>
+    </module_version>
+</module>

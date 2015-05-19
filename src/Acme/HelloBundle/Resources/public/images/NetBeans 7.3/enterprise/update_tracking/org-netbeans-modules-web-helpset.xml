@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.web.helpset/0">
+    <module_version install_time="1360795846519" last="true" origin="installer" specification_version="1.15.1">
+        <file crc="3820121442" name="config/Modules/org-netbeans-modules-web-helpset.xml"/>
+        <file crc="2861709650" name="modules/docs/org-netbeans-modules-web-helpset.jar"/>
+        <file crc="4152199175" name="modules/locale/org-netbeans-modules-web-helpset_ja.jar"/>
+        <file crc="710521548" name="modules/locale/org-netbeans-modules-web-helpset_pt_BR.jar"/>
+        <file crc="584971568" name="modules/locale/org-netbeans-modules-web-helpset_ru.jar"/>
+        <file crc="595062472" name="modules/locale/org-netbeans-modules-web-helpset_zh_CN.jar"/>
+        <file crc="196669876" name="modules/org-netbeans-modules-web-helpset.jar"/>
+    </module_version>
+</module>

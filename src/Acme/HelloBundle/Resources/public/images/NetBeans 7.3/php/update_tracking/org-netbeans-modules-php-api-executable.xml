@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.php.api.executable/0">
+    <module_version install_time="1360797382040" last="true" origin="installer" specification_version="0.8.1">
+        <file crc="3286617773" name="config/Modules/org-netbeans-modules-php-api-executable.xml"/>
+        <file crc="2380681434" name="modules/locale/org-netbeans-modules-php-api-executable_ja.jar"/>
+        <file crc="1674675095" name="modules/locale/org-netbeans-modules-php-api-executable_pt_BR.jar"/>
+        <file crc="1563359604" name="modules/locale/org-netbeans-modules-php-api-executable_ru.jar"/>
+        <file crc="1928066913" name="modules/locale/org-netbeans-modules-php-api-executable_zh_CN.jar"/>
+        <file crc="3519647661" name="modules/org-netbeans-modules-php-api-executable.jar"/>
+    </module_version>
+</module>

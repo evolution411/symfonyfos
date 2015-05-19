@@ -9,13 +9,15 @@
     <field name="avenue" type="string" column="avenue" length="15" nullable="false"/>
     <field name="description" type="text" column="description" nullable="false"/>
     <field name="contact" type="string" column="contact" length="15" nullable="false"/>
-    <field name="posterid" type="integer" column="posterId" length="10" nullable="false"/>
-    <field name="renttype" type="integer" column="renttype" length="1" nullable="false"/>
+    <field name="posterid" type="integer" column="posterId" nullable="false"/>
+    <field name="renttype" type="integer" column="renttype" nullable="false"/>
     <field name="postdate" type="date" column="postdate" nullable="false"/>
-    <field name="editdate" type="date" column="editdate" nullable="false"/>
+    <field name="editdate" type="date" column="Editdate" nullable="false"/>
     <field name="zipcode" type="string" column="zipcode" length="5" nullable="true"/>
-	<field name="numbath" type="string" column="numbath" length="50" nullable="false"/>
-	<field name="rentamount" type="string" column="rentamount" length="50" nullable="false"/>
-	<field name="laundryfacility" type="string" column="laundryfacility" length="50" nullable="false"/>
+    <field name="numbath" type="string" column="numbath" length="50" nullable="true"/>
+    <field name="rentamount" type="string" column="rentamount" length="50" nullable="false"/>
+    <field name="laundryfacility" type="string" column="laundryfacility" length="50" nullable="true"/>
+    <field name="area" type="integer" column="area" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
   </entity>
 </doctrine-mapping>

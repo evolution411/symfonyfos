@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2me.cdc.platform">
+    <module_version install_time="1360797576448" last="true" origin="installer" specification_version="1.19.1">
+        <file crc="2668318934" name="config/Modules/org-netbeans-modules-j2me-cdc-platform.xml"/>
+        <file crc="216460525" name="modules/locale/org-netbeans-modules-j2me-cdc-platform_ja.jar"/>
+        <file crc="1764059827" name="modules/locale/org-netbeans-modules-j2me-cdc-platform_pt_BR.jar"/>
+        <file crc="819444074" name="modules/locale/org-netbeans-modules-j2me-cdc-platform_ru.jar"/>
+        <file crc="1391272184" name="modules/locale/org-netbeans-modules-j2me-cdc-platform_zh_CN.jar"/>
+        <file crc="1512357055" name="modules/org-netbeans-modules-j2me-cdc-platform.jar"/>
+    </module_version>
+</module>

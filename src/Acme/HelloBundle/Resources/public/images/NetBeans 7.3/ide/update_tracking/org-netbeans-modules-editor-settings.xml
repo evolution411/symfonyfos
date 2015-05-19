@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.editor.settings/1">
+    <module_version install_time="1360796122152" last="true" origin="installer" specification_version="1.46.1">
+        <file crc="561761059" name="config/Modules/org-netbeans-modules-editor-settings.xml"/>
+        <file crc="2538610435" name="modules/locale/org-netbeans-modules-editor-settings_ja.jar"/>
+        <file crc="47043619" name="modules/locale/org-netbeans-modules-editor-settings_pt_BR.jar"/>
+        <file crc="4148720888" name="modules/locale/org-netbeans-modules-editor-settings_ru.jar"/>
+        <file crc="4281669736" name="modules/locale/org-netbeans-modules-editor-settings_zh_CN.jar"/>
+        <file crc="985201373" name="modules/org-netbeans-modules-editor-settings.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2ee.genericserver">
+    <module_version install_time="1360798789421" last="true" origin="installer" specification_version="1.24.1">
+        <file crc="3927862749" name="config/Modules/org-netbeans-modules-j2ee-genericserver.xml"/>
+        <file crc="2573715473" name="modules/locale/org-netbeans-modules-j2ee-genericserver_ja.jar"/>
+        <file crc="3264733061" name="modules/locale/org-netbeans-modules-j2ee-genericserver_pt_BR.jar"/>
+        <file crc="599699873" name="modules/locale/org-netbeans-modules-j2ee-genericserver_ru.jar"/>
+        <file crc="3437528240" name="modules/locale/org-netbeans-modules-j2ee-genericserver_zh_CN.jar"/>
+        <file crc="3936437722" name="modules/org-netbeans-modules-j2ee-genericserver.jar"/>
+    </module_version>
+</module>

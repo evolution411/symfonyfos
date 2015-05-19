@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2ee.sun.appsrv/1">
+    <module_version install_time="1360800023904" last="true" origin="installer" specification_version="1.25.1.1">
+        <file crc="3106505648" name="config/Modules/org-netbeans-modules-j2ee-sun-appsrv.xml"/>
+        <file crc="1409680024" name="modules/locale/org-netbeans-modules-j2ee-sun-appsrv_ja.jar"/>
+        <file crc="733113789" name="modules/locale/org-netbeans-modules-j2ee-sun-appsrv_pt_BR.jar"/>
+        <file crc="3933379190" name="modules/locale/org-netbeans-modules-j2ee-sun-appsrv_ru.jar"/>
+        <file crc="2259426432" name="modules/locale/org-netbeans-modules-j2ee-sun-appsrv_zh_CN.jar"/>
+        <file crc="3815162922" name="modules/org-netbeans-modules-j2ee-sun-appsrv.jar"/>
+    </module_version>
+</module>

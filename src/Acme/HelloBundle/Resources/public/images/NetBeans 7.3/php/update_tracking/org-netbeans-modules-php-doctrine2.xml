@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.php.doctrine2">
+    <module_version install_time="1360799585866" last="true" origin="installer" specification_version="1.14.1">
+        <file crc="2754433748" name="config/Modules/org-netbeans-modules-php-doctrine2.xml"/>
+        <file crc="1690264907" name="modules/locale/org-netbeans-modules-php-doctrine2_ja.jar"/>
+        <file crc="231945974" name="modules/locale/org-netbeans-modules-php-doctrine2_pt_BR.jar"/>
+        <file crc="360781469" name="modules/locale/org-netbeans-modules-php-doctrine2_ru.jar"/>
+        <file crc="3498060671" name="modules/locale/org-netbeans-modules-php-doctrine2_zh_CN.jar"/>
+        <file crc="3561041805" name="modules/org-netbeans-modules-php-doctrine2.jar"/>
+    </module_version>
+</module>

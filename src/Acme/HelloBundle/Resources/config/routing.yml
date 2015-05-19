@@ -30,7 +30,7 @@ picupload_page:
  defaults: { _controller:AcmeHelloBundle:Default:picupload} 
  
 newaddress_page:
- pattern: /newaddress
+ pattern: /
  defaults: { _controller:AcmeHelloBundle:Default:newaddress}
 
 advance_search_criteria__page:
@@ -61,8 +61,11 @@ adminmaps_page:
  pattern: /adminmaps
  defaults: {_controller:AcmeHelloBundle:admin:showmaps}
 
+adminnewposter_page:
+  pattern: /adminnewposter
+  defaults: {_controller:AcmeHelloBundle:admin:newposter}
 adminusers_page:
- pattern: /adminusers
+ pattern: /adminusers/
  defaults: {_controller:AcmeHelloBundle:admin:showusers}
 
 deletevdo_page:
@@ -75,7 +78,11 @@ user_profile__page:
 
 change_user_passwd__page:
  pattern: /change_user_passwd_
- defaults: {_controller:AcmeHelloBundle:Default:change_user_passwd_} 
+ defaults: {_controller:AcmeHelloBundle:Default:change_user_passwd_}
+ 
+addpost_page:
+ pattern: /usermenu
+ defaults: {_controller:AcmeHelloBundle:Default:addposter}
  
 search_page:
  pattern: /search
@@ -103,7 +110,7 @@ videoupload_page:
 
 Administrator_page:
  pattern: /Administrator
- defaults: { _controller:AcmeHelloBundle:Default:Administrator}
+ defaults: { _controller:AcmeHelloBundle:admin:Administrator}
 
 admin_page:
  pattern: /admin
@@ -160,6 +167,10 @@ adminlogin_page:
 adminlogout_page:
  pattern: /adminlogout
  defaults: {_controller:AcmeHelloBundle:Default:adminlogout} 
+
+siteinfo_page:
+ pattern: /siteinfo
+ defaults: {_controller:AcmeHelloBundle:admin:siteinfo} 
  
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

@@ -1,9 +1,18 @@
-{# empty Twig template #}<html><header>
-            <table width="700px">
-                <tr><td>ID</td><td>名字</td><td>地址</td><td>经度</td><td>纬度</td><td>类型</td></tr>
-            {% for a in map %}
-                    <tr>
-                        <td> {{a.id}}</td><td>{{a.name}}</td><td>{{a.address}}</td><td>{{a.lat}}</td><td>{{a.lng}}</td><td>{{a.type}}</td>
-                    </tr>
-            {% endfor %}
-            </table>
+<form action="" method="POST">
+    {% for i in info %}
+    <fieldset>
+        <legend>Contact Info</legend>
+            Phone: <input type="text" name="phone" value="{{i.phone}}"><br>
+            Email: <input type="text" name="email" value="{{i.email}}">
+    </fieldset>
+    <fieldset>
+             <legend>About Us</legend>
+             <textarea rows="6" cols="65" name="aboutus">{{i.aboutus}}</textarea>
+    </fieldset>
+    <fieldset>
+             <legend>Our Mission</legend>
+             <textarea rows="6" cols="65" name="mission">{{i.mission}}</textarea>
+    </fieldset>
+            <input type="submit" name="btnsiteinfo" value="Update">
+            {%endfor%}
+</form>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.mobility.kit">
+    <module_version install_time="1360799836299" last="true" origin="installer" specification_version="1.19.1">
+        <file crc="1583991425" name="VERSION.txt"/>
+        <file crc="1190962233" name="config/Modules/org-netbeans-modules-mobility-kit.xml"/>
+        <file crc="4152044238" name="modules/locale/org-netbeans-modules-mobility-kit_ja.jar"/>
+        <file crc="2156560819" name="modules/locale/org-netbeans-modules-mobility-kit_pt_BR.jar"/>
+        <file crc="4260664097" name="modules/locale/org-netbeans-modules-mobility-kit_ru.jar"/>
+        <file crc="3918615658" name="modules/locale/org-netbeans-modules-mobility-kit_zh_CN.jar"/>
+        <file crc="2614798868" name="modules/org-netbeans-modules-mobility-kit.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2ee.weblogic9/1">
+    <module_version install_time="1360799260173" last="true" origin="installer" specification_version="1.29.1.1">
+        <file crc="366275912" name="config/Modules/org-netbeans-modules-j2ee-weblogic9.xml"/>
+        <file crc="179116580" name="modules/locale/org-netbeans-modules-j2ee-weblogic9_ja.jar"/>
+        <file crc="3670832722" name="modules/locale/org-netbeans-modules-j2ee-weblogic9_pt_BR.jar"/>
+        <file crc="1977427725" name="modules/locale/org-netbeans-modules-j2ee-weblogic9_ru.jar"/>
+        <file crc="2853709116" name="modules/locale/org-netbeans-modules-j2ee-weblogic9_zh_CN.jar"/>
+        <file crc="4063743974" name="modules/org-netbeans-modules-j2ee-weblogic9.jar"/>
+    </module_version>
+</module>

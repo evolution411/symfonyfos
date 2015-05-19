@@ -5,41 +5,41 @@ namespace Acme\HelloBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * laundry
+ * Laundry
+ *
+ * @ORM\Table(name="laundry")
+ * @ORM\Entity
  */
-class laundry
+class Laundry
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
+     *
+     * @ORM\Column(name="laundrytype", type="string", length=50, nullable=false)
      */
     private $laundrytype;
 
-
     /**
-     * Get id
+     * @var integer
      *
-     * @return integer 
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
+
 
     /**
      * Set laundrytype
      *
      * @param string $laundrytype
-     * @return laundry
+     * @return Laundry
      */
     public function setLaundrytype($laundrytype)
     {
         $this->laundrytype = $laundrytype;
-    
+
         return $this;
     }
 
@@ -51,5 +51,15 @@ class laundry
     public function getLaundrytype()
     {
         return $this->laundrytype;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

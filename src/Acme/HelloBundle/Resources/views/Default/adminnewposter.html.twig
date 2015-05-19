@@ -1,0 +1,43 @@
+{# empty Twig template #}
+
+<form id="regform" action="newaddress" method="post">
+        <h1>Rental Info/出租资料</h1>
+        
+        <table> 
+            <tr>
+            <label>Area: </label>
+                {% for a in area %}
+		<input type="radio" name="area" value="{{a.id}}">{{a.name}}
+		{% endfor %}
+            </tr>
+            <tr><td width="250px">Title/标题:</td> <td><input class="say" name="title" type="text" value="" /></td></tr>
+            <tr><td width="250px">Street/街名:</td> <td><input class="say" name="street" type="text" value="" /></td></tr>
+            <tr><td>Avenue/大道:</td> <td><input class="say" name="avenue" type="text" value="" /></td></tr>
+            <tr><td>Description/租房内容:</td> <td><textarea class="say" name="description"row="5" col="50"></textarea></td></tr>
+            <tr><td>Contact/联系方式:</td> <td><input class="say" name="contact" type='text' placeholder="xxx-xxx-xxx"></td></tr>
+            <tr><td>Zip Code/邮政编码:</td> <td><input class="say" name="zipcode" type='text' placeholder="#####"></td></tr>
+            <tr><td>Rent Range:</td> 
+            <td><select name="pricetxt">
+		{% for entity in ranze %}
+		<option>{{ entity.pricerange}}</option>
+		{% endfor %}
+		</select>
+            </td>
+	    </tr><tr>
+		<td>选择出租房屋类型:</td>
+		<td class="styled-select">
+		<select name="renttype">
+		<option value="1">工作室 </option>
+		<option value="2">一房一厅</option>
+		<option value="3">两房一厅</option>
+		<option value="4">三房一厅</option>
+		<option value="5">四房一厅</option>
+		</select>
+		</td>
+		</tr>
+            <tr>
+		<td></td><td><input type="submit" name="submit" class="btnsubmit"  value="Submit The Paper/提交信息"></td>
+	    </tr>
+    
+        </table>
+    </form>

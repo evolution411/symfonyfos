@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.j2ee.api.ejbmodule">
+    <module_version install_time="1360798456452" last="true" origin="installer" specification_version="1.29.1">
+        <file crc="3228885098" name="config/Modules/org-netbeans-modules-j2ee-api-ejbmodule.xml"/>
+        <file crc="1817908717" name="modules/locale/org-netbeans-modules-j2ee-api-ejbmodule_ja.jar"/>
+        <file crc="897825876" name="modules/locale/org-netbeans-modules-j2ee-api-ejbmodule_pt_BR.jar"/>
+        <file crc="3839287489" name="modules/locale/org-netbeans-modules-j2ee-api-ejbmodule_ru.jar"/>
+        <file crc="3079643507" name="modules/locale/org-netbeans-modules-j2ee-api-ejbmodule_zh_CN.jar"/>
+        <file crc="3385645669" name="modules/org-netbeans-modules-j2ee-api-ejbmodule.jar"/>
+    </module_version>
+</module>

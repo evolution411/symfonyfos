@@ -20,28 +20,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Acme\HelloBundle\Entity\Document;
 use Acme\HelloBundle\Entity\UploadFileMover;
-use Acme\HelloBundle\Entity\images; //images entity for saving data into images table
+use Acme\HelloBundle\Entity\Images; //images entity for saving data into images table
 use Acme\HelloBundle\Entity\Videos;
 use Acme\HelloBundle\Entity\admin;
 use Acme\HelloBundle\Entity\User;
+use Acme\HelloBundle\Entity\Area;
 class DefaultController extends Controller {
     
     public function indexAction($name) {
         return $this->render('AcmeHelloBundle:Default:index.html.twig', array('name' => $name));
     }
-    /*
-    public function checksession(){
-        //$session = new Session();
-        $session->start();
-       
-    }
-    public function setsession($code){
-     //$session = new Session();
-                $session = $this->getRequest()->getSession();
-                $session->set('login', $code);
-				
-                }
-                */
+   
     public function getsession(){
         if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
     // authenticated (NON anonymous)
@@ -103,26 +92,55 @@ class DefaultController extends Controller {
         //if($form->isValid()){
         return $this->render('AcmeHelloBundle:Default:addmap.html.twig', array('form' => $form->createView(),'locationId'=>$locationId));
         }
-        
-    public function newaddressAction(Request $request) {
-        $Location = new location();
-        
+    public function getsiteinfo(){
         $em = $this->getDoctrine()->getEntityManager();
-       
-		$price = $this->getDoctrine()
-				->getRepository('Acme\HelloBundle\Entity\price')
-				->findAll();
-                
+        $info= $this->getDoctrine()
+                ->getRepository('Acme\HelloBundle\Entity\Siteinfo')
+                ->findAll();
+        
+        if (!$info) {
+            throw $this->createNotFoundException('No Address found');
+        }
+        
+        
+        foreach ($info as $item) {
+            $email = $item->getsiteemail();
+            $phone = $item->getsitephone();
+            $aboutus = $item->getaboutus();
+            $mission = $item->getmission();
+           // $type= $item->getType();
+           // $mapid = $item->getid();
+            $siteinfo[] = array( 'email' => $email, 'phone' => $phone,'aboutus'=>$aboutus,'mission'=>$mission);
+        }
+        return $siteinfo;
+    }
+    public function newaddressAction(Request $request) {
+        $Location = new location();        
+           $em = $this->getDoctrine()->getEntityManager();
+                        
+           $images = $this->getDoctrine()->getEntityManager()
+                        ->createQuery('select imgtbl.id,imgtbl.posterid,imgtbl.imgName,imgtbl.path,imgtbl.status from AcmeHelloBundle:Images imgtbl WHERE imgtbl.status=:sts')
+                        ->setParameter('sts', '1')
+                        ->SetMaxResults(10)
+			->getResult();
+		
+           $videos = $this->getDoctrine()->getEntityManager()
+                        ->createQuery('select vdotbl.id,vdotbl.posterid,vdotbl.path,vdotbl.status, vdotbl.idcode from AcmeHelloBundle:Videos vdotbl WHERE vdotbl.status=:sts and vdotbl.idcode=:idkod')
+                        ->setParameter('sts', '1')
+			->setParameter('idkod', '2')
+                        ->SetMaxResults(10)
+			->getResult();
                 if($request->getMethod()== "POST")
 		{
+                    
 			$contact = $request->get('contact');
-            if(!$this->isValid( 'phone',$contact )) 
+                        if(!$this->isValid( 'phone',$contact )) 
 			{
 				return new Response('Please enter the correct format of contact info.');        
-            }
-            else
+                         }
+                         else
 			{
-             // $zipcode = $request->get('zipcode');
+                                //$zipcode = $request->get('zipcode');
 				if(!preg_match("/^([0-9]{5})(-[0-9]{4})?$/i",$request->get('zipcode')))
 				{
 					echo "invalid zipcode";
@@ -131,6 +149,7 @@ class DefaultController extends Controller {
 				{
                                      $posterId =  $this->getsession();
 					$renttype=$_POST['renttype'];
+                                        $area=$_POST['area'];
 					$Location->setStreet($request->get('street'));  
 					$Location->setDescription($request->get('description'));
 					$Location->setTitle($request->get('title'));
@@ -138,9 +157,326 @@ class DefaultController extends Controller {
 					$Location->setContact($request->get('contact'));    
 					$Location->setPosterId($posterId);
 					$Location->setRenttype($renttype);
+                                        $Location->setArea($area);
 					$Location->setZipcode($request->get('zipcode'));
 					//added by masum
 					$Location->setNumbath($request->get('bathtxt'));
+					//$Location->setRentamount($request->get('pricetxt'));
+					$cd=$_POST['pricetxt'];
+					$rntamount = preg_replace('/\s+/', '', $cd); // removing all white space, example: $ 500 - $ 900 will be = $500-$900
+					$Location->setRentamount($rntamount); // saving into rentamount column
+					$Location->setLaundryfacility($request->get('londrytxt'));
+					
+					$date = new \DateTime();
+					//$date = date("m-d-Y");
+					$Location->setPostdate($date);
+					$Location->setEditdate($date);
+					//$Location->setMakersId('15');
+					$em->persist($Location);
+					$em->flush();
+					$id = $Location->getId();
+					$locationId[] = array('Location'=>$id);
+					 
+					//return new Response('Form has been Sucessfully added');
+					$msg = "addlocation";
+					//return new Response($posterId);
+					return $this->render('AcmeHelloBundle:Default:newaddmsg.html.twig', array('Lid'=>$locationId,'msg' => $msg));
+				}
+			}
+		}
+                $count_per_page = 12;
+		$count = $this->getTotalPosters();
+                $total_pages = ceil($count/$count_per_page);
+               // $current_page = 1;
+                $page = $request->get('page');
+                if(!is_numeric($page)){
+                    $page = 1;
+                }
+                else{$page=floor($page);}
+                if($count<=$count_per_page){
+                    $page = 1;
+                }
+                if(($page*$count_per_page)>$count){
+                    $page=$total_pages;
+                }
+                $offset=0;
+                if($page>1){
+                    $offset = $count_per_page * ($page -1);
+                }
+                $page_per_poster = $this->showall($offset,$count_per_page);
+                                        $form = $this->createFormBuilder($Location)
+						->add('street', 'text')
+						->add('avenue', 'text')
+						->add('description', 'text')
+						->add('title', 'text')
+						->add('contact', 'text')
+						->add('zipcode','text')
+						->getForm();
+				//$addresslist = $this->showall();
+                                $price = $this->getallprices();
+                                $area = $this->getAreas();
+                        
+        //$form->handleRequest($request);
+        //if($form->isValid()){
+		
+		
+		/*$bath = $this->getDoctrine()
+				->getRepository('Acme\HelloBundle\Entity\Bath')
+				->findAll();*/
+		
+		/*$price = $this->getDoctrine()
+				->getRepository('Acme\HelloBundle\Entity\Price')
+				->findAll();
+				*/
+		/*$laundry = $this->getDoctrine()
+				->getRepository('Acme\HelloBundle\Entity\laundry')
+				->findAll();*/
+	$siteinfo = $this->getsiteinfo();			
+        return $this->render('AcmeHelloBundle:Default:newaddress.html.twig', 
+					array('area'=>$area,'ranze'=>$price,'page_per_poster'=>$page_per_poster,'total_pages'=>$total_pages,'address'=>$page_per_poster,'current_page'=>$page,'images'=>$images,'videos'=>$videos,'info'=>$siteinfo));
+}
+public function getTotalPosters(){
+   $number_of_poster = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
+					->select('COUNT(loc.posterid)') 
+					->from('AcmeHelloBundle:Location', 'loc')
+                                        
+					->getQuery();
+	$total_poster = $number_of_poster->getSingleScalarResult();
+             return $total_poster;
+}
+public function getallprices(){
+    
+    		$price = $this->getDoctrine()
+				->getRepository('Acme\HelloBundle\Entity\Price')
+				->findAll();
+                return $price;
+
+}	
+public function newaddmsgAction()
+{
+    //$id = $request->request->get('locationId');
+    return $this->render('AcmeHelloBundle:Default:newaddmsg.html.twig');
+}
+public function showall($offset,$count_per_page) {
+        /*$ads= $this->getDoctrine()
+                ->getRepository('Acme\HelloBundle\Entity\Location')
+                ->findBy(array(),array('postdate'=>'DESC'));*/
+        $ads = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
+					->select('loc') 
+					->from('AcmeHelloBundle:Location', 'loc')
+                                        ->setFirstResult($offset)
+                                        ->setMaxResults($count_per_page)
+                                        ->orderBy('loc.postdate','DESC')
+					->getQuery();
+        $page_per_poster = $ads->getArrayResult();
+        
+                //echo $page_per_poster;
+        /*if (!$ads) {
+            throw $this->createNotFoundException('No Address found');
+        }
+        
+        foreach ($ads as $item) {
+            $position = 15;
+            $title = $item->getTitle();
+            $street = $item->getStreet();
+            $avenue = $item->getAvenue();
+            $description = $item->getDescription();
+            $newdes = mb_substr($description, 0, $position,'UTF-8'); 
+            $contact = $item->getContact();
+            $addressid = $item->getid();
+             
+            $showdate = $item->getPostdate()->format('m-d-Y');
+            
+            $addresslist[] = array( 'id' => $addressid,'title' => $title,'street'=>$street,'avenue'=>$avenue,'description'=>$description,'contact'=>$contact,'newdes'=>$newdes,'showdate'=>$showdate);
+        }
+        return $addresslist;
+        //return $this->render('AcmeHelloBundle:Default:address.html.twig', array('address' => $addresslist));*/
+        return $page_per_poster;
+    }
+
+    public function findAll() {
+        return $this->getEntityManager()
+                        ->createQuery('select latitude,longitude from AcmeHelloBundle:Markers')
+                        ->getResult();
+    }
+
+    public function mapaddAction($id) {
+		//I was using this following block to display images on the map page left side  
+		//$postr_id = $id;
+                $price = $this->getallprices();
+                $area = $this->getAreas();
+		$searchresult = $this->getDoctrine()->getEntityManager()
+                        ->createQuery('select imgtbl.id,imgtbl.posterid,imgtbl.imgName,imgtbl.path,imgtbl.status from AcmeHelloBundle:Images imgtbl WHERE imgtbl.status=:sts and imgtbl.posterid=:pstrid')
+                        ->setParameter('sts', '1')
+			->setParameter('pstrid', $id)
+			->getResult();
+	
+		$qryforutube = $this->getDoctrine()->getEntityManager()
+                        ->createQuery('select vdotbl.id,vdotbl.posterid,vdotbl.path,vdotbl.status, vdotbl.idcode from AcmeHelloBundle:Videos vdotbl WHERE vdotbl.status=:sts and vdotbl.posterid=:pstrid and vdotbl.idcode=:idkod')
+                        ->setParameter('sts', '1')
+						->setParameter('pstrid', $id)
+						->setParameter('idkod', '2')
+						->getResult(); //idkode 2 for youtube vdo
+						
+					//echo $qryforutube.path;	
+	//masum added		
+	$vidoemsg = "";		
+	$ytube=2;
+	$st = 1;
+	$vdocode = $this->getDoctrine()
+                ->getRepository('Acme\HelloBundle\Entity\Videos')
+                ->findby(array('idcode'=>$ytube,'posterid'=>$id, 'status'=>$st));
+                 if($vdocode!=null || $vdocode != 0)
+				{
+				$vidarray =array();
+				 foreach($vdocode as $v){
+					//$path = $video->getPath();
+					$path = $v->getPath();
+					if($this->isValidYoutubeURL($path)==true)
+					{
+						$vidoemsg = "youtube";
+						$videopath = $this->getYoutubeIdFromUrl($path);
+						
+						$vidarray [] = $videopath;
+					}
+					else
+					{
+					//$vidoemsg= "0";
+						 $vidarray [] = $path ;
+					}}
+				 
+				}
+				else
+				{
+					$vidarray [] = "";
+					//$vidoemsg= "0";
+				}
+		
+        $address = $this->getDoctrine()
+                ->getRepository('Acme\HelloBundle\Entity\Markers')
+                ->findOneBylocationId($id);
+
+		$addresslist = $this->getDoctrine()
+                ->getRepository('Acme\HelloBundle\Entity\Location')
+                ->findOneById($id);
+        
+        if(!$address){
+           // return new Response("No map found");
+            $latlng = "nomap";
+            $latlnglist=array('lat'=>"nomap",'lng'=>"nomap");
+        }
+        else{
+        $latlng = $address->getaddress();
+        $newaddress = $this->lookup($latlng);
+        $latlnglist = array('lat' => $newaddress['latitude'], 'lng' => $newaddress['longitude']);
+        
+        }
+		
+		//masum added
+		$qryresult = $this->getDoctrine()->getEntityManager()
+                        ->createQuery('select vdotbl.id,vdotbl.posterid,vdotbl.path,vdotbl.status from AcmeHelloBundle:Videos vdotbl WHERE vdotbl.status=:sts and vdotbl.posterid=:pstrid and vdotbl.idcode=:idkod')
+                        ->setParameter('sts', '1')
+						->setParameter('pstrid', $id)
+						->setParameter('idkod', '3')
+						->getResult();//idkode 3 for uploaded vdo
+		
+		//
+		//count number of pic that a user posted in his account
+		$number_of_pic = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
+					->select('COUNT(loc.posterid)') 
+					->from('AcmeHelloBundle:Images', 'loc')
+					->where('loc.posterid = :id')
+					->setParameter('id', $id)
+					->getQuery();
+		$total_pic = $number_of_pic->getSingleScalarResult();
+		
+		$ac = 1;
+		$flag = 0;
+		$single_img = $this->getDoctrine()
+		->getRepository('Acme\HelloBundle\Entity\Images')
+		->findOneByPosterid($id);
+		if($single_img !=null || $single_img !=0)
+		{
+		$flag=1;
+		
+		return $this->render('AcmeHelloBundle:Default:map.html.twig', 
+						array('srchlst'=>$searchresult,'address' => $latlnglist, 'name' => $latlng,'posterinfo'=>$addresslist,
+								'area'=>$area,'vmsg'=>$vidoemsg, 'qutube'=>$vidarray, 'uploadedvdolist'=>$qryresult,'pth'=>$single_img, 'flag'=>$flag,'ranze'=>$price));      
+		}
+		else
+		{
+		if($single_img==0 OR $single_img==null)
+		{
+		$single_img="No image found";
+		$flag=2;
+		return $this->render('AcmeHelloBundle:Default:map.html.twig', 
+						array('srchlst'=>$searchresult,'address' => $latlnglist, 'name' => $latlng,'posterinfo'=>$addresslist,
+								'area'=>$area,'vmsg'=>$vidoemsg, 'qutube'=>$vidarray, 'uploadedvdolist'=>$qryresult,'pth'=>$single_img, 'flag'=>$flag,'ranze'=>$price));
+		}
+		}
+    }
+   
+	public function mypostAction(Request $request){
+        //$session = $this->getRequest()->getSession();
+       // $poster = $session->get('login');
+       $poster = $this->getsession();
+       $price = $this->getallprices();
+       $area = $this->getAreas();
+	   if($poster == "" || $poster== null)
+	   {
+		return $this->redirect($this->generateUrl('login'));
+       }
+       else
+	   {
+                $addresslist = $this->getDoctrine()
+                ->getRepository('Acme\HelloBundle\Entity\Location')
+                ->findByPosterid($poster);
+        
+		return $this->render('AcmeHelloBundle:Default:mypost.html.twig', array('myposterinfo'=>$addresslist, 'ranze'=>$price,'area'=>$area));
+		}
+    
+	}
+    public function getAreas(){
+        $area = $this->getDoctrine()
+                        ->getRepository('Acme\HelloBundle\Entity\Area')
+                        ->findAll();
+        return $area;
+    }
+    
+    public function addposterAction(Request $request){
+        $Location = new location();
+        $em = $this->getDoctrine()->getEntityManager();
+                if($_POST['btnnewposter'])
+		{
+                    
+			$contact = $request->get('contact');
+                        if(!$this->isValid( 'phone',$contact )) 
+			{
+				return new Response('Please enter the correct format of contact info.');        
+                         }
+                         else
+			{
+             // $zipcode = $request->get('zipcode');
+				if(!preg_match("/^([0-9]{5})(-[0-9]{4})?$/i",$request->get('zipcode')))
+				{
+					echo "invalid zipcode";
+				}
+				else
+				{
+                                        $posterId =  $this->getsession();
+					$renttype=$_POST['renttype'];
+                                        $area=$_POST['area'];
+					$Location->setStreet($request->get('street'));  
+					$Location->setDescription($request->get('description'));
+					$Location->setTitle($request->get('title'));
+					$Location->setAvenue($request->get('avenue'));
+					$Location->setContact($request->get('contact'));    
+					$Location->setPosterId($posterId);
+					$Location->setRenttype($renttype);
+                                        $Location->setArea($area);
+					$Location->setZipcode($request->get('zipcode'));
+					//added by masum
+					//$Location->setNumbath($request->get('bathtxt'));
 					
 					//$Location->setRentamount($request->get('pricetxt'));
 					$cd=$_POST['pricetxt'];
@@ -173,335 +509,76 @@ class DefaultController extends Controller {
 						->add('contact', 'text')
 						->add('zipcode','text')
 						->getForm();
-				$addresslist = $this->showall();
-        //$form->handleRequest($request);
-        //if($form->isValid()){
-		
-		
-		$bath = $this->getDoctrine()
-				->getRepository('Acme\HelloBundle\Entity\Bath')
-				->findAll();
-		
-		$price = $this->getDoctrine()
-				->getRepository('Acme\HelloBundle\Entity\price')
-				->findAll();
-				
-		$laundry = $this->getDoctrine()
-				->getRepository('Acme\HelloBundle\Entity\laundry')
-				->findAll();
-				
-        return $this->render('AcmeHelloBundle:Default:newaddress.html.twig', 
-					array('ranze'=>$price, 'lndry'=>$laundry,'bath'=>$bath, 'form' => $form->createView(),'address'=>$addresslist));
-}
-	
-public function newaddmsgAction()
-{
-    //$id = $request->request->get('locationId');
-    return $this->render('AcmeHelloBundle:Default:newaddmsg.html.twig');
-}
-    public function showall() {
-        $ads= $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\Location')
-                ->findBy(array(),array('postdate'=>'DESC'));
-        if (!$ads) {
-            throw $this->createNotFoundException('No Address found');
-        }
+				//$addresslist = $this->showall();
+                                $area = $this->getAreas();
+                                $price = $this->getallprices();
+        return $this->render('AcmeHelloBundle:Default:usermenu.html.twig', 
+					array('ranze'=>$price,'area'=>$area,'form' => $form->createView()));
         
-        foreach ($ads as $item) {
-            $position = 15;
-            $title = $item->getTitle();
-            $street = $item->getStreet();
-            $avenue = $item->getAvenue();
-            $description = $item->getDescription();
-            $newdes = mb_substr($description, 0, $position,'UTF-8'); 
-            $contact = $item->getContact();
-            $addressid = $item->getid();
-             
-            $showdate = $item->getPostdate()->format('m-d-Y');
-            
-            $addresslist[] = array( 'id' => $addressid,'title' => $title,'street'=>$street,'avenue'=>$avenue,'description'=>$description,'contact'=>$contact,'newdes'=>$newdes,'showdate'=>$showdate);
-        }
-        return $addresslist;
-        //return $this->render('AcmeHelloBundle:Default:address.html.twig', array('address' => $addresslist));
     }
-
-    public function findAll() {
-        return $this->getEntityManager()
-                        ->createQuery('select latitude,longitude from AcmeHelloBundle:Markers')
-                        ->getResult();
-    }
-
-    public function mapaddAction($id) {
-		//I was using this following block to display images on the map page left side  
-		$postr_id = $id;
-		$searchresult = $this->getDoctrine()->getEntityManager()
-                        ->createQuery('select imgtbl.id,imgtbl.posterid,imgtbl.imgName,imgtbl.path,imgtbl.status from AcmeHelloBundle:images imgtbl WHERE imgtbl.status=:sts and imgtbl.posterid=:pstrid')
-                        ->setParameter('sts', '1')
-						->setParameter('pstrid', $id)
-						->getResult();
-	
-		$qryforutube = $this->getDoctrine()->getEntityManager()
-                        ->createQuery('select vdotbl.id,vdotbl.posterid,vdotbl.path,vdotbl.status, vdotbl.idcode from AcmeHelloBundle:Videos vdotbl WHERE vdotbl.status=:sts and vdotbl.posterid=:pstrid and vdotbl.idcode=:idkod')
-                        ->setParameter('sts', '1')
-						->setParameter('pstrid', $id)
-						->setParameter('idkod', '2')
-						->getResult(); //idkode 2 for youtube vdo
-						
-					//echo $qryforutube.path;	
-	//masum added		
-	$vidoemsg = "";		
-	$ytube=2;
-	$st = 1;
-	$vdocode = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\Videos')
-                ->findby(array('idcode'=>$ytube,'posterid'=>$id, 'status'=>$st));
-	
-
-                
-                 if($vdocode!=null || $vdocode != 0)
-				{
-				$vidarray =array();
-				 foreach($vdocode as $v){
-					//$path = $video->getPath();
-					$path = $v->getPath();
-					if($this->isValidYoutubeURL($path)==true)
-					{
-						$vidoemsg = "youtube";
-						$videopath = $this->getYoutubeIdFromUrl($path);
-						
-						$vidarray [] = $videopath;
-					}
-					else
-					{
-					//$vidoemsg= "0";
-						 $vidarray [] = $path ;
-					}}
-				 
-				}
-				else
-				{
-					$vidarray [] = "";
-					//$vidoemsg= "0";
-				}
-		
-        $address = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\Markers')
-                ->findOneBylocationId($id);
-
-				$addresslist = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\Location')
-                ->findOneById($id);
-        
-        if(!$address){
-           // return new Response("No map found");
-            $latlng = "nomap";
-            $latlnglist=array('lat'=>"nomap",'lng'=>"nomap");
-        }
-        else{
-        $latlng = $address->getaddress();
-        
-        $newaddress = $this->lookup($latlng);
-        $latlnglist = array('lat' => $newaddress['latitude'], 'lng' => $newaddress['longitude']);
-        
-        }
-		
-		//masum added
-		$qryresult = $this->getDoctrine()->getEntityManager()
-                        ->createQuery('select vdotbl.id,vdotbl.posterid,vdotbl.path,vdotbl.status from AcmeHelloBundle:Videos vdotbl WHERE vdotbl.status=:sts and vdotbl.posterid=:pstrid and vdotbl.idcode=:idkod')
-                        ->setParameter('sts', '1')
-						->setParameter('pstrid', $id)
-						->setParameter('idkod', '3')
-						->getResult();//idkode 3 for uploaded vdo
-		
-		//
-		//count number of pic that a user posted in his account
-		$number_of_pic = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
-					->select('COUNT(loc.posterid)') 
-					->from('AcmeHelloBundle:images', 'loc')
-					->where('loc.posterid = :id')
-					->setParameter('id', $id)
-					->getQuery();
-		$total_pic = $number_of_pic->getSingleScalarResult();
-		
-		$ac = 1;
-		$flag = 0;
-		$single_img = $this->getDoctrine()
-							->getRepository('Acme\HelloBundle\Entity\images')
-							->findOneByPosterid($id);
-		
-		$single_img1= $this->getDoctrine()
-							->getRepository('Acme\HelloBundle\Entity\images')
-							->findOneByPosterid($id);
-		
-		
-		if($single_img !=null || $single_img !=0)
-		{
-		$flag=1;
-		
-		return $this->render('AcmeHelloBundle:Default:map.html.twig', 
-						array('srchlst'=>$searchresult,'address' => $latlnglist, 'name' => $latlng,'posterinfo'=>$addresslist,
-								'vmsg'=>$vidoemsg, 'qutube'=>$vidarray, 'uploadedvdolist'=>$qryresult,'pth'=>$single_img, 'flag'=>$flag));
-        
-		
-		}
-		else
-		{
-		if($single_img==0 OR $single_img==null)
-		{
-		$single_img="No image found";
-		$flag=2;
-		return $this->render('AcmeHelloBundle:Default:map.html.twig', 
-						array('srchlst'=>$searchresult,'address' => $latlnglist, 'name' => $latlng,'posterinfo'=>$addresslist,
-								'vmsg'=>$vidoemsg, 'qutube'=>$vidarray, 'uploadedvdolist'=>$qryresult,'pth'=>$single_img, 'flag'=>$flag));
-		}
-		}
-    }
-    /*
-    public function registerAction(Request $request){
-        $em = $this->getDoctrine()->getEntityManager();
-         $limit=1;
-         $offset=0;
-         $bool = false;
-         $code = $this->getDoctrine()->getEntityManager()
-                        ->createQuery("select u.code from AcmeHelloBundle:Userinfo u WHERE u.active = 0")
-                        ->setFirstResult($offset)
-                        ->setMaxResults($limit)
-                        ->getResult();
-         if($request->getMethod()=="POST"){
-            $code = $_POST['code'];
-            $password = $_POST['password'];
-            $repass = $_POST['repassword'];
-            $bool =  $this->checkpassword($password,$repass);
-            if($bool==true){
-                $password = $this->encrypt($password);
-                  //$user = new Userinfo();
-                  $data = $this->getDoctrine()
-                             ->getRepository('Acme\HelloBundle\Entity\Userinfo')
-                             ->findOneByCode($code);
-                  $data->setactive(1);
-                  $data->setpassword($password);
-                  $em->merge($data);
-                  $em->flush();
-                  return new Response("Registered!");
-                  }
-                          
-            else{
-                return new Response("Please enter your password correctly. Make sure it's betwen 7 to 13 character!");
-            }
-    }
-         return $this->render('AcmeHelloBundle:Default:register.html.twig', array('code' => $code));
-    }
- 
-    public function loginAction(Request $request){
-        $user = new Userinfo();
-         
-		 if($request->getMethod()== "POST")
-		 {
-            $code = $_POST['code'];
-            $data = $this->getDoctrine()
-                             ->getRepository('Acme\HelloBundle\Entity\Userinfo')
-                             ->findOneByCode($code);
-            $pass = $data->getpassword();
-            $pass1 = $_POST['password'];
-            $password = $this->encrypt($pass1);
-            if($pass==$password)
-			{
-                $this->setsession($code);
-                return $this->redirect($this->generateUrl('newaddress_page'));
-            }
-            else
-			{
-                return new Response("password doesn't match");
-            }
-        }
-        
-        $form = $this->createFormBuilder($user)
-                ->add('code', 'text')
-                ->add('password', 'password')
-                ->getForm();
-         
-	return $this->render('AcmeHelloBundle:Default:login.html.twig', array('form' => $form->createView()));
-    }
-    */
-	public function mypostAction(Request $request){
-        //$session = $this->getRequest()->getSession();
-       // $poster = $session->get('login');
-       $poster = $this->getsession();
-       $price = $this->getDoctrine()
-				->getRepository('Acme\HelloBundle\Entity\price')
-				->findAll();
-	   
-	   if($poster == "" || $poster== null)
-	   {
-		return $this->redirect($this->generateUrl('login'));
-       }
-       else
-	   {
-                $addresslist = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\Location')
-                ->findByPosterid($poster);
-        
-		return $this->render('AcmeHelloBundle:Default:mypost.html.twig', array('myposterinfo'=>$addresslist, 'ranze'=>$price));
-		}
-    
-	}
-	
     public function searchAction(Request $request)
 	{
-        $price = $this->getDoctrine()
-				->getRepository('Acme\HelloBundle\Entity\price')
-				->findAll();
-		
+        $price = $this->getallprices();
 		$st="Please start over and select criteria from given category";
+                $area = $this->getAreas();
 		
 		if($request->getMethod()=="POST")
-        {
+        {   
+                        $searcharea = $_POST['area'];
 			$priceselected = $_POST['pricetxt'];
-			$abcd = $_POST['selectoption'];
-			
+                        $apttype = $_POST['apttype'];
+			//$abcd = $_POST['selectoption'];
 			$searchtext = $_POST['searchtext'];
-            //added search by zipcode-masum
-			//$user_zip = $searchtext;
-			//$valid_zip_check = preg_match("#[0-9]{5}#",$user_zip);
-			
-				/*
-				$searchresult = $this->getDoctrine()->getEntityManager()
-                        ->createQuery('select u.title,u.description,u.id,u.street,u.avenue, u.zipcode 
-									   from AcmeHelloBundle:Location u 
-									   WHERE u.zipcode=:user_entered_zip')
-                        ->setParameter('user_entered_zip', $user_zip)
-						->getResult();
-				*/
-				//or operation	
-				if($abcd ==1)
-				{
-					$adv_srch = $this->getDoctrine()->getEntityManager()
+                        if(is_int($priceselected) && is_int($apttype) && $searchtext!=""){
+                            $adv_srch = $this->getDoctrine()->getEntityManager()
 							->createQuery('select x.id, x.title,x.street, x.avenue, x.numbath, x.renttype,x.description, x.laundryfacility, x.rentamount, x.zipcode
-										   from AcmeHelloBundle:Location x where x.rentamount=:rentamnt or x.zipcode=:zip')
+										   from AcmeHelloBundle:Location x where x.area =:area AND x.rentamount=:rentamnt AND x.zipcode=:zip AND x.renttype=:apttype')
 							->setParameter('rentamnt', $priceselected)
 							->setParameter('zip', $searchtext)
+                                                        ->setParameter('apttype', $apttype)
+                                                        ->setParameter('area',$searcharea)
 							->getResult();
-					$youchosed = "Any Word matches";
-				}
-				//and operation
-				if($abcd == 2)
-				{
-					$adv_srch = $this->getDoctrine()->getEntityManager()
-							->createQuery('select x.id, x.title,x.street, x.numbath,x.avenue,x.description, x.renttype, x.laundryfacility, x.rentamount,x.zipcode 
-										   from AcmeHelloBundle:Location x where x.rentamount=:rentamnt and x.zipcode=:zip') 
+                        }
+                        elseif(is_int($priceselected) && is_int($apttype)){
+                            $adv_srch = $this->getDoctrine()->getEntityManager()
+							->createQuery('select x.id, x.title,x.street, x.avenue, x.numbath, x.renttype,x.description, x.laundryfacility, x.rentamount, x.zipcode
+										   from AcmeHelloBundle:Location x where x.area =:area AND x.rentamount=:rentamnt AND x.renttype=:apttype')
 							->setParameter('rentamnt', $priceselected)
-							->setParameter('zip', $searchtext)
+                                                        ->setParameter('apttype', $apttype)
+                                                        ->setParameter('area',$searcharea)
 							->getResult();
-					$youchosed = "Only Word matches";			
-				}
-			
+                        }
+                        elseif(is_int($priceselected) && $searchtext &&!(is_int($apttype))){
+                            $adv_srch = $this->getDoctrine()->getEntityManager()
+							->createQuery('select x.id, x.title,x.street, x.avenue, x.numbath, x.renttype,x.description, x.laundryfacility, x.rentamount, x.zipcode
+										   from AcmeHelloBundle:Location x where x.area =:area AND x.rentamount=:rentamnt AND x.zipcode=:zip')
+							->setParameter('rentamnt', $priceselected)
+                                                        ->setParameter('area',$searcharea)
+                                                        ->setParameter('zip', $searchtext)
+							->getResult();
+                        }
+                        elseif(is_int($apttype) && $searchtext && !(is_int($priceselected))){
+                            $adv_srch = $this->getDoctrine()->getEntityManager()
+							->createQuery('select x.id, x.title,x.street, x.avenue, x.numbath, x.renttype,x.description, x.laundryfacility, x.rentamount, x.zipcode
+										   from AcmeHelloBundle:Location x where x.area =:area AND x.zipcode=:zip AND x.renttype=:apttype')
+							->setParameter('zip', $searchtext)
+                                                        ->setParameter('area',$searcharea)
+                                                         ->setParameter('apttype', $apttype)
+							->getResult();
+                        }
+                        else{
+                            $adv_srch = $this->getDoctrine()->getEntityManager()
+							->createQuery('select x.id, x.title,x.street, x.avenue, x.numbath, x.renttype,x.description, x.laundryfacility, x.rentamount, x.zipcode
+										   from AcmeHelloBundle:Location x where x.area =:area')
+							                          ->setParameter('area',$searcharea)
+							->getResult();
+                        }
+                        
 			return $this->render('AcmeHelloBundle:Default:searchresult.html.twig', 
-						array('search'=>$adv_srch, 'bb'=>$priceselected,'cc'=>$searchtext, 'ranze'=>$price, 'st'=>''));
+						array('search'=>$adv_srch, 'bb'=>$priceselected,'cc'=>$searchtext, 'ranze'=>$price, 'searcharea'=>$searcharea,'area'=>$area,'st'=>''));
         }
-		
-		
         return $this->render('AcmeHelloBundle:Default:searchresult.html.twig', array('search'=>'', 'bb'=>'', 
-							'cc'=>'', 'ranze'=>$price, 'st'=>$st));        
+							'cc'=>'', 'ranze'=>$price, 'area'=>$area,'st'=>$st));
     }
 	
 	/////////////////////////////////////////
@@ -561,13 +638,13 @@ public function Delete_this_image_Action($this_img_id)
 	$em = $this->getDoctrine()->getEntityManager();
 	$ps_id = $this_img_id;
 	$single_img_row = $this->getDoctrine()
-							->getRepository('Acme\HelloBundle\Entity\images')
+							->getRepository('Acme\HelloBundle\Entity\Images')
 							->findOneByid($ps_id);
     
         if(isset($_POST['deleteConfirmed'])){
             $id = $_POST['id'];
             $single_img_row = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\images')
+                ->getRepository('Acme\HelloBundle\Entity\Images')
                 ->findOneByid($ps_id);
 				
             $id = $_POST['id'];
@@ -591,7 +668,7 @@ public function Delete_this_image_Action($this_img_id)
         {	
 			$id = $_POST['id'];
             $single_img_row = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\images')
+                ->getRepository('Acme\HelloBundle\Entity\Images')
                 ->findOneByid($ps_id);
 			$pstr_id = $_POST['posteridtxt'];
 			return $this->redirect($this->generateUrl('imageDisplay_page', array('id'=>$pstr_id)));		
@@ -653,7 +730,7 @@ public function original_size_image_Action($img_id)
 {
 		$ps_id = $img_id;
 		$img_lst = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\images')
+                ->getRepository('Acme\HelloBundle\Entity\Images')
                 ->findByid($ps_id);
 		
 				
@@ -664,10 +741,10 @@ public function original_size_image_Action($img_id)
 // display all images where status =1
 public function display_all_images_forAction($id){
 	$postr_id = $id;
-	//$img_list = $this->getDoctrine()->getRepository('Acme\HelloBundle\Entity\images')->findByPosterid($postr_id);
+	//$img_list = $this->getDoctrine()->getRepository('Acme\HelloBundle\Entity\Images')->findByPosterid($postr_id);
 
 	$searchresult = $this->getDoctrine()->getEntityManager()
-                        ->createQuery('select imgtbl.id,imgtbl.posterid,imgtbl.imgName,imgtbl.path,imgtbl.status from AcmeHelloBundle:images imgtbl WHERE imgtbl.status=:sts and imgtbl.posterid=:pstrid')
+                        ->createQuery('select imgtbl.id,imgtbl.posterid,imgtbl.imgName,imgtbl.path,imgtbl.status from AcmeHelloBundle:Images imgtbl WHERE imgtbl.status=:sts and imgtbl.posterid=:pstrid')
                         ->setParameter('sts', '1')
 						->setParameter('pstrid', $id)
 						->getResult();
@@ -1114,7 +1191,7 @@ public function advance_search_criteria_Action(Request $request)
 				->findAll();
 				
 	$price = $this->getDoctrine()
-				->getRepository('Acme\HelloBundle\Entity\price')
+				->getRepository('Acme\HelloBundle\Entity\Price')
 				->findAll();
 				
 	$laundry = $this->getDoctrine()
@@ -1399,7 +1476,7 @@ public function userpostedpicturesAction($id)
 {	
 	$srch_list_ofpictures = $this->getDoctrine()->getEntityManager()
                         ->createQuery('select img.id, img.posterid, img.status, img.path  
-									   from AcmeHelloBundle:images img 
+									   from AcmeHelloBundle:Images img 
 									   where img.posterid=:sts')
 						->setParameter('sts', $id)
 						->getResult();
@@ -1417,7 +1494,7 @@ public function activate_pictureAction($id)
 	$em = $this->getDoctrine()->getEntityManager();
 	$id = $id;
 	$imglist = $this->getDoctrine()
-						->getRepository('Acme\HelloBundle\Entity\images')
+						->getRepository('Acme\HelloBundle\Entity\Images')
 						->findOneByid($id);
 	$activetxt = 1;
 	$imglist->setStatus($activetxt);
@@ -1426,7 +1503,7 @@ public function activate_pictureAction($id)
 	$em->flush();
     
 	$srch = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\images')
+                ->getRepository('Acme\HelloBundle\Entity\Images')
 				->findby(array('id'=>$id));
 	
 	foreach($srch as $v)
@@ -1445,7 +1522,7 @@ public function deactivate_pictureAction($id)
 	$em = $this->getDoctrine()->getEntityManager();
 	$id = $id;
 	$imglist = $this->getDoctrine()
-						->getRepository('Acme\HelloBundle\Entity\images')
+						->getRepository('Acme\HelloBundle\Entity\Images')
 						->findOneByid($id);
 	$activetxt = 0;
 	$imglist->setStatus($activetxt);
@@ -1454,7 +1531,7 @@ public function deactivate_pictureAction($id)
 	$em->flush();
     
 	$srch = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\images')
+                ->getRepository('Acme\HelloBundle\Entity\Images')
 				->findby(array('id'=>$id));
 	
 	foreach($srch as $v)
@@ -1618,8 +1695,6 @@ public function adminloginAction(Request $request){
 				$msgnotfound = "Please enter password/incorrect";
                 //return new Response("Username/Password didn't match, Please type very Carefully");
             }
-		
-		
 		}
 		
 		return $this->render('AcmeHelloBundle:Default:admin.html.twig', array('usr'=>$psid, 'unmmsg'=>$msgnotfound));	
@@ -1633,18 +1708,32 @@ public function adminlogoutAction(Request $request){
         $request->getSession()->invalidate();
         return $this->render('AcmeHelloBundle:Default:admin.html.twig', array('usr'=>'', 'unmmsg'=>''));
     }
-	
+/*
+public function greetingAction(){
+   $request = $this->get('request');
+   $name=$request->request->get('formName');
+   if($name!=""){//if the user has written his name
+      $greeting='Hello '.$name.'. How are you today?';
+      $return=array("responseCode"=>200,  "greeting"=>$greeting);
+   }
+   else{
+      $return=array("responseCode"=>400, "greeting"=>"You have to write your name!");
+   }
+   $return=json_encode($return);//jscon encode the array
+   return new Response($return,200,array('Content-Type'=>'application/json'));//make sure it has the correct content type
+
+}	*/
 /*
 public function Delete_this_image_Action($this_img_id)
 {
 	$em = $this->getDoctrine()->getEntityManager();
 	$ps_id = $this_img_id;
-	$single_img_row = $this->getDoctrine()->getRepository('Acme\HelloBundle\Entity\images')->findOneByid($ps_id);
+	$single_img_row = $this->getDoctrine()->getRepository('Acme\HelloBundle\Entity\Images')->findOneByid($ps_id);
     
         if(isset($_POST['deleteConfirmed'])){
            $id = $_POST['id'];
             $single_img_row = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\images')
+                ->getRepository('Acme\HelloBundle\Entity\Images')
                 ->findOneByid($ps_id);
 				
             $id = $_POST['id'];
@@ -1668,12 +1757,78 @@ public function Delete_this_image_Action($this_img_id)
         {	
 			$id = $_POST['id'];
             $single_img_row = $this->getDoctrine()
-                ->getRepository('Acme\HelloBundle\Entity\images')
+                ->getRepository('Acme\HelloBundle\Entity\Images')
                 ->findOneByid($ps_id);
 			$pstr_id = $_POST['posteridtxt'];
 			return $this->redirect($this->generateUrl('imageDisplay_page', array('id'=>$pstr_id)));		
 		}
 */
-
+ /*
+    public function registerAction(Request $request){
+        $em = $this->getDoctrine()->getEntityManager();
+         $limit=1;
+         $offset=0;
+         $bool = false;
+         $code = $this->getDoctrine()->getEntityManager()
+                        ->createQuery("select u.code from AcmeHelloBundle:Userinfo u WHERE u.active = 0")
+                        ->setFirstResult($offset)
+                        ->setMaxResults($limit)
+                        ->getResult();
+         if($request->getMethod()=="POST"){
+            $code = $_POST['code'];
+            $password = $_POST['password'];
+            $repass = $_POST['repassword'];
+            $bool =  $this->checkpassword($password,$repass);
+            if($bool==true){
+                $password = $this->encrypt($password);
+                  //$user = new Userinfo();
+                  $data = $this->getDoctrine()
+                             ->getRepository('Acme\HelloBundle\Entity\Userinfo')
+                             ->findOneByCode($code);
+                  $data->setactive(1);
+                  $data->setpassword($password);
+                  $em->merge($data);
+                  $em->flush();
+                  return new Response("Registered!");
+                  }
+                          
+            else{
+                return new Response("Please enter your password correctly. Make sure it's betwen 7 to 13 character!");
+            }
+    }
+         return $this->render('AcmeHelloBundle:Default:register.html.twig', array('code' => $code));
+    }
+ 
+    public function loginAction(Request $request){
+        $user = new Userinfo();
+         
+		 if($request->getMethod()== "POST")
+		 {
+            $code = $_POST['code'];
+            $data = $this->getDoctrine()
+                             ->getRepository('Acme\HelloBundle\Entity\Userinfo')
+                             ->findOneByCode($code);
+            $pass = $data->getpassword();
+            $pass1 = $_POST['password'];
+            $password = $this->encrypt($pass1);
+            if($pass==$password)
+			{
+                $this->setsession($code);
+                return $this->redirect($this->generateUrl('newaddress_page'));
+            }
+            else
+			{
+                return new Response("password doesn't match");
+            }
+        }
+        
+        $form = $this->createFormBuilder($user)
+                ->add('code', 'text')
+                ->add('password', 'password')
+                ->getForm();
+         
+	return $this->render('AcmeHelloBundle:Default:login.html.twig', array('form' => $form->createView()));
+    }
+    */
 /////////////////////end of file
 }

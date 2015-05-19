@@ -1,0 +1,53 @@
+<?php
+
+namespace Acme\HelloBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Images
+ *
+ * @ORM\Table(name="images")
+ * @ORM\Entity
+ */
+class Images
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="posterid", type="integer", nullable=false)
+     */
+    private $posterid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img_name", type="string", length=200, nullable=false)
+     */
+    private $imgName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="path", type="string", length=100, nullable=false)
+     */
+    private $path;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
