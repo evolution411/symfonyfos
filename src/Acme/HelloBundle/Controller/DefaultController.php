@@ -119,6 +119,7 @@ class DefaultController extends Controller {
         return $siteinfo;
     }
 
+//add a Poster
     public function newaddressAction(Request $request) {
         $Location = new location();
         $em = $this->getDoctrine()->getEntityManager();

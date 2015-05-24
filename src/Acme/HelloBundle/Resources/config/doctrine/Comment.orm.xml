@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Acme\HelloBundle\Entity\Comment" table="comment">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="locationid" type="integer" column="locationid" nullable="false"/>
+    <field name="userid" type="integer" column="userid" nullable="false"/>
+    <field name="date" type="datetime" column="date" nullable="false"/>
+    <field name="comment" type="text" column="comment" nullable="false"/>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+  </entity>
+</doctrine-mapping>

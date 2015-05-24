@@ -2,14 +2,14 @@
 
 {%block stylesheets%}
 	{% stylesheets '@AcmeHelloBundle/Resources/public/style.css'%}
-	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
 	{% endstylesheets %}
 {%endblock%}
 
 {%block javascripts%}
-	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js' 
+	{% javascripts '@AcmeHelloBundle/Resources/public/javascript.js'
                     '@AcmeHelloBundle/Resources/public/javascript.js'%}
-	<script src="{{ asset_url }}"></script>
+<script src="{{ asset_url }}"></script>
 	{% endjavascripts %}
 {%endblock%}
 
@@ -17,128 +17,128 @@
 </div>
 <div class="logo">
 {% image '@AcmeHelloBundle/Resources/public/images/2.png' %} <a href="{{path('newaddress_page')}}">
- <img src="{{ asset_url }}" alt="The alt text" /></a>
+            <img src="{{ asset_url }}" alt="The alt text" /></a>
 {% endimage %}
 
-</div>
-
-<div class="user-nav">
-	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-  <div id="welmsg">  Welcome Back {{ app.user.username }} !
-    <a href="{{path('fos_user_security_logout')}}">Logout</a></div>
-	<ul>
-		<a href="#login-box" class="login-window">添加广告/Add Ads</a>
-		<a href="{{path('mypost_page')}}">我的广告/My Ads</a>
-                <a href="{{path('fos_user_profile_show')}}"> 我的主页/Profile </a>
-	<a href="fos_user_profile_changepassword"> 修改密码/Change Password </a>		
-	</ul>
-	{% else %}
-		<a href="{{path('fos_user_security_login')}}"> 登入张贴广告<br/>
-			<div class="loginlink">Login to Post Ads</div>
-		</a>
-		
-		<a href="{{path('fos_user_registration_register')}}"> 用户注册<br/>
-			<div class="loginlink">Sign Up</div>
-		</a>	
-	{%endif%}
-</div>
-        
-<div align="center" id="search-block-np">
-    
-<form method="POST" action="search">
-    <div id="areazone">
-    区域/Area:
-                {% for a in area %}
-		<input type="radio" name="area" value="{{a.id}}" required><label>{{a.name}}</label>
-		{% endfor %}
-            </tr>
     </div>
-	<div align="center" id="mini-search-block">
-		<label>
-			<select class="pricerange" name="pricetxt">
-                            <option selected> 价格</option>
+
+    <div class="user-nav">
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <div id="welmsg">  Welcome Back {{ app.user.username }} !
+                <a href="{{path('fos_user_security_logout')}}">Logout</a></div>
+            <ul>
+                <a href="#login-box" class="login-window">添加广告/Add Ads</a>
+                <a href="{{path('mypost_page')}}">我的广告/My Ads</a>
+                <a href="{{path('fos_user_profile_show')}}"> 我的主页/Profile </a>
+                <a href="fos_user_profile_changepassword"> 修改密码/Change Password </a>
+            </ul>
+	{% else %}
+            <a href="{{path('fos_user_security_login')}}"> 登入张贴广告<br/>
+                <div class="loginlink">Login to Post Ads</div>
+            </a>
+
+            <a href="{{path('fos_user_registration_register')}}"> 用户注册<br/>
+                <div class="loginlink">Sign Up</div>
+            </a>
+	{%endif%}
+        </div>
+
+        <div align="center" id="search-block-np">
+
+            <form method="POST" action="search">
+                <div id="areazone">
+                    区域/Area:
+                {% for a in area %}
+                    <input type="radio" name="area" value="{{a.id}}" required><label>{{a.name}}</label>
+		{% endfor %}
+                        </tr>
+                    </div>
+                    <div align="center" id="mini-search-block">
+                        <label>
+                            <select class="pricerange" name="pricetxt">
+                                <option selected> 价格</option>
 				{% for entity in ranze %}
-					<option>{{ entity.pricerange}}</option>
+                                <option>{{ entity.pricerange}}</option>
 				{% endfor %}
-			</select>
-		</label>
-                
+                            </select>
+                        </label>
+
 			{#<select class="andor" name="selectoption">
 			<option value="1">AND</option>
 			<option value="2">OR</option>
                         </select>#}
-		
-                <label>
-                                         <select class="apttype" name="apttype">
-                                                <option selected>出租类型</option>
-						<option value="1">一房一厅</option>
-						<option value="2">两房一厅</option>
-						<option value="3">三房一厅</option>
-						<option value="4">四房一厅</option>
-                                                <option value="5">办公室</option>
-                                                <option value="6">其他 </option>
-					</select>
-                </label>
-                <input type="text" class="srchtxt" name="searchtext" size="60" placeholder="邮政编码">
-               <br><br> <input type="submit" class="srchbtn" name="btnsearch" value="Find Apartments">
-	</div>
+
+                        <label>
+                            <select class="apttype" name="apttype">
+                                <option selected>出租类型</option>
+                                <option value="1">一房一厅</option>
+                                <option value="2">两房一厅</option>
+                                <option value="3">三房一厅</option>
+                                <option value="4">四房一厅</option>
+                                <option value="5">办公室</option>
+                                <option value="6">其他 </option>
+                            </select>
+                        </label>
+                        <input type="text" class="srchtxt" name="searchtext" size="60" placeholder="邮政编码">
+                        <br><br> <input type="submit" class="srchbtn" name="btnsearch" value="Find Apartments">
+                    </div>
 
 	{#<div>
 	<input type="text" class="srchtxt" name="searchtext" size="60" placeholder="请输入关键字如:两房一厅" required>
 	<input type="submit" class="srchbtn" name="btnsearch" value="Find Apartments">
 	</div>#}
-</form>	
-</div>
-        
-<div id="login-box" class="login-popup">
-    <a href="" class="close">
-	<img src="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-    <form id="regform" action="{{path('newaddress_page')}}" method="POST">
-        <h1>Rental Info/出租资料</h1>
-        <table> 
-            <tr>
-            <label>Area: </label>
+                </form>
+            </div>
+
+            <div id="login-box" class="login-popup">
+                <a href="" class="close">
+                    <img src="http://www.alessioatzeni.com/wp-content/tutorials/jquery/login-box-modal-dialog-window/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+                <form id="regform" action="{{path('newaddress_page')}}" method="POST">
+                    <h1>Rental Info/出租资料</h1>
+                    <table>
+                        <tr>
+                        <label>Area: </label>
                 {% for a in area %}
-		<input type="radio" name="area" value="{{a.id}}">{{a.name}}
+                        <input type="radio" name="area" value="{{a.id}}">{{a.name}}
 		{% endfor %}
-            </tr>
-            <tr><td width="250px">Title/标题:</td> <td><input class="say" name="title" type="text" value="" /></td></tr>
-            <tr><td width="250px">Street/街名:</td> <td><input class="say" name="street" type="text" value="" /></td></tr>
-            <tr><td>Avenue/大道:</td> <td><input class="say" name="avenue" type="text" value="" /></td></tr>
-            <tr><td>Description/租房内容:</td> <td><textarea class="say" name="description"row="5" col="50"></textarea></td></tr>
-            <tr><td>Contact/联系方式:</td> <td><input class="say" name="contact" type='text' placeholder="xxx-xxx-xxx"></td></tr>
-            <tr><td>Zip Code/邮政编码:</td> <td><input class="say" name="zipcode" type='text' placeholder="#####"></td></tr>
-            <tr>
-				<td>Rent Range:</td> 
-				<td>
-					<select name="pricetxt">
+                        </tr>
+                        <tr><td width="250px">Title/标题:</td> <td><input class="say" name="title" type="text" value="" /></td></tr>
+                        <tr><td width="250px">Street/街名:</td> <td><input class="say" name="street" type="text" value="" /></td></tr>
+                        <tr><td>Avenue/大道:</td> <td><input class="say" name="avenue" type="text" value="" /></td></tr>
+                        <tr><td>Description/租房内容:</td> <td><textarea class="say" name="description"row="5" col="50"></textarea></td></tr>
+                        <tr><td>Contact/联系方式:</td> <td><input class="say" name="contact" type='text' placeholder="xxx-xxx-xxx"></td></tr>
+                        <tr><td>Zip Code/邮政编码:</td> <td><input class="say" name="zipcode" type='text' placeholder="#####"></td></tr>
+                        <tr>
+                            <td>Rent Range:</td>
+                            <td>
+                                <select name="pricetxt">
 						{% for entity in ranze %}
-							<option>{{ entity.pricerange}}</option>
+                                        <option>{{ entity.pricerange}}</option>
 						{% endfor %}
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>选择出租房屋类型:</td>
-				<td class="styled-select">
-					<select name="renttype">
-						<option value="1">一房一厅</option>
-						<option value="2">两房一厅</option>
-						<option value="3">三房一厅</option>
-						<option value="4">四房一厅</option>
-                                                <option value="5">办公室 </option>
-                                                <option value="6">其他 </option>
-					</select>
-				</td>
-			</tr>
-            
-			<tr>
-				<td></td><td><input type="submit" name="btnaddposter" class="btnsubmit"  value="Submit The Paper/提交信息"></td>
-			</tr>
-    
-        </table>
-    </form>
-</div>
-<div id="footer">
-	<p align ="center">&copy; 2014 Zufung.com</p>
-</div>   
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>选择出租房屋类型:</td>
+                                <td class="styled-select">
+                                    <select name="renttype">
+                                        <option value="1">一房一厅</option>
+                                        <option value="2">两房一厅</option>
+                                        <option value="3">三房一厅</option>
+                                        <option value="4">四房一厅</option>
+                                        <option value="5">办公室 </option>
+                                        <option value="6">其他 </option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td></td><td><input type="submit" name="btnaddposter" class="btnsubmit"  value="Submit The Paper/提交信息"></td>
+                            </tr>
+
+                        </table>
+                    </form>
+                </div>
+                <div id="footer">
+                    <p align ="center">&copy; 2015 Zufung.com</p>
+                </div>
