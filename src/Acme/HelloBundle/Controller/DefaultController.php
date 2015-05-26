@@ -27,6 +27,7 @@ use Acme\HelloBundle\Entity\Videos;
 use Acme\HelloBundle\Entity\admin;
 use Acme\HelloBundle\Entity\User;
 use Acme\HelloBundle\Entity\Area;
+use Acme\HelloBundle\Entity\Comment;
 
 class DefaultController extends Controller {
 
@@ -42,7 +43,7 @@ class DefaultController extends Controller {
             return $posterId;
         } else {
             $router = $this->container->get('router');
-            return new RedirectResponse($router->generate('fos_user_login'), 307);
+            return new RedirectResponse($router->generate('fos_user_security_login'), 307);
         }
     }
 
@@ -300,7 +301,7 @@ class DefaultController extends Controller {
                         ->getResult();
     }
 
-    public function mapaddAction($id) {
+    public function mapaddAction($id, Request $request) {
         //I was using this following block to display images on the map page left side
         //$postr_id = $id;
         $price = $this->getallprices();
@@ -344,11 +345,11 @@ class DefaultController extends Controller {
             $vidarray [] = "";
             //$vidoemsg= "0";
         }
-
+        //Marker is used for showing the address MAP.
         $address = $this->getDoctrine()
                 ->getRepository('Acme\HelloBundle\Entity\Markers')
                 ->findOneBylocationId($id);
-
+        //displaying poster information
         $addresslist = $this->getDoctrine()
                 ->getRepository('Acme\HelloBundle\Entity\Location')
                 ->findOneById($id);
@@ -370,8 +371,7 @@ class DefaultController extends Controller {
                 ->setParameter('pstrid', $id)
                 ->setParameter('idkod', '3')
                 ->getResult(); //idkode 3 for uploaded vdo
-        //
-		//count number of pic that a user posted in his account
+        //count number of pic that a user posted in his account
         $number_of_pic = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
                 ->select('COUNT(loc.posterid)')
                 ->from('AcmeHelloBundle:Images', 'loc')
@@ -385,18 +385,55 @@ class DefaultController extends Controller {
         $single_img = $this->getDoctrine()
                 ->getRepository('Acme\HelloBundle\Entity\Images')
                 ->findOneByPosterid($id);
+
+        //comment method
+        if ($request->getMethod() == "POST") {
+            $em = $this->getDoctrine()->getEntityManager();
+            $Comment = new Comment();
+            $datetime = date('Y/m/d H:i:s');
+            $mycomment = $request->get('comment');
+            $userid = $this->getsession();
+            $status = '1';
+            if ($mycomment != "") {
+                $Comment->setComment($mycomment);
+                $Comment->setDate($datetime);
+                $Comment->setLocationid($id);
+                $Comment->setUserid($userid);
+                $Comment->setStatus($status);
+                $em->persist($Comment);
+                $em->flush();
+            }
+        }
+
+
         if ($single_img != null || $single_img != 0) {
             $flag = 1;
-
             return $this->render('AcmeHelloBundle:Default:map.html.twig', array('srchlst' => $searchresult, 'address' => $latlnglist, 'name' => $latlng, 'posterinfo' => $addresslist,
-                        'area' => $area, 'vmsg' => $vidoemsg, 'qutube' => $vidarray, 'uploadedvdolist' => $qryresult, 'pth' => $single_img, 'flag' => $flag, 'ranze' => $price));
+                        'area' => $area, 'vmsg' => $vidoemsg, 'qutube' => $vidarray, 'uploadedvdolist' => $qryresult, 'pth' => $single_img, 'flag' => $flag, 'comment' => $Comment, 'ranze' => $price));
         } else {
             if ($single_img == 0 OR $single_img == null) {
                 $single_img = "No image found";
                 $flag = 2;
                 return $this->render('AcmeHelloBundle:Default:map.html.twig', array('srchlst' => $searchresult, 'address' => $latlnglist, 'name' => $latlng, 'posterinfo' => $addresslist,
-                            'area' => $area, 'vmsg' => $vidoemsg, 'qutube' => $vidarray, 'uploadedvdolist' => $qryresult, 'pth' => $single_img, 'flag' => $flag, 'ranze' => $price));
+                            'area' => $area, 'vmsg' => $vidoemsg, 'qutube' => $vidarray, 'uploadedvdolist' => $qryresult, 'pth' => $single_img, 'flag' => $flag, 'comment' => $Comment, 'ranze' => $price));
             }
+        }
+    }
+
+    //Comment Posting Function
+    public function commentPosting($locationid) {
+        $Comment = new Comment();
+        $datetime = date('Y/m/d H:i:s');
+        $mycomment = $request->get('comment');
+        $userid = $this->getsession();
+        $status = '1';
+        if ($mycomment != "") {
+            $Comment->setComment($mycomment);
+            $Comment->setDate($datetime);
+            $Comment->setLocationid($locationid);
+            $Comment->setUserid($userid);
+            $Comment->setStatus($status);
+            return $mycomment;
         }
     }
 

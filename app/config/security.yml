@@ -9,7 +9,7 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username_email
-    
+
     firewalls:
         main:
             pattern: ^/
@@ -19,14 +19,13 @@ security:
                 check_path: /login_check
                 failure_path: login
                 default_target_path: newaddress_page
-            logout:       
+            logout:
                 target: newaddress_page
             anonymous:    true
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        
-    
+

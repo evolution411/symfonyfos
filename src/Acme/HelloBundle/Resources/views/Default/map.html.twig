@@ -40,45 +40,48 @@
                         <br><h3>此广告没有配地图显示</b></h3>
                     </div>
                     <div id="comment">
-                        <div class="commentlist">
 
+                        <div class="commentlist">
+                            {{comment.comment}}
+                            </div>
+                            <form action="" method="post">
+                                <textarea name="comment" rows='3' cols='100'></textarea>
+                                <br>
+                                <input type="submit" name="commentbtn" value="Comment">
+                            </form>
                         </div>
-                        <textarea name="comment" rows='3' cols='100'></textarea>
-                        <br>
-                        <input type="submit" name="commentbtn" value="Comment">
-                    </div>
 		{%endif%}
 
-                    <div id='column-left-vdo1'>
+                        <div id='column-left-vdo1'>
 	{% for q in qutube %}
 		{% if vmsg=='youtube' %}
-                            <iframe width="420" height="345" src="http://www.youtube.com/embed/{{q}}"></iframe>
+                                <iframe width="420" height="345" src="http://www.youtube.com/embed/{{q}}"></iframe>
 			{% elseif vmsg=='0' %}
 			{%else%}
-                            <iframe width="420" height="345" src="{{asset(video)}}"></iframe>
+                                <iframe width="420" height="345" src="{{asset(video)}}"></iframe>
 			{% endif %}
-                            </br></br>
+                                </br></br>
 	{% endfor %}
-                            <table width = 300px style="border:0px solid black;border-collapse:collapse;">
+                                <table width = 300px style="border:0px solid black;border-collapse:collapse;">
 			{% for a in uploadedvdolist %}
-                                    <tr align=center>
-                                        <td style="border:0px solid black;border-collapse:collapse;">Vedio's Name</td>
-                                        <td style="border:0px solid black;border-collapse:collapse;">
-						{{a.posterid}}
-                                            </td>
-
+                                        <tr align=center>
+                                            <td style="border:0px solid black;border-collapse:collapse;">Vedio's Name</td>
                                             <td style="border:0px solid black;border-collapse:collapse;">
-                                                <video width="320" height="240" controls>
-                                                    <source src="{{asset(a.path)}}" type="video/mp4">
-                                                    <source src="{{asset(a.path)}}" type="video/ogg" />
-                                                </video>
+						{{a.posterid}}
+                                                </td>
 
-                                            </td>
-                                        </tr>
+                                                <td style="border:0px solid black;border-collapse:collapse;">
+                                                    <video width="320" height="240" controls>
+                                                        <source src="{{asset(a.path)}}" type="video/mp4">
+                                                        <source src="{{asset(a.path)}}" type="video/ogg" />
+                                                    </video>
+
+                                                </td>
+                                            </tr>
 			{% endfor %}
-                                    </table>
+                                        </table>
 
-                                </div>
+                                    </div>
 
-                            </body>
+                                </body>
 {% endblock %}
